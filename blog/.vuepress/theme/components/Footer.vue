@@ -3,14 +3,14 @@
     <span>
       <reco-icon icon="reco-copyright" />
       <a>
-        <span v-if="$themeConfig.author || $site.title">{{ $themeConfig.author || $site.title }}</span>
+        <span v-if="$themeConfig.author || $site.title"><a target="blank" href="https://github.com/xuliyaheizi">{{ $themeConfig.author || $site.title }}</a></span>
         &nbsp;&nbsp;
         <span v-if="$themeConfig.startYear && $themeConfig.startYear != (new Date().getFullYear())">{{ $themeConfig.startYear }} - </span>
         {{ new Date().getFullYear() }}
       </a>
     </span>
     <span>
-      <reco-icon icon="reco-theme" />
+      <i class="fa-solid fa-face-smile"></i>
       <a target="blank" href="https://vuepress-theme-reco.recoluan.com">人若有志，万事可为。</a>
     </span>
     <span v-if="$themeConfig.record">

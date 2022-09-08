@@ -12,6 +12,7 @@ module.exports = {
         ['link', {rel: 'icon', href: '/favicon.ico'}],
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
         ['meta', {name: 'keywords', content: 'Sunspot,博客,zhulinz.top,zhulin'}],
+        ["script", {src: "https://kit.fontawesome.com/5ec517f380.js", crossorigin: "anonymous"}]
         // ['script', {}, `
         // var _hmt = _hmt || [];
         // (function() {

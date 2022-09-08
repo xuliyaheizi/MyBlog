@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: 欢迎来到黑子的小破站
+heroText: 人若有志，万事可为。
 tagline:
 
 bgImage: https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202209061024530.png
