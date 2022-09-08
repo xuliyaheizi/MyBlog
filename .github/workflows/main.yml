@@ -57,4 +57,7 @@ jobs:
           REMOTE_USER: ${{ secrets.SSH_USERNAME }}
           TARGET: '/www/wwwroot/public'  #目标服务器的路径
           EXCLUDE: "/dist/, /node_modules/"   #排除文件夹
+        
+      - name: Work End
+        run: rm -rf public
 
