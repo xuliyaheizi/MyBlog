@@ -72,8 +72,8 @@ module.exports = {
         lastUpdated: 'Last Updated',
         author: 'Sunspot .',
         // 备案号
-        record: 'xxxxxx',
-        recordLink: 'https://wiki.zhulinz.top/',
+        record: '湘ICP备2021017853号',
+        recordLink: 'https://beian.miit.gov.cn/',
         startYear: '2022',
         //暗色模式适配
         mode: 'auto',
@@ -147,7 +147,41 @@ module.exports = {
             perPage: 18
         }],
         ['sitemap', {
-            hostname: 'https://conimi.com'
+            hostname: 'http://blog.zhulinz.top/'
         }],
+        // 音乐插件
+        ['meting', {
+            //metingApi: "https://meting.sigure.xyz/api/music",
+            meting: {
+                // 网易
+                server: "netease",
+                // 读取歌单
+                type: "playlist",
+                mid: "4860069866",
+            },
+            // 不配置该项的话不会出现全局播放器
+            aplayer: {
+                // 吸底模式
+                fixed: true,
+                mini: true,
+                // 自动播放
+                autoplay: true,
+                // 歌曲栏折叠
+                listFolded: true,
+                // 颜色
+                theme: '#f9bcdd',
+                // 播放顺序为随机
+                order: 'random',
+                // 初始音量
+                volume: 0.3,
+                // 关闭歌词显示
+                lrcType: 0,
+                preload: "metadata",
+            },
+            mobile: {
+                // 手机端去掉cover图
+                cover: false,
+            }
+        }]
     ]
 }

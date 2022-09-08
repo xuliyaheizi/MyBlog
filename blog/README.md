@@ -10,4 +10,5 @@ color: '#fff'
 }
 
 isShowTitleInHome: false
+
 ---
