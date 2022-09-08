@@ -9,7 +9,7 @@ module.exports = {
     description: '人若有志，万事可为。',
     dest: 'public',
     head: [
-        ['link', {rel: 'icon', href: '/favicon.ico'}],
+        ['link', {rel: 'icon', href: 'http://oss.zhulinz.top/newImage/202209082357267.ico'}],
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
         ['meta', {name: 'keywords', content: 'Sunspot,博客,zhulinz.top,zhulin'}],
         ["script", {src: "https://kit.fontawesome.com/5ec517f380.js", crossorigin: "anonymous"}]
@@ -149,6 +149,10 @@ module.exports = {
         }],
         ['sitemap', {
             hostname: 'http://blog.zhulinz.top/'
+        }],
+        ['permalink-pinyin', {
+            lowercase: true, // Converted into lowercase, default: true
+            separator: '-' // Separator of the slug, default: '-'
         }],
         // 音乐插件
         ['meting', {
