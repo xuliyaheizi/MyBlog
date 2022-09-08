@@ -1,5 +1,5 @@
 module.exports = {
-    base: '/',
+    base: '/blog/',
     locales: {
         '/': {
             lang: 'zh-CN'
@@ -68,8 +68,8 @@ module.exports = {
         search: true,
         searchMaxSuggestions: 10,
         subSidebar: 'auto',
-        sidebarDepth: 4,
-        lastUpdated: '上次更新',
+        sidebarDepth: 2,
+        lastUpdated: 'Last Updated',
         author: 'Sunspot .',
         // 备案号
         record: 'xxxxxx',
@@ -78,6 +78,11 @@ module.exports = {
         //暗色模式适配
         mode: 'auto',
         modePicker: false,
+        //git仓库编辑
+        repo: 'https://github.com/xuliyaheizi/MyBlog',
+        docsDir: 'blog',
+        docsBranch: 'zhulin',
+        editLinks: true,
         /**
          * 密钥 (if your blog is private)
          */
