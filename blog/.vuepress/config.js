@@ -150,10 +150,10 @@ module.exports = {
         ['sitemap', {
             hostname: 'http://blog.zhulinz.top/'
         }],
-        ['permalink-pinyin', {
-            lowercase: true, // Converted into lowercase, default: true
-            separator: '-' // Separator of the slug, default: '-'
-        }],
+        // ['permalink-pinyin', {
+        //     lowercase: true, // Converted into lowercase, default: true
+        //     separator: '-' // Separator of the slug, default: '-'
+        // }],
         // 音乐插件
         ['meting', {
             //metingApi: "https://meting.sigure.xyz/api/music",
