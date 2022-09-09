@@ -77,7 +77,7 @@ module.exports = {
         recordLink: 'https://beian.miit.gov.cn/',
         startYear: '2022',
         //暗色模式适配
-        mode: 'auto',
+        mode: 'light',
         modePicker: false,
         //git仓库编辑
         repo: 'https://github.com/xuliyaheizi/MyBlog',
