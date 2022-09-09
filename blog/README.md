@@ -3,9 +3,9 @@ home: true
 heroText: 人若有志，万事可为。
 tagline:
 
-bgImage: https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202209061024530.png
+bgImage: /bgImage/image04.png
 bgImageStyle: {
-height: '550px',
+height: '450px',
 color: '#fff'
 }
 
