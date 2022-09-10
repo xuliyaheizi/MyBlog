@@ -147,7 +147,7 @@ module.exports = {
             perPage: 18
         }],
         ['sitemap', {
-            hostname: 'http://blog.zhulinz.top/'
+            hostname: 'https://blog.zhulinz.top/'
         }],
         //路由拼音插件
         ['permalink-pinyin', {
