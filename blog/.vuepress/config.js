@@ -116,18 +116,6 @@ module.exports = {
                 buttonText: "刷新"
             }
         }],
-        // // 评论插件
-        //   ['vuepress-plugin-comment',
-        //   {
-        //     choosen: 'valine',
-        //     // options选项中的所有参数，会传给Valine的配置
-        //     options: {
-        //       el: '#valine-vuepress-comment',
-        //       appId: 'xxxxxxxxxxxxxxxxxx',
-        //       appKey: 'xxxxxxxxxxxxxx'
-        //     }
-        //   }],
-        // 代码复制弹窗插件
         ['vuepress-plugin-nuggets-style-copy', {
             copyText: 'copy',
             tip: {
@@ -149,6 +137,18 @@ module.exports = {
         }],
         ['sitemap', {
             hostname: 'https://blog.zhulinz.top/'
+        }],
+        //seo优化
+        ['seo', {
+            siteTitle: (_, $site) => 'Sunspot\'s Blog',
+            title: $page => $page.title,
+            description: $page => $page.frontmatter.description,
+            author: (_, $site) => 'Sunspot .',
+            type: $page => 'article',
+            url: (_, $site, path) => 'https://blog.zhulinz.top' + path,
+            image: ($page, $site) => "https://oss.zhulinz.top/newImage/202209082357267.ico",
+            publishedAt: $page => $page.frontmatter.date && new Date($page.frontmatter.date),
+            modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
         }],
         //路由拼音插件
         ['permalink-pinyin', {
