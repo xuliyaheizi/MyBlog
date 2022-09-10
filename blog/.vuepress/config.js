@@ -13,14 +13,15 @@ module.exports = {
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
         ['meta', {name: 'keywords', content: 'Sunspot,博客,zhulinz.top,zhulin'}],
         ["script", {src: "https://kit.fontawesome.com/5ec517f380.js", crossorigin: "anonymous"}]
-        // ['script', {}, `
-        // var _hmt = _hmt || [];
-        // (function() {
-        //   var hm = document.createElement("script");
-        //   hm.src = "https://hm.baidu.com/hm.js?xxxxxxxxxxxxxxxx";
-        //   var s = document.getElementsByTagName("script")[0];
-        //   s.parentNode.insertBefore(hm, s);
-        // })();`]
+        ['script', {}, `
+        var _hmt = _hmt || [];
+        (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?1fa46dc84d9c2e74f953957f03bded00";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+        })();
+        })();`]
     ],
     markdown: {
         lineNumbers: true,
