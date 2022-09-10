@@ -39,8 +39,8 @@ module.exports = {
             "/docs/": [{
                 title: '八股文',
                 collapsable: true,
-                children: ['1-interview/1、network', '1-interview/2、javaBasis', '1-interview/3、collection', '1-interview/4、thread',
-                    '1-interview/5、spring', '1-interview/6、redis', '1-interview/7、mysql', '1-interview/8、mybatis'
+                children: ['1-interview/1-network.html', '1-interview/2-javabasis.html', '1-interview/3-collection.html', '1-interview/4-thread.html',
+                    '1-interview/5-spring.html', '1-interview/6-redis.html', '1-interview/7-mysql.html', '1-interview/8-mybatis.html'
                 ]
             },]
         },
@@ -151,10 +151,10 @@ module.exports = {
             hostname: 'http://blog.zhulinz.top/'
         }],
         //路由拼音插件
-        // ['permalink-pinyin', {
-        //     lowercase: true, // Converted into lowercase, default: true
-        //     separator: '-' // Separator of the slug, default: '-'
-        // }],
+        ['permalink-pinyin', {
+            lowercase: true, // Converted into lowercase, default: true
+            separator: '-' // Separator of the slug, default: '-'
+        }],
         // 音乐插件
         ['meting', {
             //metingApi: "https://meting.sigure.xyz/api/music",
