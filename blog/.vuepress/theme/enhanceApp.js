@@ -21,4 +21,15 @@ export default ({
   }
 
   interceptRouterError(router)
+
+  //路由监听
+  router.beforeEach((to, from, next) => {
+    if (typeof _hmt !== "undefined") {
+      if (to.path) {
+        _hmt.push(["_trackPageview", to.fullPath]);
+      }
+    }
+
+    next();
+  });
 }
