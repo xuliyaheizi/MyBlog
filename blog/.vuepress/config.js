@@ -12,6 +12,7 @@ module.exports = {
         ['link', {rel: 'icon', href: 'https://oss.zhulinz.top/newImage/202209082357267.ico'}],
         ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
         ['meta', {name: 'keywords', content: 'Sunspot,博客,zhulinz.top,zhulin'}],
+        ['meta', {name: 'baidu-site-verification', content: 'code-rGCUXPJ1FA'}],
         ["script", {src: "https://kit.fontawesome.com/5ec517f380.js", crossorigin: "anonymous"}],
         ['script', {}, 'var _hmt = _hmt || [];\n' +
         '            (function() {\n' +
