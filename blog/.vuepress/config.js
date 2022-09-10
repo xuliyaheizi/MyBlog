@@ -1,12 +1,12 @@
 module.exports = {
-    base: '/blog/',
+    // base: '/blog/',
     locales: {
         '/': {
             lang: 'zh-CN'
         }
     },
     title: 'Sunspot\'s Blog',
-    description: '人若有志，万事可为。',
+    description: 'Follow your heart，see night！',
     dest: 'public',
     head: [
         ['link', {rel: 'icon', href: 'http://oss.zhulinz.top/newImage/202209082357267.ico'}],
@@ -39,8 +39,8 @@ module.exports = {
             "/docs/": [{
                 title: '八股文',
                 collapsable: true,
-                children: ['1-八股文/1、计算机网络', '1-八股文/2、Java基础', '1-八股文/3、Java集合', '1-八股文/4、线程',
-                    '1-八股文/5、Spring', '1-八股文/6、Redis', '1-八股文/7、MySQL', '1-八股文/8、Mybatis'
+                children: ['1-interview/1、network', '1-interview/2、javaBasis', '1-interview/3、collection', '1-interview/4、thread',
+                    '1-interview/5、spring', '1-interview/6、redis', '1-interview/7、mysql', '1-interview/8、mybatis'
                 ]
             },]
         },
@@ -70,7 +70,7 @@ module.exports = {
         searchMaxSuggestions: 10,
         subSidebar: 'auto',
         sidebarDepth: 2,
-        lastUpdated: 'Last Updated',
+        lastUpdated: '本文更新于',
         author: 'Sunspot .',
         // 备案号
         record: '湘ICP备2021017853号',
@@ -150,6 +150,7 @@ module.exports = {
         ['sitemap', {
             hostname: 'http://blog.zhulinz.top/'
         }],
+        //路由拼音插件
         // ['permalink-pinyin', {
         //     lowercase: true, // Converted into lowercase, default: true
         //     separator: '-' // Separator of the slug, default: '-'

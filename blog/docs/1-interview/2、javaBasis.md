@@ -1,12 +1,10 @@
 ---
 title: Java基础八股文
-description: 
-date: 2022-09-04
+date: 2022-08-10
 tags:
  - Java
 categories:
  - 八股文
-publish: true
 ---
 ## 1、Java和C++区别？
 

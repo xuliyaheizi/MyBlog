@@ -1,12 +1,10 @@
 ---
 title: MySQL八股文
-description: 
-date: 2022-09-04
+date: 2022-08-17
 tags:
  - MySQL
 categories:
  - 八股文
-publish: true
 ---
 ## 一、MySQL基础
 

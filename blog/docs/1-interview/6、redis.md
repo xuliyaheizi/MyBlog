@@ -1,12 +1,10 @@
 ---
 title: Redis八股文
-description: 
-date: 2022-09-04
+date: 2022-08-16
 tags:
  - Redis
 categories:
  - 八股文
-publish: true
 ---
 ## 1、为什么要使用缓存？
 

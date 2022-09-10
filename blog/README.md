@@ -1,7 +1,6 @@
 ---
 home: true
-heroText: 人若有志，万事可为。
-tagline:
+tagline: Follow your heart，see night！
 
 bgImage: /bgImage/image04.png
 bgImageStyle: {
