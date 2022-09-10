@@ -40,7 +40,7 @@ Spring是一个**轻量的IOC和AOP容器框架**。是为Java应用程序提供
 
 ### 1.3、Spring的组件
 
-![image-20220801222625301](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208012226453.png)
+![image-20220801222625301](https://oss.zhulinz.top//img/202208012226453.png)
 
 上图中包含了 Spring 框架的所有模块，这些模块可以满足一切企业级应用开发的需求，在开发过程中可以根据需求有选择性地使用所需要的模块。下面分别对这些模块的作用进行简单介绍（并且结合SpringFramework5.x源码模块帮助你对应好各模块关系）。
 
@@ -78,7 +78,7 @@ Spring的核心容器是其他模块建立的基础，由Beans模块、Core核�
 
 ### 1.4、Spring常用注解
 
-![Spring注解](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208222109284.png)
+![Spring注解](https://oss.zhulinz.top//img/202208222109284.png)
 
 **Web**:
 
@@ -120,7 +120,7 @@ Spring的核心容器是其他模块建立的基础，由Beans模块、Core核�
 
 ### 1.5、Spring中的设计模式
 
-![Spring中设计模式](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208222112931.png)
+![Spring中设计模式](https://oss.zhulinz.top//img/202208222112931.png)
 
 1. **工厂模式** : Spring 容器本质是一个大工厂，使用工厂模式通过 BeanFactory、ApplicationContext 创建 bean 对象。
 2. **代理模式** : Spring AOP 功能就是通过代理模式来实现的，分为动态代理和静态代理。
@@ -156,11 +156,11 @@ Ioc-Inversion of Control，即“控制反转”，**不是什么技术，而是
 
 传统程序设计下，都是主动去创建相关对象然后再组合起来。
 
-![image-20220802115622536](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208021156575.png)
+![image-20220802115622536](https://oss.zhulinz.top//img/202208021156575.png)
 
 当有了IOC/DI的容器后，在客户端类中不再主动去创建这些对象了。
 
-![image-20220802115706887](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208021157349.png)
+![image-20220802115706887](https://oss.zhulinz.top//img/202208021157349.png)
 
 ### 2.2、IoC能做什么？
 
@@ -694,11 +694,11 @@ public class UserServiceImpl implements IUserService {
 
 我们将记录日志功能解耦为日志切面，它的目标是解耦。进而引出AOP的理念：就是将分散在各个业务逻辑代码中相同的代码通过**横向切割**的方式抽取到一个独立的模块中！
 
-![image-20220802210939550](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208022110891.png)
+![image-20220802210939550](https://oss.zhulinz.top//img/202208022110891.png)
 
 OOP面向对象编程，针对业务处理过程的实体及其属性和行为进行抽象封装，以获得更加清晰高效的逻辑单元划分。而AOP则是针对业务处理过程中的切面进行提取，它所面对的是处理过程的某个步骤或阶段，以获得逻辑过程的中各部分之间低耦合的隔离效果。这两种设计思想在目标上有着本质的差异。
 
-![image-20220802210956055](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208022110462.png)
+![image-20220802210956055](https://oss.zhulinz.top//img/202208022110462.png)
 
 ### 3.2、AOP术语
 
@@ -719,7 +719,7 @@ OOP面向对象编程，针对业务处理过程的实体及其属性和行为�
 - **最终通知（After (finally) advice）**：当某连接点退出的时候执行的通知（不论是正常返回还是异常退出）。
 - **环绕通知（Around Advice）**：包围一个连接点的通知，如方法调用。这是最强大的一种通知类型。环绕通知可以在方法调用前后完成自定义的行为。它也会选择是否继续执行连接点或直接返回它自己的返回值或抛出异常来结束执行。
 
-![image-20220802211118397](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208022111132.png)
+![image-20220802211118397](https://oss.zhulinz.top//img/202208022111132.png)
 
 ### 3.3、AOP的配置方式
 

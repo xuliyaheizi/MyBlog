@@ -22,7 +22,7 @@ publish: true
 4. 对hive中多个表的数据进行JOIN处理，得到一张hive的明细表（创建中间表）
 5. 通过对明细表的统计和分析，得到结果报表信息（hive的查询操作）
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207021826058.png" alt="image-20220702182602757" width="50%;" />
+<img src="https://oss.zhulinz.top//img/202207021826058.png" alt="image-20220702182602757" width="50%;" />
 
 ### 1.2、适用场景
 
@@ -46,7 +46,7 @@ publish: true
 
 `Azkaban`在LinkedIn上实施，以解决`Hadoop`作业依赖问题。从ETL工作到数据分析产品，工作都有需要按顺序运行。最初是单一服务器解决方案，随着多年来Hadoop用户数量的增加，Azkaban 已经发展成为一个更强大的解决方案。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207021830407.png" alt="image-20220702183009719" width="50%;" />
+<img src="https://oss.zhulinz.top//img/202207021830407.png" alt="image-20220702183009719" width="50%;" />
 
 Azkaban由三个关键组件构成：元数据、AzkabanWebServer、AzkabanExecutorServer。
 
@@ -95,7 +95,7 @@ AzkabanExecutorServer主要负责具体的工作流`提交、执行`，可以启
 
 将Azkaban Web服务器、Azkaban执行服务器、Azkaban的sql执行脚本及MySQL安装包拷贝到`master`虚拟机/user/local/azkaban目录下
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202206300914647.png" alt="image-20220630091249409" width="50%;" />
+<img src="https://oss.zhulinz.top//img/202206300914647.png" alt="image-20220630091249409" width="50%;" />
 
 ### 3.2、安装
 

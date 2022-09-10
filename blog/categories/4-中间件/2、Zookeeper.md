@@ -15,7 +15,7 @@ publish: true
 - Zookeeper 的设计目标是将那些复杂且容易出错的分布式一致性服务封装起来，构成一个高效可靠的原语集，并以一系列简单易用的接口提供给用户使用。
 - 一个典型的分布式数据一致性的解决方案，分布式应用程序可以基于它实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master 选举、分布式锁和分布式队列等功能。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651889273170-fe9f2731-4c71-4768-9f9f-2cb9d8ea07b1.png" alt="image.png" width="50%" />
+<img src="https://oss.zhulinz.top//img/1651889273170-fe9f2731-4c71-4768-9f9f-2cb9d8ea07b1.png" alt="image.png" width="50%" />
 
 ### CAP理论
 
@@ -29,7 +29,7 @@ publish: true
 
   在这三个基本需求中，最多只能同时满足其中的两项，P 是必须的，因此只能在 CP 和 AP 中选择，**zookeeper 保证的是 CP（一致性和分区容错性），对比 SpringCloud 系统中的注册中心 eureka 实现的是 AP（可用性和分区容错性）**。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651891779818-733bda0d-01cd-450d-9fb9-f507bbe48c5c.png" alt="image.png" width="40%" />
+<img src="https://oss.zhulinz.top//img/1651891779818-733bda0d-01cd-450d-9fb9-f507bbe48c5c.png" alt="image.png" width="40%" />
 
 ### Base理论
 
@@ -63,7 +63,7 @@ publish: true
 
   ZAB 协议的**原子广播**也称**消息广播**。leader 服务器针对客户端的请求为其生成对应的事务 Proposal，并将该事务发给集群中所有的节点，然后收集各个节点对该事务的选票，最后收到半数节点的选票，就进行事务提交。具体如下图：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image.png" alt="image" width="40%"/>
+<img src="https://oss.zhulinz.top//img/image.png" alt="image" width="40%"/>
 
 ### 广播流程如何保证消息广播过程中消息接收与发送的顺序性？
 
@@ -73,7 +73,7 @@ publish: true
 
   Zookeeper 集群因为有过半机制，所以其结点个数一般为奇数，集群中主要有 Client、Leader、Follower 以及 Observer 几种角色。其基本架构图如下：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651889625610-04459520-14e1-413b-8014-1d33820abbde.png" alt="image.png" width="40%" />
+<img src="https://oss.zhulinz.top//img/1651889625610-04459520-14e1-413b-8014-1d33820abbde.png" alt="image.png" width="40%" />
 
 **ZK 架构Client：**
 
@@ -85,13 +85,13 @@ publish: true
 
 ### 数据模型
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651889702250-13d67f05-eab4-4324-91df-82cfd95a255b.png" alt="image.png" width="40%" />
+<img src="https://oss.zhulinz.top//img/1651889702250-13d67f05-eab4-4324-91df-82cfd95a255b.png" alt="image.png" width="40%" />
 
   Zookeeper 路径如上图所示，是 ZooKeeper 的数据节点的示意图，Zookeeper 采用的是树形层次结构，其中树中的每个节点称之为 Znode。Znode 可以作为路径标识的一部分，并且使用斜杠分割，同时维护着**数据**、**元信息**、**ACL**、**时间戳**等数据结构。每个 Znode 由 3 部分组成:
 
 - **stat 状态信息：**描述该 Znode 的**版本, 权限**等信息。Znode 中存储的数据可以有多个版本，也就是一个访问路径中可以存储多份数据。每一个节点都拥有自己的 ACL(访问控制列表)，这个列表规定了用户的权限，即限定了特定用户对目标节点可以执行的操作。Stat 对象状态属性如下表所示：
 
-	<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651889712992-b08bec95-00ca-4a3c-9156-1faee0f3c64e.png" alt="image.png" width="50%" />
+	<img src="https://oss.zhulinz.top//img/1651889712992-b08bec95-00ca-4a3c-9156-1faee0f3c64e.png" alt="image.png" width="50%" />
 
 - **data：**与该 Znode 关联的数据(配置文件信息、状态信息、汇集位置)，数据大小至多 1M。
 - **children**：每个 Znode 下可以有子节点，需要注意的是 EPHEMERAL 类型的目录节点没有子节点。
@@ -126,7 +126,7 @@ publish: true
 
   zookeeper 的 leader 服务器再运行期间定时进行会话超时检查，时间间隔是 ExpirationInterval，单位是毫秒，默认值是 tickTime，每隔 tickTime 进行一次会话超时检查。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651892173357-38a134ea-f394-4b9f-b547-65e03cd1aee8.png" alt="image.png" width="50%" />
+<img src="https://oss.zhulinz.top//img/1651892173357-38a134ea-f394-4b9f-b547-65e03cd1aee8.png" alt="image.png" width="50%" />
 
 - $$
 	- ExpirationTime 的计算方式:
@@ -140,11 +140,11 @@ publish: true
 
 会话激活流程：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651892215013-fad55b39-9810-4092-9fd7-fd10860f6dbb.png" alt="image.png" width="30%" />
+<img src="https://oss.zhulinz.top//img/1651892215013-fad55b39-9810-4092-9fd7-fd10860f6dbb.png" alt="image.png" width="30%" />
 
 激活后进行迁移会话的过程，然后开始新一轮：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651892225707-9efbd3a0-0ffb-48fc-a548-1ec7f7bf755e.png" alt="image.png" width="40%" />
+<img src="https://oss.zhulinz.top//img/1651892225707-9efbd3a0-0ffb-48fc-a548-1ec7f7bf755e.png" alt="image.png" width="40%" />
 
 ## 三、节点类型
 
@@ -182,7 +182,7 @@ publish: true
 
   选举无非就是一个投票、处理选票以及得出结果（领导走马上任）这么一个过程，现实生活中也比较常见。在 ZooKeeper 中，Leader 的选举又分为 2 类：整个集群刚启动时的选举和运行过程中 Leader 宕机后的选举。简单选举流程如下图所示：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651889766540-ef70aadc-0382-4344-81e2-265075d29a55.png" alt="image.png" width="50%" />
+<img src="https://oss.zhulinz.top//img/1651889766540-ef70aadc-0382-4344-81e2-265075d29a55.png" alt="image.png" width="50%" />
 
   集群启动时的选举可以分为三个步骤：**投票**、**唱票**以及**得出结果**。
 
@@ -212,7 +212,7 @@ publish: true
 
   当节点发生增、删、改都会触发 Watcher 所对应的操作。其过程如下图所示：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1651889779709-f0448093-e1a0-4757-92cc-13049cb80325.png" alt="image.png" width="40%"/>
+<img src="https://oss.zhulinz.top//img/1651889779709-f0448093-e1a0-4757-92cc-13049cb80325.png" alt="image.png" width="40%"/>
 
 ## 五、应用场景的实现
 

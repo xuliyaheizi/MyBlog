@@ -10,7 +10,7 @@ publish: true
 
 **集群架构图**
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207041034924.png" alt="image-20220704103412317"/>
+<img src="https://oss.zhulinz.top//img/202207041034924.png" alt="image-20220704103412317"/>
 
 ## 一、CentOs设置
 
@@ -785,7 +785,7 @@ $ zkCli.sh -server node1:2181
 
 将Azkaban Web服务器、Azkaban执行服务器、Azkaban的sql执行脚本及MySQL安装包拷贝到`master`虚拟机/user/local/azkaban目录下
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207041025198.png" alt="image-20220630091249409" width="50%;" />
+<img src="https://oss.zhulinz.top//img/202207041025198.png" alt="image-20220630091249409" width="50%;" />
 
 ### 8.2、安装
 

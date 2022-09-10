@@ -22,15 +22,15 @@ publish: true
 
 #### 字节流
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/java-io-category-1.png"/>
+<img src="https://oss.zhulinz.top//img/java-io-category-1.png"/>
 
 #### 字符流
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/java-io-category-2.png"/>
+<img src="https://oss.zhulinz.top//img/java-io-category-2.png"/>
 
 ### 1.2、从数据操作方式上
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/java-io-category-3.png"/>
+<img src="https://oss.zhulinz.top//img/java-io-category-3.png"/>
 
 ### 1.3、IO流的分类？
 
@@ -65,7 +65,7 @@ publish: true
 - FileInputStream是InputStream的子类，属于具体组件，提供了字节流的输入操作。
 - FilterInputStream 属于抽象装饰者，装饰者用于装饰组件，为组件提供额外的功能。例如 BufferedInputStream 为 FileInputStream 提供缓存的功能。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220612192603156.png"/>
+<img src="https://oss.zhulinz.top//img/image-20220612192603156.png"/>
 
 ```java
 //实例化一个具有缓存功能的字节流对象
@@ -126,7 +126,7 @@ Channel是一个通道，可以通过它完成读取和写入数据，通道和�
 
 #### FileChannel
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220513003125241.png"/>
+<img src="https://oss.zhulinz.top//img/image-20220513003125241.png"/>
 
 **读取数据**
 
@@ -355,7 +355,7 @@ aFile.close();
 
 position 和 limit 的含义取决于 Buffer 处在读模式还是写模式。不管 Buffer 处在什么模式，capacity 的含义总是一样的。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220514225853831.png"/>
+<img src="https://oss.zhulinz.top//img/image-20220514225853831.png"/>
 
 **capacity**
 
@@ -410,7 +410,7 @@ aFile.close();
 
 Selector 一般称 为选择器 ，也可以翻译为 多路复用器 。它是 Java NIO 核心组件中的一个，用于检查一个或多个 NIO Channel（通道）的状态是否处于可读、可写。如此可以实现单线程管理多个 channels,也就是可以管理多个网络链接。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220517201535405.png"/>
+<img src="https://oss.zhulinz.top//img/image-20220517201535405.png"/>
 
   使用 Selector 的好处在于： 使用更少的线程来就可以来处理通道了， 相比使用多个线程，避免了线程上下文切换带来的开销。
 
@@ -420,7 +420,7 @@ Selector 一般称 为选择器 ，也可以翻译为 多路复用器 。它是 
 2. SelectableChannel 类提供了实现通道的可选择性所需要的公共方法。它是所有支持就绪检查的通道类的父类。所有 socket 通道，都继承了 SelectableChannel 类都是可选择的，包括从管道(Pipe)对象的中获得的通道。而 FileChannel 类，没有继承SelectableChannel，因此是不是可选通道。
 3. 一个通道可以被注册到多个选择器上，但对每个选择器而言只能被注册一次。通道和选择器之间的关系，使用注册的方式完成。SelectableChannel 可以被注册到Selector 对象上，在注册的时候，需要指定通道的哪些操作，是 Selector 感兴趣的。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220517201851267.png"/>
+<img src="https://oss.zhulinz.top//img/image-20220517201851267.png"/>
 
 #### Channel 注册到 Selector
 
@@ -530,7 +530,7 @@ public static void clientDemo() throws IOException {
 
 Java NIO 管道是 2 个线程之间的单向数据连接。Pipe 有一个 source 通道和一个 sink通道。数据会被写到 sink 通道，从 source 通道读取。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220520152958439.png"/>
+<img src="https://oss.zhulinz.top//img/image-20220520152958439.png"/>
 
 **创建管道**
 

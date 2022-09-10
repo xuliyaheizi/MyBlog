@@ -88,13 +88,13 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.333-b02, mixed mode)
 
 初始化：为类的静态变量赋予正确的初始值
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207091931556.png" alt="image-20220709193113975" style="width:50%;" />
+<img src="https://oss.zhulinz.top//img/202207091931556.png" alt="image-20220709193113975" style="width:50%;" />
 
 ### 1.4、JVM的内存模型
 
 JVM 运行时内存共分为`虚拟机栈`、`堆`、`元空间`、`程序计数器`、`本地方法栈`五个部分。还有一部分内存叫`直接内存`，属于操作系统的本地内存，也是可以直接操作的。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207091520404.png" alt="image-20220709152016354" style="width:40%;" /><img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207120905053.png" alt="image-20220712090141479" style="width:40%;" />
+<img src="https://oss.zhulinz.top//img/202207091520404.png" alt="image-20220709152016354" style="width:40%;" /><img src="https://oss.zhulinz.top//img/202207120905053.png" alt="image-20220712090141479" style="width:40%;" />
 
 **线程共享的：**`堆`、`方法区`、`直接内存`（非运行时数据区的一部分）
 
@@ -174,7 +174,7 @@ Java编译器输入的指令流基本上是一种`基于栈`的指令集架构�
 
 类加载的过程有加载、验证、准备、解析、初始化五个阶段。五个阶段中只有解析的顺序不一定，其余的阶段都是按顺序开始的，解析阶段可以在初始化之后开始，是为了支持Java语言中的运行时绑定（动态绑定或晚期绑定）。五个阶段通常都是互相交叉地混合进行的，在一个阶段执行的过程中调用或激活另一个阶段。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207112104961.png" alt="image-20220711210424667" style="width:50%;" /><img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207102221165.png" alt="image-20220710222153284" style="width:50%;" />
+<img src="https://oss.zhulinz.top//img/202207112104961.png" alt="image-20220711210424667" style="width:50%;" /><img src="https://oss.zhulinz.top//img/202207102221165.png" alt="image-20220710222153284" style="width:50%;" />
 
 #### 类的加载：查找并加载类的二进制数据
 
@@ -182,7 +182,7 @@ Java编译器输入的指令流基本上是一种`基于栈`的指令集架构�
 - 将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。
 - 在Java堆中生成一个代表这个类的java.lang.Class对象，作为对方法区中这些数据的访问入口。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207112108187.png" alt="image-20220711210828996" style="width:50%;" />
+<img src="https://oss.zhulinz.top//img/202207112108187.png" alt="image-20220711210828996" style="width:50%;" />
 
 加载阶段（准确来讲：是`加载阶段获取类的二进制字节流的动作`）是`可控性最强`的阶段，该阶段开放人员既可以使用系统提供的类加载器来完成加载，也可以自定义自己的类加载器来完成加载。(`加载方法多样`)
 
@@ -300,7 +300,7 @@ DriverManager.getCallerClassLoader()
 
 ### 3.1、双亲委派模型
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207111257384.png" alt="image-20220711125701988" style="width:40%;" />
+<img src="https://oss.zhulinz.top//img/202207111257384.png" alt="image-20220711125701988" style="width:40%;" />
 
 1. 一个类加载器接收到了类加载的请求，这个类加载器不会先去尝试加载这个类，而是会把这个请求委托给自己的父类加载器去执行。
 2. 在每个层次的类加载器都是依次类推的，因此所有的类加载器请求最后都会被委托到顶层的启动类加载器中。

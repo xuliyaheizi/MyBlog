@@ -12,7 +12,7 @@ categories:
 
 - **第一范式：**列不可再分（无重复的列）。
 
-  ![image-20220805210549852](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208052105057.png)
+  ![image-20220805210549852](https://oss.zhulinz.top//img/202208052105057.png)
 
   表中` 家庭信息 `和` 学校信息 `列都不满足原子性的要求，即不满足第一范式
 
@@ -20,7 +20,7 @@ categories:
 
   第二范式需要确保数据库表中的每一列都和主键相关，而不能只与主键的某一部分相关（主要针对联合键）
 
-  ![image-20220805210527477](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208052105658.png)
+  ![image-20220805210527477](https://oss.zhulinz.top//img/202208052105658.png)
 
   如上图所示，同一个订单中可能包含不同的产品，所以主键必须是订单号和产品号联合组成
 
@@ -30,7 +30,7 @@ categories:
 
   比如在设计一个订单数据表时，可以将客户编号作为一个外键和订单表建立相应的关系，而不可以在订单表中添加关于客户其他信息（如姓名，电话等）的字段。如下图表就是一个满足第三范式的数据库表
 
-  ![image-20220805210410477](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208052104172.png)
+  ![image-20220805210410477](https://oss.zhulinz.top//img/202208052104172.png)
 
 三大范式是一级一级依赖的，第二范式建立在第一范式上，第三范式建立在第一第二范式上。
 
@@ -170,7 +170,7 @@ MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以`大
 
 二叉搜索树的特性，很适合用来做搜索，效率等同于二分查找，时间复杂度为log2(n)。
 
-![image-20220730170446827](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207301705328.png)
+![image-20220730170446827](https://oss.zhulinz.top//img/202207301705328.png)
 
 二叉搜索树的节点中存储键(key)和数据(data)。数据对应user表中的行数据。查找ID为9的用户信息，流程如下：
 
@@ -182,7 +182,7 @@ MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以`大
 
 查找id为9的用户信息，需要查找6次，相当于全表扫描。导致该现象的原因是因为二叉查找树不平衡了。可使用`平衡二叉树`解决该问题。**平衡二叉树**又称AVL树，在满足二叉查找树特性的基础上，要求每个节点的左右子树的高度差不能超过1。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207301726812.png" alt="image-20220730172604245" style="width:30%;" />
+<img src="https://oss.zhulinz.top//img/202207301726812.png" alt="image-20220730172604245" style="width:30%;" />
 
 > **B树**
 
@@ -198,7 +198,7 @@ MySQL索引的建立对于MySQL的高效运行是很重要的，索引可以`大
 4. 所有叶子节点在同一层且关键字个数为k-1，其中m/2 <= k <= m
 5. 节点之间关键字的大小，类比二叉搜索树，即关键字的值按大小排列，pi的关键字的值属于（k[i],k[i+1]）开区间，例如 p2的关键字要大于17，小于35。
 
-![image-20220730210043598](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207302101162.png)
+![image-20220730210043598](https://oss.zhulinz.top//img/202207302101162.png)
 
 > B+ 树
 
@@ -208,7 +208,7 @@ B+树建立在B树的基础基础上，更改了几条性质。B+树在B-树的�
 2. pi的关键字的值属于[k[i],k[i+1]]闭区间
 3. 为叶子节点添加一个指针
 
-![image-20220730210443121](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207302104941.png)
+![image-20220730210443121](https://oss.zhulinz.top//img/202207302104941.png)
 
 > B+索引实现原理
 
@@ -293,7 +293,7 @@ Hash 在做等值查询的时候效率贼快，搜索复杂度为 O(1)。
 mysql> show engines
 ```
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207282110504.png" alt="image-20220708101035699" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207282110504.png" alt="image-20220708101035699" width="80%;" />
 
 `mysql常用引擎包括`：MYISAM、Innodb、Memory、MERGE
 

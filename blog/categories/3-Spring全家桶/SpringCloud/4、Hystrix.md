@@ -62,7 +62,7 @@ publish: true
 
   熔断器模式就像是那些容易导致错误的操作的一种代理。这种代理能够记录最近调用发生错误的次数，然后决定使用允许操作继续，或者立即返回错误。 熔断器开关相互转换的逻辑如下图：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1648986685788-5233a374-3dc0-4e94-8982-c5031d1ebf37.png" alt="image.png" width="50%" />
+<img src="https://oss.zhulinz.top//img/1648986685788-5233a374-3dc0-4e94-8982-c5031d1ebf37.png" alt="image.png" width="50%" />
 
 ## 三.Hystrix
 
@@ -76,7 +76,7 @@ publish: true
 
   断路器很好理解, 当**Hystrix Command**请求后端服务失败数量**超过一定比例(默认50%)**, 断路器会切换到**开路状态(Open)**. 这时所有请求会直接失败而不会发送到后端服务. 断路器保持在开路状态一段时间后(默认5秒), 自动切换到**半开路状态(HALF-OPEN)**. 这时会判断下一次请求的返回情况, 如果请求成功, 断路器切回**闭路状态(CLOSED)**, 否则重新切换到**开路状态(OPEN)**. Hystrix的断路器就像我们家庭电路中的保险丝, 一旦后端服务不可用, 断路器会直接切断请求链, 避免发送大量无效请求影响系统吞吐量, 并且**断路器有自我检测并恢复的能力**.
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1648997839743-ee7eb326-ff79-43f6-b309-96baf614f2ed.png" alt="dawda.png" width="30%" />
+<img src="https://oss.zhulinz.top//img/1648997839743-ee7eb326-ff79-43f6-b309-96baf614f2ed.png" alt="dawda.png" width="30%" />
 
 - 最开始处于closed状态，一旦检测到错误到达一定阈值，便转为open状态；
 - 这时候会有个 reset timeout，到了这个时间了，会转移到half open状态；
@@ -86,7 +86,7 @@ publish: true
 
   在Hystrix中, 主要通过线程池来实现资源隔离. 通常在使用的时候我们会根据调用的远程服务划分出多个线程池. 例如调用产品服务的Command放入A线程池, 调用账户服务的Command放入B线程池. 这样做的主要优点是运行环境被隔离开了. 这样就算调用服务的代码存在bug或者由于其他原因导致自己所在线程池被耗尽时, 不会对系统的其他服务造成影响. 但是带来的代价就是维护多个线程池会对系统带来额外的性能开销. 如果是对性能有严格要求而且确信自己调用服务的客户端代码不会出问题的话, 可以使用Hystrix的信号模式(Semaphores)来隔离资源.
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1648998195703-7bfb33bf-bfe0-49c8-9fbb-ab99b3ae05ce.png" alt="dawdad.png" width="50%" />
+<img src="https://oss.zhulinz.top//img/1648998195703-7bfb33bf-bfe0-49c8-9fbb-ab99b3ae05ce.png" alt="dawdad.png" width="50%" />
 
 **配置多个线程池代码**
 

@@ -45,7 +45,7 @@ categories:
 
 Java线程模型由`主内存`和`工作内存`组成。
 
-![1328967-20190605221210905-58853278](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207170917780.png)
+![1328967-20190605221210905-58853278](https://oss.zhulinz.top//img/202207170917780.png)
 
 - `工作内存`和`主内存`两部分一起组成Java的线程模型。
 - 工作内存是属于线程的，不同线程的工作内存之间`不可共享`，`不可通讯`。
@@ -378,7 +378,7 @@ ThreadLocal有一个`静态内部类ThreadLocalMap`，ThreadLocalMap又包含了
 
 但是只要ThreadLocal使用恰当，在使用完之后调用` remove() `方法删除Entry对象，实际上是不会出现这个问题的。
 
-![image-20220720195206532](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207201952095.png)
+![image-20220720195206532](https://oss.zhulinz.top//img/202207201952095.png)
 
 #### 为什么使用弱引用？
 
@@ -688,7 +688,7 @@ class VolatileExample {
 - 根据 volatile 规则：2 happens-before 3。
 - 根据 happens-before 的传递性规则：1 happens-before 4。
 
-![image-20220718112011932](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207181120925.png)
+![image-20220718112011932](https://oss.zhulinz.top//img/202207181120925.png)
 
 
 
@@ -772,7 +772,7 @@ class VolatileExample {
 3. 当阻塞队列也满了之后，那么将会继续创建（maximumPoolSize-corePoolSize）个数量的线程来执行任务，如果任务处理完成，maximumPoolSize-corePoolSize额外创建的线程等待keepAliveTime之后被自动销毁。
 4. 如果达到maximumPoolSize，阻塞队列还是满的状态，那么将根据不同的拒绝策略对应处理
 
-![image-20220720201555365](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207202015703.png)
+![image-20220720201555365](https://oss.zhulinz.top//img/202207202015703.png)
 
 ### 4.6、线程池的拒绝策略？
 

@@ -23,7 +23,7 @@ Hadoop是一个由Apache基金会所开发的分布式系统基础架构，主�
 
 ### 1.3、组成
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220608200350845.png" alt="image-20220608200350845" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220608200350845.png" alt="image-20220608200350845" width="50%;" />
 
 ### 1.4、HDFS架构概述
 
@@ -37,7 +37,7 @@ Hadoop Distributed File System，简称HDFS，是一个分布式文件系统。
 
 Yet Another Resource Negotiator 简称YARN ，另一种资源协调者，是`Hadoop`的资源管理器。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220608200758870.png" alt="image-20220608200758870" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220608200758870.png" alt="image-20220608200758870" width="50%;" />
 
 1. `ResourceManager(RM)`：整个集群资源（内存、CPU等）的管理者
 2. `NodeManager(NM)`：单个节点服务器资源的管理者。
@@ -51,11 +51,11 @@ MapReduce将计算过程分为两个阶段：Map和Reduce
 - Map阶段并行处理输入数据
 - Reduce阶段对Map结果进行汇总
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220608201047671.png" alt="image-20220608201047671" width="67%;" />
+<img src="https://oss.zhulinz.top//img/image-20220608201047671.png" alt="image-20220608201047671" width="67%;" />
 
 ### 1.7、大数据生态体系
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220608201138312.png" alt="image-20220608201138312" width="67%;" />
+<img src="https://oss.zhulinz.top//img/image-20220608201138312.png" alt="image-20220608201138312" width="67%;" />
 
 1. `Sqoop`：是一款开源的工具，主要用于在Hadoop、Hive与传统的数据库（MySQL）间进行数据的传递，可以将一个关系型数据库（例如：MySQL，Oracle等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。
 2. `Flume`：是一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据。
@@ -257,7 +257,7 @@ public void testDelete() throws URISyntaxException, IOException {
 
 #### 写数据流程
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220609164200158.png" alt="image-20220609164200158" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220609164200158.png" alt="image-20220609164200158" width="50%;" />
 
 1. 客户端通过`Distributed FileSystem`模块向`Name Node`请求上传文件，`Name Node`检查目标文件是否存在，父目录是否存在。
 2. `Name Node`向客户端响应是否可以上传文件。
@@ -270,7 +270,7 @@ public void testDelete() throws URISyntaxException, IOException {
 
 #### 读数据流程
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220622135826883.png" alt="image-20220622135826883" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220622135826883.png" alt="image-20220622135826883" width="50%;" />
 
 1. 客户端通过 DistributedFileSystem 向 NameNode 请求下载文件，NameNode 通过查询元数据，找到文件块所在的 DataNode 地址。
 2. 挑选一台 DataNode（就近原则，然后随机）服务器，请求读取数据。 
@@ -407,7 +407,7 @@ Hadoop的HDFS集群非常容易出现机器与机器之间磁盘利用率不平�
 
 数据均衡过程的核心是一个数据均衡算法，该数据均衡算法将不断迭代数据均衡逻辑，直至集群内数据均衡为止。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220615161022417.png" alt="image-20220615161022417" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220615161022417.png" alt="image-20220615161022417" width="50%;" />
 
 - 数据均衡服务（Rebalancing Server）首先要求NameNode生成DataNode数据分布分析报告，获取每个DataNode磁盘使用情况。
 - Rebalancing Server汇总需要移动的数据分布情况，计算具体数据块迁移路线图。数据块迁移路线图，确保网络内最短路径。
@@ -448,7 +448,7 @@ start-balancer.sh –threshold
 
 - HDFS：DataNode默认向NameNode`每隔3秒汇报一次`，包括`DataNode的状态信息以及所持有的数据块的信息`。若NameNode连续`10次`没有收到汇报，则认为可能存在宕机的可能。在DataNode启动后，会专门启动一个`负责心跳数据包的线程`，如果整个DataNode没有任何问题，只是负责发送心跳数据包的线程挂了。NameNode会发送命令向DataNode确认，查看心跳数据包的服务是否正常，为保险起见，一般会确认2次，每5分钟一次，当两次都没有返回结果，则认为DataNode节点挂了。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220615163638693.png" alt="image-20220615163638693" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220615163638693.png" alt="image-20220615163638693" width="50%;" />
 
 ### 2.14、NN和2NN的工作机制
 
@@ -460,7 +460,7 @@ NameNode中的元数据存储在哪里？
 
 但是如果长时间添加数据到Edits中，会导致文件越来越大，效率降低，并且一旦断电，恢复元数据的时间也会加长。因此需要定期的进行FsImaeg和Edits的合并。为了不给NameNode带来压力，`引入SecondaryNameNode专门用于FsImage和Edits的合并。`
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220622193402229.png" alt="image-20220622193402229" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220622193402229.png" alt="image-20220622193402229" width="50%;" />
 
 ### 2.15、FsImage和Edits解析
 
@@ -481,7 +481,7 @@ VERSION
 
 ### 2.16、DataNode工作进制
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220622194020802.png" alt="image-20220622194020802" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220622194020802.png" alt="image-20220622194020802" width="50%;" />
 
 1. 一个数据块在DataNode上以文件形式存在在磁盘上，包括两个文件：一个是数据本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。
 2. DataNode启动后会向NameNode注册，通过后，周期性（默认6小时）的向NameNode上报所有的块信息。
@@ -504,7 +504,7 @@ YARN是一个通用的资源管理平台，为各类计算框架提供资源的�
 - **ApplicationMaster（AM）**：用户提交的应用程序均包含一个`AM`，负责应用的监控，跟踪应用执行状态，重启失败任务等。
 - **Container**：Container封装了某个节点上的多维度资源，如内存、CPU、磁盘、网络等，是YARN对资源的抽象。当AM向RM申请资源时，RM为AM返回的资源便是用Container表示的。YARN会为每个任务分配一个Container且该任务只能使用该Container中描述的资源。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220622195121351.png" alt="image-20220622195121351" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220622195121351.png" alt="image-20220622195121351" width="50%;" />
 
 ### 调度模型
 
@@ -533,7 +533,7 @@ Hadoop1.X中每个集群只有一个NaemNode，使得HDFS中存在单点故障�
 
 ### 3.1、实现手动HA
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220613210414833.png" alt="image-20220613210414833" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220613210414833.png" alt="image-20220613210414833" width="50%;" />
 
 NameNode存了两类元数据：客户端产生的动态数据，生成的目录；DataNode汇报到block位置信息。Standby（备用NameNode）通过以下两种方式同步获取Active（主NameNode）上的元数据。
 
@@ -574,11 +574,11 @@ MapReduce是一个软件框架，用于轻松编写应用程序，这些程序�
 - Map：映射过程，把一组数据按照某种Map函数映射成新的数据。一条数据进入map会被处理成多条数据，就是1进N出。
 - Reduce：归纳过程，把若干组映射结果进行汇总进行输出。一组数据进入Reduce会被归纳为一组数据（或者多组数据），也就是一组进N出。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220618201951389.png" alt="image-20220618201951389" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220618201951389.png" alt="image-20220618201951389" width="50%;" />
 
 ### 作业的生命周期
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220621142426729.png" alt="image-20220621142426729" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220621142426729.png" alt="image-20220621142426729" width="50%;" />
 
 - **作业的提交与初始化**：用户提交作业后，首先由JobClient实例将作业相关信息上传到分布式文件系统HDFS上（一般为HDFS），然后JobClient通过RPC框架通知 JobTracker（ResourceManager）。 JobTracker收到新作业提交请求之后，由作业调度模块对作业进行初始化：为作业创建一个JobInProgress对象来跟踪作业的运行状况，而JobInProgress则会为每个Task创建一个TaskInProgress对象来跟踪每个Task的运行状况，TaskInProgress可能需要管理多个Task Attempt。
 

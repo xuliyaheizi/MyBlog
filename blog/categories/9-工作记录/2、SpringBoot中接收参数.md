@@ -34,7 +34,7 @@ public JsonModel test(@RequestBody Map<String, String> map) {
 }
 ```
 
-![image-20220904165302698](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202209041653380.png)
+![image-20220904165302698](https://oss.zhulinz.top//img/202209041653380.png)
 
 ### 2、使用@RequestBody获取实体对象
 
@@ -55,7 +55,7 @@ public JsonModel<People> test(@RequestBody People people) {
 }
 ```
 
-![image-20220904165944156](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202209041659189.png)
+![image-20220904165944156](https://oss.zhulinz.top//img/202209041659189.png)
 
 ### 3、使用@RequestParam获取路径中？后的参数
 
@@ -73,7 +73,7 @@ axios.post("/test/test3?name="+name).then(res => {
 })
 ```
 
-![image-20220904170339079](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202209041703122.png)
+![image-20220904170339079](https://oss.zhulinz.top//img/202209041703122.png)
 
 ### 4、使用@PathVariable接收路径中的参数
 
@@ -91,4 +91,4 @@ axios.post("/test/test3/"+name).then(res => {
 })
 ```
 
-![image-20220904170621297](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202209041706329.png)
+![image-20220904170621297](https://oss.zhulinz.top//img/202209041706329.png)

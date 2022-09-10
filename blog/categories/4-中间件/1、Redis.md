@@ -23,7 +23,7 @@ publish: true
 
 **多样的数据结构存储持久化数据**
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220521193155461.png" alt="image-20220521193155461"/>
+<img src="https://oss.zhulinz.top//img/image-20220521193155461.png" alt="image-20220521193155461"/>
 
 **redis介绍**
 
@@ -60,7 +60,7 @@ redis的特点：
 
 （与 Memcache 三点不同: `支持多数据类型`，`支持持久化`，`单线程+多路 IO 复用`）。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220521194217299.png" alt="image-20220521194217299"/>
+<img src="https://oss.zhulinz.top//img/image-20220521194217299.png" alt="image-20220521194217299"/>
 
 Redis是`单线程`，主要是指**Redis的网络IO和键值对读写**是由一个线程来完成的，这也是Redis对外提供键值存储服务的主要流程。Redis的其他功能，如持久化、异步删除、集群数据同步等，是由额外的线程执行的。
 
@@ -71,7 +71,7 @@ Redis在启动的时候，是会**启动后台线程（BIO）的**。
 
 后台线程相当于一个消费者，生产者把耗时任务丢到任务队列中，消费者（BIO）不停轮询这个队列，拿出任务就去执行对应的方法即可。
 
-![image-20220725134733751](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311050325.png)
+![image-20220725134733751](https://oss.zhulinz.top//img/202207311050325.png)
 
 `关闭文件`、`AOF 刷盘`、`释放内存`这三个任务都有各自的任务队列：
 
@@ -97,7 +97,7 @@ Redis的大部分操作在内存上完成，且采用了高效的数据结构（
 
 下图显示了这一过程，其中，bind/listen、accept、recv、parse 和 send 属于网络 IO 处理，而 get 属于键值数据操作。既然 Redis 是单线程，那么，最基本的一种实现是在一个线程中依次执行上面说的这些操作。
 
-![image-20220724091958903](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207240920145.png)
+![image-20220724091958903](https://oss.zhulinz.top//img/202207240920145.png)
 
 但是，在这里的网络 IO 操作中，有潜在的阻塞点，分别是 accept() 和 recv()。当 Redis 监听到一个客户端有连接请求，但一直未能成功建立起连接时，会阻塞在 accept() 函数这里，导致其他客户端无法和 Redis 建立连接。类似的，当 Redis 通过 recv() 从一个客户端读取数据时，如果数据一直没有到达，Redis 也会一直阻塞在 recv()。
 
@@ -105,7 +105,7 @@ Redis的大部分操作在内存上完成，且采用了高效的数据结构（
 
 > **4、Redis的线程模型**
 
-![redis单线程模型.drawio](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251351835.webp)
+![redis单线程模型.drawio](https://oss.zhulinz.top//img/202207251351835.webp)
 
 蓝色部分是一个事件循环，由主线程负责，可以看到`网络I/O和命令处理`都是单线程。Redis初始化时：
 
@@ -182,7 +182,7 @@ redis的list push和list pop命令来实现队列。
 
 ### 2.1、五种基础类型
 
-![image-20220731113607662](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311136643.png)
+![image-20220731113607662](https://oss.zhulinz.top//img/202207311136643.png)
 
 | 结构类型         | 结构存储的值                               | 结构的读写能力                                               |
 | ---------------- | ------------------------------------------ | ------------------------------------------------------------ |
@@ -246,13 +246,13 @@ java 中的 i++是否是原子操作？**不是**
 
 i=0;两个线程分别对 i 进行++100 次,值是多少？ **2~200**
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522112446066.png" alt="image-20220522112446066"/>
+<img src="https://oss.zhulinz.top//img/image-20220522112446066.png" alt="image-20220522112446066"/>
 
 ##### 数据结构
 
 String 的数据结构为`简单动态字符串`(Simple Dynamic String,缩写 SDS)。是可以修改的字符串，内部结构实现上类似于 Java 的 `ArrayList`，采用**预分配冗余空间**的方式来减少内存的频繁分配.
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522112539492.png" alt="image-20220522112539492"/>
+<img src="https://oss.zhulinz.top//img/image-20220522112539492.png" alt="image-20220522112539492"/>
 
 如图中所示，内部为当前字符串实际分配的空间 `capacity `一般要**高于实际字符串长度len**。当字符串长度小于 1M 时，扩容都是加倍现有的空间，如果超过 1M，扩容时一次只会多扩 1M 的空间。需要注意的是字符串最大长度为 `512M`。
 
@@ -262,7 +262,7 @@ String 的数据结构为`简单动态字符串`(Simple Dynamic String,缩写 SD
 
 `链表`是简单的`字符串列表`，按照`插入顺序排序`。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。它的底层实际是个`双向链表`，对两端的操作性能很高，通过索引下标的操作中间的节点性能会较差。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522112807853.png" alt="image-20220522112807853"/>
+<img src="https://oss.zhulinz.top//img/image-20220522112807853.png" alt="image-20220522112807853"/>
 
 ```tex
 lpush/rpush <key><value1><value2><value3> ....	从左边/右边插入一个或多个值。 
@@ -281,7 +281,7 @@ lset<key><index><value>							将列表 key 下标为 index 的值替换成 valu
 
 List 的数据结构为`快速链表 quickList`。首先在列表元素较少的情况下会使用一块连续的内存存储，这个结构是 `ziplist`，也即是**压缩列表**。它将所有的元素紧挨着一起存储，分配的是一块连续的内存。当`数据量比较多`的时候才会改成` quicklist`。因为普通的链表需要的`附加指针空间太大`，`会比较浪费空间`。比如这个列表里存的只是 int 类型的数据，结构上还需要两个额外的指针` prev `和` next`。 
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522113324227.png" alt="image-20220522113324227"/>
+<img src="https://oss.zhulinz.top//img/image-20220522113324227.png" alt="image-20220522113324227"/>
 
 Redis 将`链表`和` ziplist `结合起来组成了` quicklist`。也就是将多个 ziplist 使用`双向指针`串起来使用。这样既满足了`快速的插入删除性能`，又不会出现`太大的空间冗余`。
 
@@ -316,7 +316,7 @@ Set 数据结构是 `dict 字典`，字典是用`哈希表`实现的。Java 中 
 
 主要有以下 2 种存储方式：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522113735993.png" alt="image-20220522113735993" width="45%" />
+<img src="https://oss.zhulinz.top//img/image-20220522113735993.png" alt="image-20220522113735993" width="45%" />
 
 ```tex
 hset <key><field><value>			  	          	给<key>集合中的 <field>键赋值<value> 
@@ -373,7 +373,7 @@ zset 底层使用了两个数据结构
 
 （2） 跳跃表 
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522114511831.png" alt="image-20220522114511831" width="50%" />
+<img src="https://oss.zhulinz.top//img/image-20220522114511831.png" alt="image-20220522114511831" width="50%" />
 
 - 从第 2 层开始，1 节点比 51 节点小，向后比较。21 节点比 51 节点小，继续向后比较，后面就是 NULL 了，所以从 21 节点向下到第 1 层 
 - 在第 1 层，41 节点比 51 节点小，继续向后，61 节点比 51 节点大，所以从 41 向下 
@@ -386,14 +386,14 @@ zset 底层使用了两个数据结构
 
 现代计算机用二进制（位） 作为信息的基础单位，1 个字节等于 8 位，例如“abc” 字符串是由 3 个字节组成，但实际在计算机存储时将其用二进制表示，“abc”分别对应的 ASCII 码分别是 97、 98、 99，对应的二进制分别是 01100001、01100010和 01100011，如下图 
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522184731379.png" alt="image-20220522184731379"/>
+<img src="https://oss.zhulinz.top//img/image-20220522184731379.png" alt="image-20220522184731379"/>
 
 合理地使用操作位能够有效地提高内存使用率和开发效率。Redis 提供了 Bitmaps 这个“数据类型”可以实现对位的操作： 
 
 - Bitmaps 本身不是一种数据类型， 实际上它就是字符串（key-value） ，但是它可以对字符串的位进行操作。 
 - Bitmaps 单独提供了一套命令， 所以在 Redis 中使用 Bitmaps 和使用字符串的方法不太相同。 可以把 Bitmaps 想象成一个以位为单位的数组，数组的每个单元只能存储 0 和 1， 数组的下标在 Bitmaps 中叫做偏移量。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522184824449.png" alt="image-20220522184824449"/>
+<img src="https://oss.zhulinz.top//img/image-20220522184824449.png" alt="image-20220522184824449"/>
 
 ```
 setbit<key><offset><value>				设置 Bitmaps 中某个偏移量的值（0 或 1）
@@ -513,7 +513,7 @@ OK
 
 > #### 1、SDS简单动态字符串
 
-![image-20220802083018221](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208020830604.png)
+![image-20220802083018221](https://oss.zhulinz.top//img/202208020830604.png)
 
 - 字符串长度处理：Redis获取字符串长度，时间复杂度为O(1)，而C语言中，需要从头开始遍历，复杂度为O（n）;
 - 空间预分配：字符串修改越频繁的话，内存分配越频繁，就会消耗性能，而SDS修改和空间扩充，会额外分配未使用的空间，减少性能损耗。
@@ -525,7 +525,7 @@ Redis 作为 K-V 型内存数据库，所有的键值就是用字典来存储。
 
 > #### 3、跳跃表
 
-![image-20220802083054382](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208020830785.png)
+![image-20220802083054382](https://oss.zhulinz.top//img/202208020830785.png)
 
 - 跳跃表是Redis特有的数据结构，就是在链表的基础上，增加多级索引提升查找效率。
 - 跳跃表支持平均 O（logN）,最坏 O（N）复杂度的节点查找，还可以通过顺序性操作批量处理节点。
@@ -547,7 +547,7 @@ RDB持久化，是指在`指定的时间间隔内`，`执行指定次数的写�
 
 > **1、触发方式**
 
-![RDB触发机制](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208020836500.png)
+![RDB触发机制](https://oss.zhulinz.top//img/202208020836500.png)
 
 **手动触发**
 
@@ -579,7 +579,7 @@ Redis 会`单独创建（fork）一个子进程来进行持久化`，会先将�
 - 在 `Linux`程序中，fork() 会产生一个和父进程完全相同的子进程，但子进程在此后多会 exec 系统调用，出于效率考虑，Linux 中引入了“**写时复制技术**” 。
 - **一般情况父进程和子进程会共用同一段物理内存**，只有进程空间的各段的内容要发生变化时，才会将父进程的内容复制一份给子进程。
 
-![image-20220731150728004](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311507584.png)
+![image-20220731150728004](https://oss.zhulinz.top//img/202207311507584.png)
 
 > **4、由于生产环境中我们为Redis开辟的内存区域都比较大（例如6GB），那么将内存中的数据同步到硬盘的过程可能就会持续比较长的时间，而实际情况是这段时间Redis服务一般都会收到数据写操作请求。那么如何保证数据一致性呢？**
 
@@ -587,7 +587,7 @@ RDB中的核心思路是Copy-on-Write（写时复制），来保证在进行快�
 
 举个例子：如果主线程对这些数据也都是读操作（例如图中的键值对 A），那么，主线程和 bgsave 子进程相互不影响。但是，如果主线程要修改一块数据（例如图中的键值对 C），那么，这块数据就会被复制一份，生成该数据的副本。然后，bgsave 子进程会把这个副本数据写入 RDB 文件，而在这个过程中，主线程仍然可以直接修改原来的数据。
 
-![image-20220731153014377](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311530220.png)
+![image-20220731153014377](https://oss.zhulinz.top//img/202207311530220.png)
 
 > **5、在进行快照操作的这段时间，如果发生服务崩溃怎么办？**
 
@@ -609,7 +609,7 @@ RDB中的核心思路是Copy-on-Write（写时复制），来保证在进行快�
 - 节省磁盘空间 
 - 恢复速度快
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220524000316624.png" alt="image-20220524000316624" width="45%" />
+<img src="https://oss.zhulinz.top//img/image-20220524000316624.png" alt="image-20220524000316624" width="45%" />
 
 **缺点：**
 
@@ -623,7 +623,7 @@ RDB中的核心思路是Copy-on-Write（写时复制），来保证在进行快�
 
 是指`所有的命令行记录`以Redis命令请求协议的格式`完全持久化存储`，保存为AOF文件。Redis在执行完一条写操作命令后，就会把该命令以追加的命令写入到一个文件里，然后Redis重启时，会读取该文件记录的命令，再以`逐一执行命令的方式`来进行数据恢复。
 
-![image-20220725162508622](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251639720.png)
+![image-20220725162508622](https://oss.zhulinz.top//img/202207251639720.png)
 
 **优点：**
 
@@ -654,7 +654,7 @@ AOF日志记录Redis的每个写命令，步骤为：命令追加（append）、
 2. **文件写入和同步：**然后通过` write() 系统`调用，将` aof_buf 缓冲区`的数据写入到 AOF 文件，此时数据并没有写入到硬盘，而是拷贝到了`内核缓冲区 page cache`，等待内核将数据写入硬盘；
 3. 具体内核缓冲区的数据什么时候写入到硬盘，由内核决定。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251639896.png" alt="4eeef4dd1bedd2ffe0b84d4eaa0dbdea" style="width:33%;" />
+<img src="https://oss.zhulinz.top//img/202207251639896.png" alt="4eeef4dd1bedd2ffe0b84d4eaa0dbdea" style="width:33%;" />
 
 **写回策略**
 
@@ -664,7 +664,7 @@ Redis 提供了 3 种写回硬盘的策略，控制的就是上面说的第三�
 - **Everysec**，这个单词的意思是「每秒」，所以它的意思是每次写操作命令执行完后，先将命令写入到 AOF 文件的内核缓冲区，然后每隔一秒将缓冲区里的内容写回到硬盘；
 - **No**，意味着不由 Redis 控制写回硬盘的时机，转交给操作系统控制写回的时机，也就是每次写操作命令执行完后，先将命令写入到 AOF 文件的内核缓冲区，再由操作系统决定何时将缓冲区内容写回硬盘。
 
-![image-20220725163405740](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251639746.png)
+![image-20220725163405740](https://oss.zhulinz.top//img/202207251639746.png)
 
 > **3、AOF日志过大，会触发什么机制？**（重写机制）
 
@@ -674,7 +674,7 @@ AOF 日志是一个文件，随着执行的写操作命令越来越多，文件�
 
 举个例子，在没有使用重写机制前，假设前后执行了「*set name xiaolin*」和「*set name xiaolincoding*」这两个命令的话，就会将这两个命令记录到 AOF 文件。
 
-![image-20220725163502942](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251639852.png)
+![image-20220725163502942](https://oss.zhulinz.top//img/202207251639852.png)
 
 但是**在使用重写机制后，就会读取 name 最新的 value（键值对） ，然后用一条 「set name xiaolincoding」命令记录到新的 AOF 文件**，之前的第一个命令就没有必要记录了，因为它属于「历史」命令，没有作用了。这样一来，一个键值对在重写日志中只用一条命令就行了。
 
@@ -695,7 +695,7 @@ Redis 的**重写 AOF 过程是由后台子进程` bgrewriteaof `来完成的**�
 
 在重写 AOF 期间，当 Redis 执行完一个写命令之后，它会**同时将这个写命令写入到 「AOF 缓冲区」和 「AOF 重写缓冲区」**。
 
-![image-20220725164018683](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251640869.png)
+![image-20220725164018683](https://oss.zhulinz.top//img/202207251640869.png)
 
 也就是说，在 bgrewriteaof 子进程执行 AOF 重写期间，主进程需要执行以下三个工作:
 
@@ -720,7 +720,7 @@ RDB的优点是`数据恢复速度快`，但是执行快照记录的`频率不�
 
 混合持久化工作在**AOF日志重写过程中**，在AOF重写日志时，fork() 出来的重写子进程会先将**与主线程共享的内存数据以RDB方式写入到AOF文件中**，然后主线程处理的操作命令会被记录在`重写缓冲区`里，重写缓冲区里的**增量命令会以AOF方式写入到AOF文件**，写入完成后通知主进程将新的含有RDB格式和AOF格式的AOF文件替换旧的AOF文件。使用了混合持久化的AOF文件，前半部分是`RDB格式的全量数据`，后半部分是`AOF格式的增量数据`。
 
-![image-20220725234807813](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207260000446.png)
+![image-20220725234807813](https://oss.zhulinz.top//img/202207260000446.png)
 
 好处在于，重启Redis加载数据的时候，由于前半部分是RDB内容，加载的速度会很快。加载完RDB的内容后，才会加载后半部分的AOF内容（Redis后台子进程重写AOF期间，主线程处理的操作命令），可以使得数据更少的丢失。
 
@@ -730,7 +730,7 @@ RDB的优点是`数据恢复速度快`，但是执行快照记录的`频率不�
 
 > **1、从持久化中恢复数据**
 
-![image-20220731161525752](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311615450.png)
+![image-20220731161525752](https://oss.zhulinz.top//img/202207311615450.png)
 
 1. redis重启时判断是否开启aof，如果开启了aof，那么就优先加载aof文件；
 2. 如果aof存在，那么就去加载aof文件，加载成功的话redis重启成功，如果aof文件加载失败，那么会打印日志表示启动失败，此时可以去修复aof文件后重新启动；
@@ -743,11 +743,11 @@ Redis 发布订阅 (pub/sub) 是一种**消息通信模式**：`发送者 (pub) 
 
 客户端可以订阅频道如下图 
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522121140826.png" alt="image-20220522121140826" width="40%" />
+<img src="https://oss.zhulinz.top//img/image-20220522121140826.png" alt="image-20220522121140826" width="40%" />
 
 当给这个频道发布消息后，消息就会发送给订阅的客户端
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220522121201473.png" alt="image-20220522121201473" width="40%" />
+<img src="https://oss.zhulinz.top//img/image-20220522121201473.png" alt="image-20220522121201473" width="40%" />
 
 ```sh
 SUBSCRIBE channel1		 	客户端订阅 channel1
@@ -759,7 +759,7 @@ publish channel1 hello	 	另一个客户端，给 channel1 发布消息 hello
 
 ”发布/订阅“模式包含两种角色，分别是发布者和订阅者。发布则可以向指定的频道（channel）发送消息；订阅者可以订阅一个或者多个频道（channel）。所有订阅此频道的订阅者都会收到消息。
 
-![image-20220731161845435](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311618183.png)
+![image-20220731161845435](https://oss.zhulinz.top//img/202207311618183.png)
 
 > **1、发布者发布消息**
 
@@ -794,15 +794,15 @@ Reading messages... (press Ctrl-C to quit)
 
 下图展示了一个带有频道和模式的例子， 其中` tweet.shop.* `模式匹配了` tweet.shop.kindle 频道`和` tweet.shop.ipad 频道`， 并且有不同的客户端分别订阅它们三个：
 
-![image-20220731162833246](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311628894.png)
+![image-20220731162833246](https://oss.zhulinz.top//img/202207311628894.png)
 
 当有信息发送到 tweet.shop.kindle 频道时， 信息除了发送给 clientX 和 clientY 之外， 还会发送给订阅 tweet.shop.* 模式的 client123 和 client256 ：
 
-![image-20220731162909647](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311629291.png)
+![image-20220731162909647](https://oss.zhulinz.top//img/202207311629291.png)
 
 另一方面， 如果接收到信息的是频道 tweet.shop.ipad ， 那么 client123 和 client256 同样会收到信息：
 
-![image-20220731162931862](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311629917.png)
+![image-20220731162931862](https://oss.zhulinz.top//img/202207311629917.png)
 
 ## 五、事件机制
 
@@ -813,7 +813,7 @@ Redis中的事件驱动库只关注网络IO，以及定时器。
 
 事件驱动库的代码主要是在`src/ae.c`中实现的，其实意图如下：
 
-![image-20220731170644771](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311706162.png)
+![image-20220731170644771](https://oss.zhulinz.top//img/202207311706162.png)
 
 `aeEventLoop`是整个事件驱动的核心，它管理着文件事件表和时间事件列表，不断地循环处理着就绪的文件事件和到期的时间事件。
 
@@ -831,11 +831,11 @@ Redis 采用了多路复用机制使其在网络 IO 操作中能并发处理大�
 
 Redis 使用的IO多路复用技术主要有：`select`、`epoll`、`evport`和`kqueue`等。每个IO多路复用函数库在 Redis 源码中都对应一个单独的文件，比如`ae_select.c`，`ae_epoll.c`， `ae_kqueue.c`等。Redis 会根据不同的操作系统，按照不同的优先级选择多路复用技术。事件响应框架一般都采用该架构，比如 netty 和 libevent。
 
-![image-20220731171228046](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311712122.png)
+![image-20220731171228046](https://oss.zhulinz.top//img/202207311712122.png)
 
 文件事件处理器主要有四个组成部分，分别是套接字、I/O多路复用程序、文件事件分派器以及事件处理器。
 
-![image-20220731171329477](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311713215.png)
+![image-20220731171329477](https://oss.zhulinz.top//img/202207311713215.png)
 
 文件事件是对套接字操作的抽象，每当一个套接字准备好执行 `accept`、`read`、`write`和 `close` 等操作时，就会产生一个文件事件。因为 Redis 通常会连接多个套接字，所以多个文件事件有可能并发的出现。
 
@@ -843,7 +843,7 @@ I/O多路复用程序负责监听多个套接字，并向文件事件派发器�
 
 尽管多个文件事件可能会并发地出现，但I/O多路复用程序总是会将所有产生的套接字都放到同一个队列(也就是后文中描述的aeEventLoop的fired就绪事件表)里边，然后文件事件处理器会以有序、同步、单个套接字的方式处理该队列中的套接字，也就是处理就绪的文件事件
 
-![image-20220731171352138](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311713396.png)
+![image-20220731171352138](https://oss.zhulinz.top//img/202207311713396.png)
 
 所以，一次 Redis 客户端与服务器进行连接并且发送命令的过程如上图所示。
 
@@ -858,7 +858,7 @@ I/O多路复用程序负责监听多个套接字，并向文件事件派发器�
 
 下图就是基于多路复用的 Redis IO 模型。图中的多个 FD 就是刚才所说的多个套接字。Redis 网络框架调用 epoll 机制，让内核监听这些套接字。此时，Redis 线程不会阻塞在某一个特定的监听或已连接套接字上，也就是说，不会阻塞在某一个特定的客户端请求处理上。正因为此，Redis 可以同时和多个客户端连接并处理请求，从而提升并发性。
 
-![image-20220731171516738](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311715360.png)
+![image-20220731171516738](https://oss.zhulinz.top//img/202207311715360.png)
 
 基于多路复用的Redis高性能IO模型为了在请求到达时能通知到 Redis 线程，select/epoll 提供了基于事件的回调机制，即针对不同事件的发生，调用相应的处理函数。那么，回调机制是怎么工作的呢？
 
@@ -898,7 +898,7 @@ typedef struct aeTimeEvent {
 - 如果返回值是 `AE_NOMORE`，那么这个事件是一个定时事件，该事件在达到后删除，之后不会再重复。
 - 如果返回值是非 `AE_NOMORE` 的值，那么这个事件为周期性事件，当一个时间事件到达后，服务器会根据时间处理器的返回值，对时间事件的 when 属性进行更新，让这个事件在一段时间后再次达到。
 
-![image-20220731171722492](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311717911.png)
+![image-20220731171722492](https://oss.zhulinz.top//img/202207311717911.png)
 
 服务器所有的时间事件都放在一个无序链表中，每当时间事件执行器运行时，它就遍历整个链表，查找所有已到达的时间事件，并调用相应的事件处理器。正常模式下的Redis服务器只使用serverCron一个时间事件，而在benchmark模式下，服务器也只使用两个时间事件，所以不影响事件执行的性能。
 
@@ -924,7 +924,7 @@ Redis 事务的主要作用**就是串联多个命令防止别的命令插队**�
 
 **Multi命令：**输入的命令都会依次进入命令队列中，不会执行，直到输入`exec`后才会依次执行命令。组队过程可通过`discard`放弃组队。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220523234928318.png" alt="image-20220523234928318"/>
+<img src="https://oss.zhulinz.top//img/image-20220523234928318.png" alt="image-20220523234928318"/>
 
 > **标准的事务执行**
 
@@ -1080,7 +1080,7 @@ QUEUED
 - `读写分离`，性能扩展（应用读取多个从节点的数据，只能往主节点中写数据）
 - `容灾快速恢复`。防止数据丢失，redis可以实现`高可用`，同时实现`数据的冗余备份`。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220531231808630.png" alt="image-20220531231808630" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220531231808630.png" alt="image-20220531231808630" width="50%;" />
 
 **主从复制的作用：**
 
@@ -1100,7 +1100,7 @@ redis的主从同步机制可以确保redis的master和slave之间的数据同�
 
 **全量拷贝的三个阶段**
 
-![image-20220731174859026](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311749313.png)
+![image-20220731174859026](https://oss.zhulinz.top//img/202207311749313.png)
 
 **第一阶段是主从库间建立连接、协商同步的过程**，主要是为全量复制做准备。在这一步，从库和主库建立起连接，并告诉主库即将进行同步，主库确认回复后，主从库间就可以开始同步了。
 
@@ -1118,7 +1118,7 @@ redis的主从同步机制可以确保redis的master和slave之间的数据同�
 2. 主节点接到pxync命令后首先核对参数runId是否与自身一致。如果一致，说明之前复制的是当前主节点，之后根据参数offset在自身复制积压缓冲区查找，如果偏移量之后的数据存在缓冲区中，则对从节点发送 +continue响应，表示可以进行部分复制；否则进行全量复制。
 3. 主节点根据偏移量把复制积压缓冲区里的数据发送给从节点，保证主从复制进入正常状态。
 
-![image-20220731174935350](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311749694.png)
+![image-20220731174935350](https://oss.zhulinz.top//img/202207311749694.png)
 
 `repl_backlog_buffer`：它是为了从库断开之后，如何找到主从差异数据而设计的环形缓冲区，从而避免全量复制带来的性能开销。如果从库断开时间太久，repl_backlog_buffer环形缓冲区被主库的写命令覆盖了，那么从库连上主库后只能乖乖地进行一次全量复制，所以**repl_backlog_buffer配置尽量大一些，可以降低主从断开后全量复制的概率**。而在repl_backlog_buffer中找主从差异的数据后，如何发给从库呢？这就用到了replication buffer。
 
@@ -1275,7 +1275,7 @@ masterauth 123456		//主机密码
 
 ### 8.1、哨兵的功能
 
-![image-20220731180056922](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311800116.png)
+![image-20220731180056922](https://oss.zhulinz.top//img/202207311800116.png)
 
 - **监控（Monitoring）：**哨兵会不断地检查主节点和从节点是否运作正常。
 - **自动故障转移（Automatic failover）**：当主节点不能正常工作时，哨兵会开始自动故障转移操作，它会将失效主节点的其中一个从节点升级为新的主节点，并让其他从节点改为复制新的主节点。
@@ -1289,7 +1289,7 @@ masterauth 123456		//主机密码
 
 哨兵会每隔1秒给所有主从节点发送PING命令，当主从节点收到PING命令后，会发送一个响应命令给哨兵。
 
-![image-20220726152755159](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261527094.png)
+![image-20220726152755159](https://oss.zhulinz.top//img/202207261527094.png)
 
 如果主节点或者从节点没有在规定的时间内响应哨兵的 PING 命令，哨兵就会将它们标记为「**主观下线**」。这个「规定的时间」是配置项 `down-after-milliseconds` 参数设定的，单位是毫秒。
 
@@ -1303,7 +1303,7 @@ masterauth 123456		//主机密码
 
 当一个哨兵判断主节点为「主观下线」后，就会向其他哨兵发起命令，其他哨兵收到这个命令后，就会根据自身和主节点的网络状况，做出赞成投票或者拒绝投票的响应。
 
-![image-20220726153311602](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261533359.png)
+![image-20220726153311602](https://oss.zhulinz.top//img/202207261533359.png)
 
 当这个哨兵的赞同票数达到哨兵配置文件中的 quorum 配置项设定的值后，这时主节点就会被该哨兵标记为「客观下线」。
 
@@ -1351,17 +1351,17 @@ Raft算法你可以参看这篇文章[分布式算法 - Raft算法]()
 - 选择`salve-priority`从节点优先级最高（redis.conf）的
 - 选择复制偏移量最大，只复制最完整的从节点
 
-![image-20220731181046840](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311810118.png)
+![image-20220731181046840](https://oss.zhulinz.top//img/202207311810118.png)
 
 ### 8.5、故障转移
 
 假设根据我们一开始的图：（我们假设：判断主库客观下线了，同时选出`sentinel 3`是哨兵leader）
 
-![image-20220731181128744](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311811125.png)
+![image-20220731181128744](https://oss.zhulinz.top//img/202207311811125.png)
 
 **故障转移流程如下**：
 
-![image-20220731181146703](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311811266.png)
+![image-20220731181146703](https://oss.zhulinz.top//img/202207311811266.png)
 
 - 将slave-1脱离原从节点（PS: 5.0 中应该是`replicaof no one`)，升级主节点，
 - 将从节点slave-2指向新的主节点
@@ -1370,7 +1370,7 @@ Raft算法你可以参看这篇文章[分布式算法 - Raft算法]()
 
 **转移之后**
 
-![image-20220731181229385](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207311812483.png)
+![image-20220731181229385](https://oss.zhulinz.top//img/202207311812483.png)
 
 ## 九、分片技术
 
@@ -1598,7 +1598,7 @@ public class RedisController {
 
 **缓存穿透**是指`缓存`和`数据库`中都没有的数据，而用户不断发起请求。由于缓存是`不命中时被动写`的。并且出于`容错考虑`，如果从`底层数据库`中查不到数据则不写入`缓存`，这将导致这个不存在的数据每次请求都要到底层数据库中去查询，失去了缓存的意义。当高并发或有人利用不存在的Key频繁攻击时，数据库的压力骤增，甚至崩溃，这就是`缓存穿透`问题。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220602150658494.png"/>
+<img src="https://oss.zhulinz.top//img/image-20220602150658494.png"/>
 
 **发生的场景：**
 
@@ -1617,7 +1617,7 @@ public class RedisController {
 
 缓存击穿是指`缓存中没有但数据库中有的数据`（一般是缓存时间到期，`单个key`），这时由于并发用户特别多，同时读缓存没读到数据，又同时去数据库去取数据，引起数据库压力瞬间增大，造成过大压力。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220602150915573.png" alt="image-20220602150915573"/>
+<img src="https://oss.zhulinz.top//img/image-20220602150915573.png" alt="image-20220602150915573"/>
 
 **解决方案：**
 
@@ -1626,7 +1626,7 @@ public class RedisController {
 - `使用互斥锁（Mutex Key）`：在缓存失效的时候（判断拿出来的值为空），不是立即去load db，先使用缓存工具的某些带成功操作返回值的操作（比如Redis的SETNX）去set一个mutex key，当操作返回成功时，再进行load db操作，并回设缓存，最后删除mutex key。当操作返回失败，证明有线程在load db，当前线程睡眠一段时间再去重试整个get缓存的方法。
 - `提前使用互斥锁（Mutex Key）`：在value内部设置一个比缓存（Redis）过期时间短的过期时间标识，当异步线程发现该值快过期了，马上延长内置的这个时间，并重新从数据库中加载数据，设置到缓存中去。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220601230545180.png" alt="image-20220601230545180"/>
+<img src="https://oss.zhulinz.top//img/image-20220601230545180.png" alt="image-20220601230545180"/>
 
 ### 12.3、缓存雪崩
 
@@ -1636,11 +1636,11 @@ public class RedisController {
 
 正常情况
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220602151310778.png" alt="image-20220602151310778" width="67%;" />
+<img src="https://oss.zhulinz.top//img/image-20220602151310778.png" alt="image-20220602151310778" width="67%;" />
 
 缓存失效瞬间
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220602151450025.png" alt="image-20220602151450025" width="67%;" />
+<img src="https://oss.zhulinz.top//img/image-20220602151450025.png" alt="image-20220602151450025" width="67%;" />
 
 **解决方案：**
 
@@ -1650,7 +1650,7 @@ public class RedisController {
 - `将缓存失效时间分散开`：比如我们可以在原有的失效时间基础上增加一个随机值，比如 1-5 分钟随机，这样每一个缓存的过期时间的重复率就会降低，就很难引发集体失效的事件。
 - `双Key策略：`主Key设置过期时间，备Key不设置过期时间，当主Key失效时，直接返回备Key值。在更新缓存的时候，同时更新主key和备key的数据。
 
-![image-20220726133923350](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261339883.png)
+![image-20220726133923350](https://oss.zhulinz.top//img/202207261339883.png)
 
 ### 12.3、如何设计一个缓存策略，可以动态缓存热点数据？
 
@@ -1676,7 +1676,7 @@ public class RedisController {
 
 主服务器可以进行`读写操作`，当发生写操作时自动将写操作同步给从服务器，而从服务器一般是只读，并接受主服务器同步过来写操作命令，然后执行这条命令。（主从服务器之间的命令复制是`异步`进行的）。
 
-![image-20220726001308111](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207260013261.png)
+![image-20220726001308111](https://oss.zhulinz.top//img/202207260013261.png)
 
 在主从服务器命令传播阶段，主服务器收到新的写命令后，会发送给从服务器。但是，主服务器并不会等到从服务器实际执行完命令后，发送结果给客户端。而是**主服务器自己在本地执行完命令后就会向客户端发送结果**。如果从服务器还没有执行主服务器同步过来的命令，此时主从服务器之间的数据就不一致了。（`无法保证强一致性，主从数据时时刻刻保持一致，数据不一致是无法避免的`）。
 
@@ -1684,7 +1684,7 @@ public class RedisController {
 
 在Redis的主从服务器出现故障宕机时，需要手动进行恢复。为了解决该问题，Redis增加了哨兵模式，哨兵模式的作用是监控主从服务器，并且提供了主从节点故障转移的功能。
 
-![image-20220726002108541](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207260021144.png)
+![image-20220726002108541](https://oss.zhulinz.top//img/202207260021144.png)
 
 > 切片集群模式
 
@@ -1700,7 +1700,7 @@ Redis Cluster方案采用哈希槽（Hash Slot），来处理数据与节点之�
 - **平均分配：**在使用 cluster create 命令创建 Redis集群时，Redis会自动把所有哈希槽平均分布到集群节点上。（比如集群中有9个节点，则每个节点上的槽的个数为 16384/9）。
 - **手动分配：**可以使用 cluster meet 命令手动建立节点间的连接，组成集群，再使用 cluster addslots 命令，指定每个节点上的哈希槽个数。
 
-![image-20220726093120915](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207260931168.png)
+![image-20220726093120915](https://oss.zhulinz.top//img/202207260931168.png)
 
 上图中的切片集群一共有 3 个节点，假设有 4 个哈希槽（Slot 0～Slot 3）时，我们就可以通过命令手动分配哈希槽，比如节点 1 保存哈希槽 0 和 1，节点 2 保存哈希槽 2 和 3。
 
@@ -1730,7 +1730,7 @@ Redis 使用的过期删除策略是**「惰性删除+定期删除」这两种�
 
 惰性删除策略的做法是**不主动删除全部过期键，而是每次从数据库访问 key 时，都先检测 key 是否过期，如果过期则删除 key。**
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207260938553.webp" alt="惰性删除" style="width: 33%;" />
+<img src="https://oss.zhulinz.top//img/202207260938553.webp" alt="惰性删除" style="width: 33%;" />
 
 **优点：**
 
@@ -1750,7 +1750,7 @@ Redis 使用的过期删除策略是**「惰性删除+定期删除」这两种�
 2. 检查这 20 个key是否过期，并删除已过期的key。
 3. 如果本轮检查的已过期key的数量，超过5个（20/4），也就是`已过期key的数量占比随机抽取key的数量大于25%`，则继续重复步骤1；如果已过期的key比例小于25%，则停止继续删除过期key，然后等待下一轮检查。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207260956677.webp" alt="定时删除流程" style="width:30%;" />
+<img src="https://oss.zhulinz.top//img/202207260956677.webp" alt="定时删除流程" style="width:30%;" />
 
 
 
@@ -1794,7 +1794,7 @@ AOF文件分为两个阶段，`AOF文件写入阶段`和`AOF重写阶段`
 
 举例：两个请求A和B，同时更新同一条数据，则可能出现以下的顺序：
 
-![image-20220726134419713](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261344271.png)
+![image-20220726134419713](https://oss.zhulinz.top//img/202207261344271.png)
 
 A请求先将数据库更新为1，在还没来得及更新缓存时，B请求将数据库的数据更新为2，紧接着也将缓存中数据更新为2，然后A请求更新缓存中的数据为1。此时数据库中的数据为2，而缓存中的数据是1，就出现了缓存和数据库中的数据不一致的现象。（由于并发问题，数据库更新与缓存更新是两个操作，不具有原子性）
 
@@ -1802,7 +1802,7 @@ A请求先将数据库更新为1，在还没来得及更新缓存时，B请求�
 
 与以上出现的现象可能相同
 
-![image-20220726134822176](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261348247.png)
+![image-20220726134822176](https://oss.zhulinz.top//img/202207261348247.png)
 
 **所以，无论是先更新数据库，还是先更新缓存。这两个方案都存在并发问题。当两个请求并发更新同一条数据的时候，可能会出现缓存和数据库中的数据不一致的现象。**
 
@@ -1810,7 +1810,7 @@ A请求先将数据库更新为1，在还没来得及更新缓存时，B请求�
 
 > 旁路缓存策略（Cache Aside）：不更新缓存，而是缓存中的数据。然后，到读取数据的时候，发现缓存中没了数据之后，再从数据库中读取数据，更新到缓存中。
 
-![image-20220726135232605](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261352833.png)
+![image-20220726135232605](https://oss.zhulinz.top//img/202207261352833.png)
 
 **写策略的步骤：**
 
@@ -1826,7 +1826,7 @@ A请求先将数据库更新为1，在还没来得及更新缓存时，B请求�
 
 假设某个用户的年龄是 20，请求 A 要更新用户年龄为 21，所以它会删除缓存中的内容。这时，另一个请求 B 要读取这个用户的年龄，它查询缓存发现未命中后，会从数据库中读取到年龄为 20，并且写入到缓存中，然后请求 A 继续更改数据库，将用户的年龄更新为 21。
 
-![image-20220726143421756](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261434872.png)
+![image-20220726143421756](https://oss.zhulinz.top//img/202207261434872.png)
 
 最终，该用户年龄在缓存中是 20（旧值），在数据库中是 21（新值），缓存和数据库的数据不一致。**先删除缓存，再更新数据库，在「读 + 写」并发的时候，还是会出现缓存和数据库的数据不一致的问题**。
 
@@ -1834,7 +1834,7 @@ A请求先将数据库更新为1，在还没来得及更新缓存时，B请求�
 
 假如某个用户数据在缓存中不存在，请求 A 读取数据时从数据库中查询到年龄为 20，在未写入缓存中时另一个请求 B 更新数据。它更新数据库中的年龄为 21，并且清空缓存。这时请求 A 把从数据库中读到的年龄为 20 的数据写入到缓存中。
 
-![image-20220726144044729](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261440922.png)
+![image-20220726144044729](https://oss.zhulinz.top//img/202207261440922.png)
 
 最终，该用户年龄在缓存中是 20（旧值），在数据库中是 21（新值），缓存和数据库数据不一致。由此可见先更新数据库，再删除缓存也是会出现数据不一致性的问题。**但是在实际中，这个问题出现的概率并不高。**
 
@@ -1844,7 +1844,7 @@ A请求先将数据库更新为1，在还没来得及更新缓存时，B请求�
 
 > 关于先更新数据库，再删除缓存方案，如何保证两个操作都能执行成功？
 
-![image-20220726145239543](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261452488.png)
+![image-20220726145239543](https://oss.zhulinz.top//img/202207261452488.png)
 
 在更新完数据库之后，删除缓存失败。此时数据库中的数据是新值，缓存中的值是旧值，就会出现数据不一致的问题。
 
@@ -1860,7 +1860,7 @@ A请求先将数据库更新为1，在还没来得及更新缓存时，B请求�
 - 如果应用**删除缓存失败**，可以从消息队列中重新读取数据，然后再次删除缓存，这个就是**重试机制**。当然，如果重试超过的一定次数，还是没有成功，我们就需要向业务层发送报错信息了。
 - 如果**删除缓存成功**，就要把数据从消息队列中移除，避免重复操作，否则就继续重试。
 
-![image-20220726150159823](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261502545.png)
+![image-20220726150159823](https://oss.zhulinz.top//img/202207261502545.png)
 
 > 订阅MySQL binglog，再操作缓存
 
@@ -1870,7 +1870,7 @@ A请求先将数据库更新为1，在还没来得及更新缓存时，B请求�
 
 Canal 模拟 MySQL 主从复制的交互协议，把自己伪装成一个 MySQL 的从节点，向 MySQL 主节点发送 dump 请求，MySQL 收到请求后，就会开始推送 Binlog 给 Canal，Canal 解析 Binlog 字节流之后，转换为便于读取的结构化数据，供下游程序订阅使用。
 
-![image-20220726150242699](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207261502302.png)
+![image-20220726150242699](https://oss.zhulinz.top//img/202207261502302.png)
 
 ## 参考文章
 

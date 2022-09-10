@@ -14,7 +14,7 @@ publish: true
 
   Eureka由两个组件组成：**Eureka服务端**和**Eureka客户端**。Eureka服务端就是注册中心。Eureka客户端是一个java客户端，用来简化与服务端的交互、作为轮询负载均衡器，并提供服务的故障切换支持。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1647951210909-03423fe2-3e7b-4c6f-8694-f7b2baeafeed.png" alt="image.png" width="50%" />
+<img src="https://oss.zhulinz.top//img/1647951210909-03423fe2-3e7b-4c6f-8694-f7b2baeafeed.png" alt="image.png" width="50%" />
 
 ### Erueka Server：注册中心服务端
 
@@ -138,7 +138,7 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 ### 原理图：
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1648202187464-e3f6465d-1f38-4cfd-a176-880c2526b706.png" alt="img" width="50%" />
+<img src="https://oss.zhulinz.top//img/1648202187464-e3f6465d-1f38-4cfd-a176-880c2526b706.png" alt="img" width="50%" />
 
 **CSRF攻击原理及过程：**
 
@@ -206,7 +206,7 @@ public DiscoveryClient discoveryClient(EurekaClient client,
 
 **客户端的类结构**
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1648206960983-e1e20c20-60f8-4069-bac5-3f51c53267bc.png" alt="image.png" width="50%" />
+<img src="https://oss.zhulinz.top//img/1648206960983-e1e20c20-60f8-4069-bac5-3f51c53267bc.png" alt="image.png" width="50%" />
 
 ```java
 DiscoveryClient(ApplicationInfoManager applicationInfoManager, EurekaClientConfig config, AbstractDiscoveryClientOptionalArgs args, Provider<BackupRegistry> backupRegistryProvider, EndpointRandomizer endpointRandomizer) {
@@ -616,7 +616,7 @@ public synchronized void shutdown() {
 
 PeerWareInstanceRegistry的类层次结构如下:
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/1648209049715-a3b5e826-4fa2-4a15-b260-ec50c8c655c0.png" alt="image.png" width="30%" />
+<img src="https://oss.zhulinz.top//img/1648209049715-a3b5e826-4fa2-4a15-b260-ec50c8c655c0.png" alt="image.png" width="30%" />
 
 ### 最上层的接口LeaseManager
 

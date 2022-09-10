@@ -119,7 +119,7 @@ hello world
 Tomcat的类加载器在Java的类加载器上 新增了5个类加载器.  3个基础类,每个web应用类加载器,+jsp加载器
 
 commonClassLoader        CatalinaClassLoader     shareClassLoader      webappClassLoader     JspClassLoader
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207121905218.png" alt="QQ图片20220712152131" style="width:40%;" />
+<img src="https://oss.zhulinz.top//img/202207121905218.png" alt="QQ图片20220712152131" style="width:40%;" />
 
 - **Common**：以应用类加载器为父类，是tomcat顶层的公用类加载器，其路径由conf/catalina.properties中的common.loader指定，默认指向${catalina.home}/lib下的包。
 - **Catalina**：以Common类加载器为父类，是用于加载Tomcat应用服务器的类加载器，其路径由server.loader指定，默认为空，此时tomcat使用Common类加载器加载应用服务器。

@@ -64,7 +64,7 @@ Redis内部使用`文件事件处理器`，这个`文件事件处理器是单线
 
 多个socket可能会并发产生不同的操作，每个操作对应不同的文件事件，但是IO多路复用程序会监听多个socket，会将socket产生的事件放入队列中排队，事件分派器每次从队列中取出一个事件，把该事件交给对应的事件处理器进行处理。
 
-![image-20220723104453165](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207231045246.png)
+![image-20220723104453165](https://oss.zhulinz.top//img/202207231045246.png)
 
 **客户端与Redis通信一次的流程：**
 
@@ -76,7 +76,7 @@ Redis内部使用`文件事件处理器`，这个`文件事件处理器是单线
 
 
 
-![redis单线程模型.drawio](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251416416.webp)
+![redis单线程模型.drawio](https://oss.zhulinz.top//img/202207251416416.webp)
 
 蓝色部分是一个事件循环，由主线程负责，可以看到`网络I/O和命令处理`都是单线程。Redis初始化时：
 
@@ -106,7 +106,7 @@ redis的主从同步机制可以确保redis的master和slave之间的数据同�
 
 #### 全量拷贝
 
-![image-20220723161923695](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207231707716.png)
+![image-20220723161923695](https://oss.zhulinz.top//img/202207231707716.png)
 
 1. `Slave`第一次启动时，连接`Master`，发送`psync`命令，格式为` psync {runId} {offset}`
 
@@ -253,7 +253,7 @@ save 60 10000	//60 秒之内，对数据库进行了至少 10000 次修改。
 
 是指`所有的命令行记录`以Redis命令请求协议的格式`完全持久化存储`，保存为AOF文件。Redis在执行完一条写操作命令后，就会把该命令以追加的命令写入到一个文件里，然后Redis重启时，会读取该文件记录的命令，再以`逐一执行命令的方式`来进行数据恢复。
 
-![image-20220725162508622](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251625255.png)
+![image-20220725162508622](https://oss.zhulinz.top//img/202207251625255.png)
 
 **为什么先执行命令，再把数据写入日志？**
 
@@ -278,7 +278,7 @@ save 60 10000	//60 秒之内，对数据库进行了至少 10000 次修改。
 
 #### AOF的写回策略
 
-![4eeef4dd1bedd2ffe0b84d4eaa0dbdea](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251633880.png)
+![4eeef4dd1bedd2ffe0b84d4eaa0dbdea](https://oss.zhulinz.top//img/202207251633880.png)
 
 1. Redis 执行完`写操作命令`后，会将命令追加到` server.aof_buf 缓冲区`；
 2. 然后通过` write() 系统`调用，将` aof_buf 缓冲区`的数据写入到 AOF 文件，此时数据并没有写入到硬盘，而是拷贝到了`内核缓冲区 page cache`，等待内核将数据写入硬盘；
@@ -290,7 +290,7 @@ Redis 提供了 3 种写回硬盘的策略，控制的就是上面说的第三�
 - **Everysec**，这个单词的意思是「每秒」，所以它的意思是每次写操作命令执行完后，先将命令写入到 AOF 文件的内核缓冲区，然后每隔一秒将缓冲区里的内容写回到硬盘；
 - **No**，意味着不由 Redis 控制写回硬盘的时机，转交给操作系统控制写回的时机，也就是每次写操作命令执行完后，先将命令写入到 AOF 文件的内核缓冲区，再由操作系统决定何时将缓冲区内容写回硬盘。
 
-![image-20220725163405740](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251634654.png)
+![image-20220725163405740](https://oss.zhulinz.top//img/202207251634654.png)
 
 #### AOF日志过大，会触发什么机制？
 
@@ -302,7 +302,7 @@ AOF 重写机制是在重写时，读取当前数据库中的所有键值对，�
 
 举个例子，在没有使用重写机制前，假设前后执行了「*set name xiaolin*」和「*set name xiaolincoding*」这两个命令的话，就会将这两个命令记录到 AOF 文件。
 
-![image-20220725163502942](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251635097.png)
+![image-20220725163502942](https://oss.zhulinz.top//img/202207251635097.png)
 
 但是**在使用重写机制后，就会读取 name 最新的 value（键值对） ，然后用一条 「set name xiaolincoding」命令记录到新的 AOF 文件**，之前的第一个命令就没有必要记录了，因为它属于「历史」命令，没有作用了。这样一来，一个键值对在重写日志中只用一条命令就行了。
 
@@ -323,7 +323,7 @@ RDB的优点是`数据恢复速度快`，但是执行快照记录的`频率不�
 
 混合持久化工作在**AOF日志重写过程中**，在AOF重写日志时，fork() 出来的重写子进程会先将**与主线程共享的内存数据以RDB方式写入到AOF文件中**，然后主线程处理的操作命令会被记录在`重写缓冲区`里，重写缓冲区里的**增量命令会以AOF方式写入到AOF文件**，写入完成后通知主进程将新的含有RDB格式和AOF格式的AOF文件替换旧的AOF文件。使用了混合持久化的AOF文件，前半部分是`RDB格式的全量数据`，后半部分是`AOF格式的增量数据`。
 
-![image-20220725234807813](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207252348517.png)
+![image-20220725234807813](https://oss.zhulinz.top//img/202207252348517.png)
 
 好处在于，重启Redis加载数据的时候，由于前半部分是RDB内容，加载的速度会很快。加载完RDB的内容后，才会加载后半部分的AOF内容（Redis后台子进程重写AOF期间，主线程处理的操作命令），可以使得数据更少的丢失。
 
@@ -526,7 +526,7 @@ maxmemory-policy volatile-lru
 
 ## 32、Redis的五种数据类型是如何实现的？
 
-![image-20220725104942930](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207251049925.png)
+![image-20220725104942930](https://oss.zhulinz.top//img/202207251049925.png)
 
 > String类型内部实现
 

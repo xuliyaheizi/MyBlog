@@ -31,7 +31,7 @@ static final int hash(Object key) {
 
 ## HashMap的数据结构
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207160955331.png" alt="HashMap_base" style="width:40%;" />
+<img src="https://oss.zhulinz.top//img/202207160955331.png" alt="HashMap_base" style="width:40%;" />
 
 ```java
 transient Node<K,V>[] table;

@@ -439,37 +439,37 @@ $ ls /usr/share/java/
 
 http://172.10.0.2:7180/cmf/login 账号密码：admin/admin
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081530368.png" alt="image-20220708153014867" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207081530368.png" alt="image-20220708153014867" width="80%;" />
 
 配置集群名称
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081536694.png" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207081536694.png" width="80%;" />
 
 选择集群节点
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081539462.png" alt="image-20220708153946628" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207081539462.png" alt="image-20220708153946628" width="80%;" />
 
 选择存储库
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081541701.png" alt="image-20220708154118626" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207081541701.png" alt="image-20220708154118626" width="80%;" />
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081541181.png" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207081541181.png" width="80%;" />
 
 安装JDK
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081542382.png" alt="image-20220708154233134" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207081542382.png" alt="image-20220708154233134" width="80%;" />
 
  SSH凭据，密码为容器root用户的登录密码，此处为root。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081544777.png" alt="image-20220708154415328" style="width:80%;" />
+<img src="https://oss.zhulinz.top//img/202207081544777.png" alt="image-20220708154415328" style="width:80%;" />
 
 集群安装
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081605268.png" alt="image-20220708160459833" width="80%;" />
+<img src="https://oss.zhulinz.top//img/202207081605268.png" alt="image-20220708160459833" width="80%;" />
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081613011.png" alt="image-20220708161331001" style="width:80%;" />
+<img src="https://oss.zhulinz.top//img/202207081613011.png" alt="image-20220708161331001" style="width:80%;" />
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081615354.png" alt="image-20220708161530734" style="width:80%;" />
+<img src="https://oss.zhulinz.top//img/202207081615354.png" alt="image-20220708161530734" style="width:80%;" />
 
 
 
@@ -509,4 +509,4 @@ http://172.10.0.2:7180/cmf/login 账号密码：admin/admin
 
 ## 报错
 
-![](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207081530368.png)
+![](https://oss.zhulinz.top//img/202207081530368.png)

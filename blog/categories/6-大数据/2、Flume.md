@@ -14,7 +14,7 @@ Flume是Cloudera提供的一个高可用的，高可靠的，分布式的海量�
 
 Flume 事件被定义为具有字节有效负载和一组可选字符串属性的数据流单元。Flume 代理是一个（JVM）进程，它托管事件从外部源流到下一个目标（跃点）的组件。Flume主要的作业是实时读取服务器本地磁盘的数据，将数据写入HDFS。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220623152049503.png" alt="image-20220623152049503" width="50%;" />
+<img src="https://oss.zhulinz.top//img/image-20220623152049503.png" alt="image-20220623152049503" width="50%;" />
 
 ### 工作流程
 

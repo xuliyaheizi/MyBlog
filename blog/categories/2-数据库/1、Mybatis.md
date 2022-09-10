@@ -556,7 +556,7 @@ mybatis二级缓存对细粒度的数据级别的缓存实现不好，比如如�
 
 **执行MBG插件的generate目标**
 
-![image-20220821164850600](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202208211648404.png)
+![image-20220821164850600](https://oss.zhulinz.top//img/202208211648404.png)
 
 ### 4.2、QBC查询
 

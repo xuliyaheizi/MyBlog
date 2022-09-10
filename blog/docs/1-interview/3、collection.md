@@ -182,7 +182,7 @@ JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大�
 
 Map.EntryHashMap 在**静态嵌套类实现中存储键值对**。HashMap 做`散列算法`，在`put and get`方法中使用`hashCode()`和`equals()`方法。当我们通过传递键值对调用put方法时，HashMap使用Key hashCode()和散列来找出索引来存储键值对，条目存储在` LinkedList（数组每个位置存储链表）`中，因此如果已经存在条目，则使用 equals() 方法检查传递的键是否已存在，如果`存在则覆盖值`，否则创建新条目并存储此键值条目.当我们通过传递Key调用get方法时，它再次使用hashCode()来查找数组中的索引，然后使用equals()方法找到正确的Entry并返回它的值。下图将清楚地解释这些细节。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207131853000.png" alt="image-20220713185302133" style="width:50%;" />
+<img src="https://oss.zhulinz.top//img/202207131853000.png" alt="image-20220713185302133" style="width:50%;" />
 
 关于 HashMap 需要了解的其他重要事项是`容量`、`负载因子`、`阈值调整大小`。HashMap `初始默认容量为 16`，`负载因子为 0.75`。`阈值是容量乘以负载因子`，每当我们尝试添加条目时，如果映射大小大于阈值，HashMap 会将映射的内容重新散列到具有更大容量的新数组中。容量始终是 2 的幂，因此如果您知道需要存储大量键值对，例如在缓存数据库中的数据时，最好使用正确的容量和负载因子初始化 HashMap。
 
@@ -264,7 +264,7 @@ HashMap和HashTable都实现了Map接口，两者的区别：
 
 > #### 11、HashMap的put流程？
 
-![image-20220727203618342](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272036445.png)
+![image-20220727203618342](https://oss.zhulinz.top//img/202207272036445.png)
 
 1. 首先进行哈希值的扰动，获取一个新的哈希值。`(key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);`
 
@@ -285,7 +285,7 @@ HashMap和HashTable都实现了Map接口，两者的区别：
 
 > #### 12、HashMap元素的查找？
 
-![image-20220727203711313](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272037563.png)
+![image-20220727203711313](https://oss.zhulinz.top//img/202207272037563.png)
 
 1. 使用扰动函数，获取新的哈希值
 2. 计算数组下标，获取节点
@@ -313,7 +313,7 @@ static final int hash(Object key) {
 - **平方取中法：**取key平方的中间几位作为映射的位置。
 - **折叠法：**将key分割成位数相同的几段，然后把它们的叠加和作为映射的位置。
 
-![image-20220727204640415](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272046170.png)
+![image-20220727204640415](https://oss.zhulinz.top//img/202207272046170.png)
 
 > #### 15、解决哈希冲突有哪些方法？
 
@@ -327,7 +327,7 @@ static final int hash(Object key) {
   - 平方探查法: 从冲突的位置x开始，第一次增加`1^2`个位置，第二次增加`2^2`…，直至找到空闲的位置
   - ……
 
-  ![image-20220727205434860](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207280926885.png)
+  ![image-20220727205434860](https://oss.zhulinz.top//img/202207280926885.png)
 
 - **再哈希法：**换种哈希函数，重新计算冲突元素的地址。
 
@@ -396,7 +396,7 @@ ConcurrentHashMap在JDK1.7中是**使用分段锁实现的**，在JDK1.8中**是
 
 实际上就是相当于每个Segment都是一个HashMap，默认的Segment长度也是16，也就是支持16个线程的并发写，Segment之间相互不会受到影响。
 
-![image-20220727215929054](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272159137.png)
+![image-20220727215929054](https://oss.zhulinz.top//img/202207272159137.png)
 
 **put流程**
 
@@ -406,7 +406,7 @@ ConcurrentHashMap在JDK1.7中是**使用分段锁实现的**，在JDK1.8中**是
 2. 使用ReentrantLock加锁，如果获取锁失败则尝试自旋，自旋超过次数就阻塞获取，保证一定获取锁成功。
 3. 遍历HashEntry，就是和HashMap一样，数组中key和hash一样就直接替换，不存在就再插入链表，链表同样操作。
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272206666.jpg" alt="微信图片_20220727220441" style="width:33%;" />
+<img src="https://oss.zhulinz.top//img/202207272206666.jpg" alt="微信图片_20220727220441" style="width:33%;" />
 
 **get流程**
 
@@ -493,7 +493,7 @@ jdk1.8实现线程安全不是在数据结构上下功夫，它的数据结构�
 
 4. 如果都不满足，就使用Synchronized写入数据，写入数据同样判断链表、红黑树，链表写入和HashMap的方式一样，key hash一样被覆盖，反之就尾插法，链表长度超过8就转换红黑树。
 
-   ![微信图片_20220727221428](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272214659.jpg)
+   ![微信图片_20220727221428](https://oss.zhulinz.top//img/202207272214659.jpg)
 
    **get查询**
 
@@ -511,7 +511,7 @@ jdk1.8实现线程安全不是在数据结构上下功夫，它的数据结构�
 4. 每个红色的两个子节点一定是黑色的。
 5. 从任一节点到其子树中每个叶子节点的路径都包含相同数量的黑色节点。
 
-![image-20220727203125808](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272031779.png)
+![image-20220727203125808](https://oss.zhulinz.top//img/202207272031779.png)
 
 > 为什么不用二叉树？
 
@@ -527,11 +527,11 @@ jdk1.8实现线程安全不是在数据结构上下功夫，它的数据结构�
 
 LinkedHashMap维护了一个双向链表，有头尾节点，同时 LinkedHashMap 节点 Entry 内部除了继承 HashMap 的Node属性，还有before和after用于标识前置节点和后置节点。
 
-![image-20220727222601652](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207280928178.png)
+![image-20220727222601652](https://oss.zhulinz.top//img/202207280928178.png)
 
 可以实现按插入的顺序或访问顺序排序。
 
-![image-20220727222637892](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272226342.png)
+![image-20220727222637892](https://oss.zhulinz.top//img/202207272226342.png)
 
 ### 2.5、TreeMap
 
@@ -539,7 +539,7 @@ LinkedHashMap维护了一个双向链表，有头尾节点，同时 LinkedHashMa
 
 TreeMap是按照key的自然顺序或者Comparator的顺序进行排序，内部是通过红黑树来实现。所以要么key所属的类实现Comparable接口，或者自定义一个实现了Comparator接口的比较器，传给TreeMap用于key的比较。
 
-![image-20220727223334298](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272233986.png)
+![image-20220727223334298](https://oss.zhulinz.top//img/202207272233986.png)
 
 ## 三、List（有序、可重复）
 
@@ -639,7 +639,7 @@ ArrayList使用`transient`修饰存储元素的`elementData[]`的数组。`trans
 
 ArrayList通过两个方法`readObject、writeObject`自定义序列化和反序列化策略，实际直接使用两个流`ObjectOutputStream`和`ObjectInputStream`来进行序列化和反序列化。
 
-![微信图片_20220727202006](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272020078.png)
+![微信图片_20220727202006](https://oss.zhulinz.top//img/202207272020078.png)
 
 > #### 有哪几种实现ArrayList线程安全的方法？
 
@@ -722,7 +722,7 @@ public boolean add(E e) {
 }
 ```
 
-![image-20220727223624142](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207272236464.png)
+![image-20220727223624142](https://oss.zhulinz.top//img/202207272236464.png)
 
 而在HashMap的putVal方法中，进行了一系列判断，最后的结果是，只有在key在table数组中不存在的时候，才会返回插入的值。
 

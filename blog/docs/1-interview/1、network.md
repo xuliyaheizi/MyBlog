@@ -12,7 +12,7 @@ categories:
 
 > 计算机网络体系大致分为三种，OSI七层模型、TCP/IP四层模型和五层模型。
 
-![image-20220713090501690](https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207130905026.png)
+![image-20220713090501690](https://oss.zhulinz.top//img/202207130905026.png)
 
 TCP/IP五层模型：应用层、传输层、网络层、数据链路层、物理层。 
 
@@ -56,7 +56,7 @@ TCP/IP五层模型：应用层、传输层、网络层、数据链路层、物�
 
 ## 3、三次握手
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207130921863.png" alt="image-20220713092105769" style="width:50%;" />
+<img src="https://oss.zhulinz.top//img/202207130921863.png" alt="image-20220713092105769" style="width:50%;" />
 
 1. 第一次握手：客户端向服务端发起`建立连接请求`，客户端会随机生成一个`起始序列号x`，客户端向服务端发送的字段中包含`标志位SYN=1`，`序列号seq=x`。第一次握手前客户端的状态为CLOSE，第一次握手后客户端的状态为`SYN-SENT`。此时服务端的状态为`LISTEN`。 (客户端---->服务端)
 2. 第二次握手：服务端在收到客户端发来的报文后，会随机生成一个`服务端的起始序列号y`，然后给客户端回复一段报文，其中包括`标志位SYN=1`，`ACK=1`，`序列号seq=y`，`确认号ack=x+1`。第二次握手前服务端的状态为`LISTEN`，第二次握手后服务端的状态为`SYN-RCVD`，此时客户端的状态为`SYN-SENT`。（其中`SYN=1表示要和客户端建立一个连接`，`ACK=1表示确认序号有效`） (服务端--->客户端；服务端确认)
@@ -95,7 +95,7 @@ TCP/IP五层模型：应用层、传输层、网络层、数据链路层、物�
 
 ## 5、四次挥手
 
-<img src="https://knowledgeimagebed.oss-cn-hangzhou.aliyuncs.com/img/202207130944909.png" alt="image-20220713094443505" style="width:50%;" />
+<img src="https://oss.zhulinz.top//img/202207130944909.png" alt="image-20220713094443505" style="width:50%;" />
 
 1. A的应用进程先向其TCP发出连接释放报文段（FIN=1，seq=u），并停止再发送数据，主动关闭TCP连接，进入FIN-WAIT-1（终止等待1）状态，等待B的确认。 
 2. B收到连接释放报文段后即发出确认报文段（ACK=1，ack=u+1，seq=v），B进入CLOSE-WAIT（关闭等待）状态，此时的TCP处于半关闭状态，A到B的连接释放。 
