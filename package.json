@@ -15,6 +15,7 @@
     "@vuepress-reco/vuepress-plugin-loading-page": "^1.6.0",
     "@vuepress-reco/vuepress-plugin-pagation": "^1.6.0",
     "@vuepress/plugin-blog": "^1.9.4",
+    "@vuepress/plugin-google-analytics": "^1.9.7",
     "@vuepress/plugin-medium-zoom": "^1.8.0",
     "@vuepress/plugin-pwa": "^1.8.0",
     "docsearch.js": "^2.6.3",
