@@ -30,8 +30,6 @@ module.exports = {
             {text: '主页', link: '/', icon: 'reco-home'},
             {text: "文档", link: "/docs/", icon: "reco-message",},
             {text: '归档', link: '/archives.html', icon: 'reco-date'},
-            // {text: '标签', link: '/tags.html', icon: 'reco-tag'},
-            // {text: '域名', link: '/domains.html', icon: 'reco-other'},
             {text: '关于', link: '/about.html', icon: 'reco-account'},
         ],
         //自定义侧边栏-左
@@ -50,20 +48,12 @@ module.exports = {
                 location: 2, // 在导航栏菜单中所占的位置，默认2
                 text: '分类' // 默认 “分类”
             },
-            // tag: {
-            //   location: 3, // 在导航栏菜单中所占的位置，默认3
-            //   text: '标签' // 默认 “标签”
-            // },
             socialLinks: [ // 信息栏展示社交信息
                 {icon: 'reco-github', link: 'https://github.com/xuliyaheizi'},
                 {icon: 'reco-juejin', link: 'https://juejin.cn/user/3822316104984333'},
                 {icon: 'reco-csdn', link: 'https://blog.csdn.net/qq_47966518?spm=1000.2115.3001.5343'}
             ]
         },
-        // valineConfig: {
-        //   appId: '3znsWxW1sRV7n0V9JLVnvNvU-gzGzoHsz',
-        //   appKey: 'A86PspcsyWBHnmoP9ck4Af54',
-        // },
         logo: '/avatar.webp',
         authorAvatar: '/avatar.webp',
         search: true,
@@ -84,28 +74,14 @@ module.exports = {
         docsDir: 'blog',
         docsBranch: 'zhulin',
         editLinks: true,
-        /**
-         * 密钥 (if your blog is private)
-         */
         friendLink: [
-            // {
-            //     title: '午后南杂',
-            //     desc: 'Enjoy when you can, and endure when you must.',
-            //     email: '1156743527@qq.com',
-            //     link: 'https://www.recoluan.com'
-            // },
+            {
+                title: 'Eureka\'s blog',
+                // desc: 'Enjoy when you can, and endure when you must.',
+                // email: '1156743527@qq.com',
+                link: 'https://blog.fengxianhub.top/#/README'
+            },
         ],
-        /**
-         * support for
-         * '' | 'default'
-         * 'coy'
-         * 'dark'
-         * 'funky'
-         * 'okaidia'
-         * 'solarizedlight'
-         * 'tomorrow'
-         * 'twilight'
-         */
     },
     plugins: [
         // 更新刷新插件
@@ -157,12 +133,11 @@ module.exports = {
         }],
         //谷歌统计
         ['@vuepress/google-analytics', {
-            'ga': 'UA-233962372-2' // UA-00000000-0
+            'ga': 'UA-233962372-2'
         }
         ],
         // 音乐插件
         ['meting', {
-            //metingApi: "https://meting.sigure.xyz/api/music",
             meting: {
                 // 网易
                 server: "netease",

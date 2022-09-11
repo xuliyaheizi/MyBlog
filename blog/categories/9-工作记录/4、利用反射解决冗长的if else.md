@@ -4,7 +4,7 @@ date: 2022-09-04
 tags:
  - 反射
 categories:
- - 文章创作
+ - 工作
 publish: true
 ---
 :::tip
@@ -48,7 +48,7 @@ publish: true
 
 ### 2、获取成员变量
 
-获取类的字段有两种方式：getFields()和getDeclaredFields()
+获取类的字段有两种方式：`getFields()`和`getDeclaredFields()`
 
 - getFields()：获取某个类的所有公共(public)的字段，包括父类中的字段
 - getDeclaredFields()：获取某个类的所有声明的字段，即包括public、private和protected，但是不包括父类的声明字段

@@ -4,7 +4,7 @@ date: 2022-09-04
 tags:
  - SpringBoot
 categories:
- - 文章创作
+ - 工作
 publish: true
 ---
 ## SpringBoot中接收参数的注解

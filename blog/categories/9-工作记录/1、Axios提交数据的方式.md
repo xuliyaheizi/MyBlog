@@ -4,7 +4,7 @@ date: 2022-09-04
 tags:
  - axios
 categories:
- - 文章创作
+ - 工作
 publish: true
 ---
 ## Post提交数据的三种方式
