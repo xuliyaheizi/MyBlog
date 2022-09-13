@@ -1,6 +1,7 @@
 ---
 title: 操作Excel
 date: 2022-09-04
+description: 项目开发中总能遇到各种对excel报表的操作，描述下几种便于操作excel的工具类。
 tags:
  - excel
 categories:

@@ -1,6 +1,7 @@
 ---
 title: SpringBoot中接收参数
 date: 2022-09-04
+description: SpringBoot接收参数的方式。
 tags:
  - SpringBoot
 categories:

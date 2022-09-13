@@ -1,6 +1,7 @@
 ---
 title: Hadoop集群配置
-date: 2022-09-04
+date: 2022-07-28
+description: 大数据学习，Hadoop生态组件的安装与配置
 tags:
  - Hadoop
 categories:

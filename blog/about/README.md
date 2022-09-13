@@ -1,6 +1,7 @@
 ---
 title: 关于
 date: 2022-09-08
+description: 关于作者的介绍
 sidebar: auto
 sidebarDepth: 2
 permalink: /about.html

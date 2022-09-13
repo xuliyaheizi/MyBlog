@@ -1,6 +1,7 @@
 ---
 title: 实体对象
-date: 2022-09-03
+date: 2022-07-14
+description: 在Java开发对各种实体对象的描述
 tags:
  - Java
 categories:

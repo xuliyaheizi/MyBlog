@@ -1,6 +1,7 @@
 ---
 title: cloudreve搭建
-date: 2022-09-04
+date: 2022-08-15
+description: 配置cloudreve搭建一套属于自己的网盘系统
 tags:
  - cloudreve
 categories:
