@@ -1,6 +1,7 @@
 ---
-title: Curator
+title: Curator框架
 date: 2022-09-04
+description: 为了更好的实现java操作zookeeper服务器，后来出现Curator框架，非常的强大，目前已经是apache的顶级项目，里面提供了更多丰富的操作。例如：session超时重连，主从选举，分布式计数器，分布式锁等适用于各种复杂的zookeeper场景的API封装。
 tags:
  - 分布式锁
 categories:

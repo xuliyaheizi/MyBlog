@@ -5,6 +5,6 @@ tags:
  - OPenFeign
 categories:
  - SpringCloud
-publish: true
+publish: false
 ---
 

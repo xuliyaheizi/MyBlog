@@ -5,6 +5,6 @@ tags:
  - Ribbon
 categories:
  - SpringCloud
-publish: true
+publish: false
 ---
 

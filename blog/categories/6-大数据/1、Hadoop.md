@@ -1,6 +1,7 @@
 ---
-title: Hadoop
-date: 2022-09-04
+title: Hadoop生态体系
+date: 2022-06-12
+description: Hadoop是一个由Apache基金会所开发的分布式系统基础架构，主要解决海量数据的存储和海量数据的分析计算问题。广义上说，Hadoop是指Hadoop生态圈。
 tags:
  - Hadoop
 categories:

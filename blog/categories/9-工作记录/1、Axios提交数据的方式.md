@@ -1,6 +1,6 @@
 ---
 title: Axios提交数据的方式
-date: 2022-09-04
+date: 2022-09-01
 description: 在前端中使用axios提交数据的方式
 tags:
  - axios

@@ -6,7 +6,7 @@ tags:
  - JVM
 categories:
  - Java
-publish: true
+publish: false
 ---
 
 > jvm在什么情况下会加载一个类?

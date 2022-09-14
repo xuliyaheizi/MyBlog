@@ -1,6 +1,7 @@
 ---
 title: Map-HashMap源码阅读
-date: 2022-09-04
+date: 2022-07-19
+description: HashMap容器`不保证元素顺序`，根据需要可能会对元素`重新哈希`，元素的顺序也会被重新打散，因此不同时间迭代同一个HashMap的顺序可能会不同。并且根据对冲突的处理方式不同，哈希表有两种实现方式，一种开放地址方式(open addressing)，另一种是冲突链表方式(Separate chaining with linked lists)。
 tags:
  - Collection
  - Map

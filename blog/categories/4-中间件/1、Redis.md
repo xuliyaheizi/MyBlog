@@ -1,6 +1,7 @@
 ---
-title: Redis
-date: 2022-09-04
+title: 缓存数据库Redis的学习记录
+date: 2022-08-16
+description: Redis 是一个开源的 key-value 存储系统（内存高速缓存数据库）。和 Memcached类似，它支持存储的 value 类型相对更多，包括 string(字符串)、list(链表)、set(集合)、zset(sorted set --有序集合)和 hash（哈希类型）。这些数据类型都支持 push/pop、add/remove 及取交集并集和差集及更丰富的操作，而且这些操作都是原子性的。在此基础上，Redis 支持各种不同方式的排序。与 memcached 一样，为了保证效率，数据都是缓存在内存中。区别的是 Redis 会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件。并且在此基础上实现了master-slave(主从)同步。
 tags:
  - Redis
 categories:

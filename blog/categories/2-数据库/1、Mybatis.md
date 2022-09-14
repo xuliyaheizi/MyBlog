@@ -1,6 +1,7 @@
 ---
-title: MyBatis
-date: 2022-09-04
+title: MyBatis半自动的ORM框架
+date: 2022-08-20
+description: MyBatis 是一款支持定制化 SQL、存储过程以及高级映射的优秀的持久层框架。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。
 tags:
  - MyBatis
 categories:

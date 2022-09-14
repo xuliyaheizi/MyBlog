@@ -1,14 +1,13 @@
 ---
-title: Swagger
-date: 2022-09-04
+title: Swagger在线文档
+date: 2022-08-23
+description: Swagger是一款RESTFUL接口的文档在线自动生成+功能测试功能软件。Swagger是一个规范和完整的框架,用于生成、描述、调用和可视化RESTful风格的Web服务。目标是使客户端和文件系统作为服务器以同样的速度来更新文件的方法,参数和模型紧密集成到服务器。
 tags:
  - api文档
 categories:
  - 中间件
 publish: true
 ---
-
-查看地址url：项目地址/doc.html
 
 ## 一.是什么？
 

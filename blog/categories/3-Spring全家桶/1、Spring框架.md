@@ -1,6 +1,7 @@
 ---
-title: Spring
-date: 2022-09-04
+title: Spring框架
+date: 2022-08-13
+description: Spring 是个java企业级应用的开源开发框架。Spring主要用来开发Java应用，但是有些扩展是针对构建J2EE平台的web应用。Spring 框架目标是简化Java企业级应用开发，并通过POJO为基础的编程模型促进良好的编程习惯。
 tags:
  - Spring
 categories:

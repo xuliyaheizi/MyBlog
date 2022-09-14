@@ -5,5 +5,5 @@ tags:
  - GetWay
 categories:
  - SpringCloud
-publish: true
+publish: false
 ---

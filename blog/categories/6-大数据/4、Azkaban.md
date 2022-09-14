@@ -1,6 +1,7 @@
 ---
 title: Azkaban工作流调度系统
-date: 2022-09-04
+date: 2022-06-30
+description: 一个完整的数据分析系统通常都是由大量任务单元组成：shell脚本程序、java程序、mapreduce程序、hive脚本等。各任务单元之间存在时间先后及前后依赖关系。为了很好地组织起这样的复杂执行计划，需要一个工作流调度系统来调度执行。
 tags:
  - azkaban
 categories:

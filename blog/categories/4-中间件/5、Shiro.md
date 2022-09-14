@@ -5,12 +5,15 @@ tags:
  - shiro
 categories:
  - 中间件
-publish: true
+publish: false
 ---
 
 ## 定义
+
 shiro是一个功能强大且易于使用的Java安全框架，它执行身份验证、授权、加密和会话管理。
+
 ## Shiro核心架构
+
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/22980297/1646796622378-67b770f2-a9ad-419f-a3ee-aa4e096180b2.png#clientId=ua7d078d8-e1e0-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=230&id=u3ab18f86&name=image.png&originHeight=307&originWidth=385&originalType=binary&ratio=1&rotation=0&showTitle=false&size=116313&status=done&style=shadow&taskId=u54cde148-857f-4c79-904e-c4379dca628&title=&width=289)
 ## Subject
 **subject即主体**，外部应用与subject进行交互，subject记录了当前的操作用户，将用户的概率理解为当前操作的主体。外部程序通过subject进行认证授权，而subject是通过**SecurityManager**安全管理器进行认证授权
@@ -56,7 +59,6 @@ Cryptography即密码管理，shiro提供了一套加密/解密的组件，方�
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/22980297/1647051992127-cbc8c88a-8e7d-4baf-9ab0-708868d0a3bb.png#clientId=ubc6f0d2f-a17e-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=569&id=u50e4657f&name=image.png&originHeight=758&originWidth=1337&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1300314&status=done&style=shadow&taskId=uf3ffb5aa-f046-449a-a1d9-7def7cc02f4&title=&width=1003)
 
 ![image.png](https://cdn.nlark.com/yuque/0/2022/png/22980297/1647052792230-cb50c656-706f-4815-aa78-59610ea4a780.png#clientId=ubc6f0d2f-a17e-4&crop=0&crop=0&crop=1&crop=1&from=paste&height=627&id=ubbd81b82&name=image.png&originHeight=835&originWidth=1150&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1277323&status=done&style=shadow&taskId=u0a0cc914-b634-4c89-82da-0761f907c09&title=&width=863)
-
 
 
 

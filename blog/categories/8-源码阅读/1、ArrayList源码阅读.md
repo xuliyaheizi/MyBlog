@@ -1,6 +1,7 @@
 ---
 title: Collection-ArrayList源码阅读
-date: 2022-09-04
+date: 2022-07-18
+description: ArrayList继承自 `AbstractList`，实现了 List 接口。底层基于`数组`实现`容量大小动态变化`（扩容机制）。允许 `null `的存在。同时还实现了 `RandomAccess`、`Cloneable`、`Serializable `接口，所以ArrayList 是支持`快速访问`、`复制`、`序列化`的。每个ArrayList都有一个容量（DEFAULT_CAPACITY默认初始容量为10），表示底层数组的实际大小，容器内存储的元素个数不能多于当前容量。容量不足的时候，容器会自动增大底层数组的大小。底层数组是一个Object数组，以便能够容纳任何类型的对象。
 tags:
  - Collection
  - List
