@@ -1,36 +1,49 @@
 <template>
-  <div class="test1-wrapper">
-    <div class="story_xz">
-      <pre>
-                一年前，我偶然看见了这样一个漫画，是这样一个关于环境保护的手绘海报，看完过后感触颇深，当资源耗尽，当垃圾成山，人类文明或许将不复存在。
-
-                我曾经这样想过“全球有75.95亿人口，渺渺众生，我不过是沧海一粟，我知道要保护环境，但我的人生不过须臾，改变不了什么，我只是大多数，一个
-                普通人”
-               
-                可是环境就在我的身边。
-
-                回想起多年来的资源浪费。
-
-            每年寝室门口堆积成山，无处堆放的物品，  
-             
-            那些在寝室,房间，用高昂的价格购买，慢慢铺上灰尘的物品,那些放在书架上，慢慢被遗忘的书籍，会不会是某些人，此时此刻刚好需要的呢？
-
-            那些闲置的物品一定也想重见天日吧，在落满灰尘的角落里默默的等待着，哪一天还能被记得，它们应实现它应有的价值，让每一个“闲质”物品有尊严的流动
-           
-            起来！
-           
-            想到这些，希望可以为自己身边的环境做些什么，希望有一个平台，去将我们身边的“闲质”物品流转起来，可是网上开发一个小程序需要数万元，
-           
-            我没有资金，没有技术，只有身边的朋友，和希望做些什么的决心，5个人，一年时间，不知道的技术就自己去网上学，没有资金就我们自己凑
-           
-            于是“闲质”这个小程序诞生了，一个只做长医一公里以内的二手平台，我们长沙医学院计算机协会出品
-           
-            我们的模式:不需要等快递，不需要加联系方式，保护隐私，下单当天就可以直接拿到看得见摸得着的商品，平台保护2天试用期，全面了解闲置商品的质量
-           
-            想必你也苦于跳蚤市场没有售后，找不到二手平台而感到烦恼吧，对此，计算机协会倾情打造一个为长医学子量身定做的看的见的二手平台。还在等什么，快点
-            加入我们吧
-      </pre>
-     </div>
+  <div class="main">
+    <div class="title">
+      <h1>使用指南</h1>
+    </div>
+    <div class="content">
+      <div class="buy-info">
+        <div class="buy-info-title">
+          <h2>一、卖家须知</h2>
+        </div>
+        <div class="buy-info-cont">
+          <h3>1.如何卖闲置物品</h3>
+          <ul>
+            <li>(1)闲置小程序导航栏中点击发布选择闲置转让</li>
+            <li>(2)填写相关闲置物品信息并提交</li>
+            <li>(3)根据填写的发货方式进行物品交易</li>
+            <li>(4)审核,物品到账</li>
+          </ul>
+          <h3>2.提现什么时候到账？有门槛吗？</h3>
+          <p>物品审核完成后发至个人中心的钱包账,72之内可以提现至绑定的银行卡账户</p>
+          <h3>3.审核不通过的物品如何处理？</h3>
+          <p>请详细阅读发布规则后,重新处理</p>
+          <h3>4.争议处理</h3>
+          <p>物品审核完成后如有异议,请在3日内提出,若超过3日则不再受理。</p>
+        </div>
+      </div>
+      <div class="sell-info">
+        <div class="sell-info-title">
+          <h2>二、买家须知</h2>
+        </div>
+        <div class="sell-info-cont">
+          <h3>1.完善个人信息</h3>
+          <p>在购买商品前,买家一定要注意一下自己的个人信息,尽量设置好头像和昵称。</p>
+          <h3>2.与卖家协商交易地点和时间</h3>
+          <p>
+            商品下单后,及时与卖家确定交易的时间和地点,确保商品准时到达买家手上。
+          </p>
+          <h3>3.买家收到货后仔细检查再确认收货</h3>
+          <p>商品到手后,不要急着签收,可以先录制一个开箱视频,把物品外观仔细拍下来,以防和描述不符卖家又污蔑是发出后人为造成的
+            确认没问题后就可以确认收货了，尽量不要拖，给卖家造成困扰。
+          </p>
+          <h3>4.售后处理</h3>
+          <p></p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -48,32 +61,88 @@ export default {
   data() {
     return {}
   },
-  methods:{
+  methods: {
     playerInit() {
-      document.getElementById("aplayer-fixed").style.display='none';
-    }
+      document.getElementById("aplayer-fixed").style.display = 'none';
+    },
   },
   mounted() {
     this.playerInit();
   }
 }
+
+(function flexible(window, document) {
+  var docEl = document.documentElement
+  var dpr = window.devicePixelRatio || 1
+
+  // adjust body font size
+  function setBodyFontSize() {
+    if (document.body) {
+      document.body.style.fontSize = (12 * dpr) + 'px'
+    } else {
+      document.addEventListener('DOMContentLoaded', setBodyFontSize)
+    }
+  }
+
+  setBodyFontSize();
+
+  // set 1rem = viewWidth / 10
+  function setRemUnit() {
+    var rem = docEl.clientWidth / 10
+    docEl.style.fontSize = rem + 'px'
+  }
+
+  setRemUnit()
+
+  // reset rem unit on page resize
+  window.addEventListener('resize', setRemUnit)
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) {
+      setRemUnit()
+    }
+  })
+
+  // detect 0.5px supports
+  if (dpr >= 2) {
+    var fakeBody = document.createElement('body')
+    var testElement = document.createElement('div')
+    testElement.style.border = '.5px solid transparent'
+    fakeBody.appendChild(testElement)
+    docEl.appendChild(fakeBody)
+    if (testElement.offsetHeight === 1) {
+      docEl.classList.add('hairlines')
+    }
+    docEl.removeChild(fakeBody)
+  }
+}(window, document))
 </script>
 <style src="../styles/theme.styl" lang="stylus"></style>
 <style scoped>
-.test1-wrapper {
-  background: url("../../public/bgImage/test1.png") center/cover no-repeat;
-  height: 1024px;
-  margin: 0 auto;
-  padding: 0;
+.main {
+  font-size: 25px;
+  font-family: kaiTi;
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px 5px #cdcfcf;
 }
-.story_xz{
-  padding: 5rem 10rem;
+
+.main .title {
+  text-align: center;
+}
+
+.main .content {
+  margin: 50px auto;
   width: 80%;
+  border-radius: 20px;
+
+
 }
-.story_xz pre{
-  margin: 0 auto;
-  word-break: break-all;
-  white-space: pre-wrap;
+
+.content .buy-info-cont ul {
+  list-style: none;
 }
 
 </style>
