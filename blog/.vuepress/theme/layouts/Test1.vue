@@ -59,62 +59,58 @@ export default {
   //页面导航栏
   // components: {Common, ModuleTransition},
   data() {
-    return {}
+    return {
+
+    }
   },
   methods: {
     playerInit() {
       document.getElementById("aplayer-fixed").style.display = 'none';
     },
+    setBodyFontSize() {
+      const dpr = window.devicePixelRatio || 1;
+      if (document.body) {
+        document.body.style.fontSize = (12 * dpr) + 'px'
+      } else {
+        document.addEventListener('DOMContentLoaded', this.setBodyFontSize)
+      }
+    },
+    setRemUnit() {
+      const docEl = document.documentElement;
+      const rem = docEl.clientWidth / 10;
+      docEl.style.fontSize = rem + 'px'
+    },
+
+    init(){
+      const dpr = window.devicePixelRatio || 1;
+      const docEl = document.documentElement;
+      window.addEventListener('resize', this.setRemUnit)
+      window.addEventListener('pageshow', function (e) {
+        if (e.persisted) {
+          this.setRemUnit()
+        }
+      })
+
+      // detect 0.5px supports
+      if (dpr >= 2) {
+        const fakeBody = document.createElement('body');
+        const testElement = document.createElement('div');
+        testElement.style.border = '.5px solid transparent'
+        fakeBody.appendChild(testElement)
+        docEl.appendChild(fakeBody)
+        if (testElement.offsetHeight === 1) {
+          docEl.classList.add('hairlines')
+        }
+        docEl.removeChild(fakeBody)
+      }
+    }
   },
   mounted() {
     this.playerInit();
+    this.setBodyFontSize();
+    this.setRemUnit();
   }
 };
-
-(function flexible(window, document) {
-  var docEl = document.documentElement
-  var dpr = window.devicePixelRatio || 1
-
-  // adjust body font size
-  function setBodyFontSize() {
-    if (document.body) {
-      document.body.style.fontSize = (12 * dpr) + 'px'
-    } else {
-      document.addEventListener('DOMContentLoaded', setBodyFontSize)
-    }
-  }
-
-  setBodyFontSize();
-
-  // set 1rem = viewWidth / 10
-  function setRemUnit() {
-    var rem = docEl.clientWidth / 10
-    docEl.style.fontSize = rem + 'px'
-  }
-
-  setRemUnit()
-
-  // reset rem unit on page resize
-  window.addEventListener('resize', setRemUnit)
-  window.addEventListener('pageshow', function (e) {
-    if (e.persisted) {
-      setRemUnit()
-    }
-  })
-
-  // detect 0.5px supports
-  if (dpr >= 2) {
-    var fakeBody = document.createElement('body')
-    var testElement = document.createElement('div')
-    testElement.style.border = '.5px solid transparent'
-    fakeBody.appendChild(testElement)
-    docEl.appendChild(fakeBody)
-    if (testElement.offsetHeight === 1) {
-      docEl.classList.add('hairlines')
-    }
-    docEl.removeChild(fakeBody)
-  }
-}(window, document))
 
 </script>
 <style src="../styles/theme.styl" lang="stylus"></style>
