@@ -27,7 +27,7 @@ $ systemctl set-default graphical.target      #将命令行改成图形
 
 ```shell
 #静态IP设置
-$ vim /etc/sysconfig/network-scripts/ifcfg-ens33
+$ vim /etc/sysconfig/network-js/ifcfg-ens33
 
 #在该文件输入
     BOOTPROTO=dhcp修改为static
@@ -905,7 +905,7 @@ You can make this change permanent for yourself by appending the line
 to the file '.profile' in your home directory; then log out and log in again.
 
 Here is that TZ value again, this time on standard output so that you
-can use the /usr/bin/tzselect command in shell scripts:
+can use the /usr/bin/tzselect command in shell js:
 Asia/Shanghai
 
 #拷贝该时区文件，覆盖系统本地时区配置

@@ -215,7 +215,7 @@ You can make this change permanent for yourself by appending the line
 to the file '.profile' in your home directory; then log out and log in again.
 
 Here is that TZ value again, this time on standard output so that you
-can use the /usr/bin/tzselect command in shell scripts:
+can use the /usr/bin/tzselect command in shell js:
 Asia/Shanghai
 
 #拷贝该时区文件，覆盖系统本地时区配置

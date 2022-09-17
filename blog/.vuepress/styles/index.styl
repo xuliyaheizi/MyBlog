@@ -59,5 +59,63 @@ a.sidebar-link.active {
   margin 0 auto !important
 }
 
+.content__default:not(.custom) img {
+  max-width 60% !important;
+}
 
+.content__default p code, li code {
+  color rgb(239, 112, 96) !important;
+}
+
+blockquote {
+  padding 0.5rem 0 0.5rem 1rem !important;
+  border-left: 0.25rem solid $accentColor !important;
+  background #fff9f9 !important;
+}
+
+blockquote p {
+  color black !important;
+}
+
+.page .page-title{
+  text-align center !important
+}
+
+//标题设置
+.content__default:not(.custom) > h1:first-child,
+.content__default:not(.custom) > h2:first-child,
+.content__default:not(.custom) > h3:first-child,
+.content__default:not(.custom) > h4:first-child,
+.content__default:not(.custom) > h5:first-child,
+.content__default:not(.custom) > h6:first-child {
+  margin-top: -4rem !important;
+}
+
+.content__default:not(.custom) > h1,
+.content__default:not(.custom) > h2,
+.content__default:not(.custom) > h3,
+.content__default:not(.custom) > h4,
+.content__default:not(.custom) > h5,
+.content__default:not(.custom) > h6 {
+  margin-top -3.5rem !important;
+  padding-top ($navbarHeight + 1rem) !important
+  font-weight: bold !important;
+}
+
+.page .theme-reco-content h2 {
+  border-bottom: 2px solid $accentColor !important
+  padding-left 0rem !important
+}
+
+.page .theme-reco-content h2::before {
+  display none !important
+}
+h1{
+  font-size 1.8rem !important
+  font-weight 700 !important
+  line-height 2.25rem !important
+}
+h2 {
+  font-size 1.5rem !important
+}
 
