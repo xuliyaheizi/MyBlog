@@ -69,7 +69,7 @@ export default {
   mounted() {
     this.playerInit();
   }
-}
+};
 
 (function flexible(window, document) {
   var docEl = document.documentElement
@@ -115,6 +115,7 @@ export default {
     docEl.removeChild(fakeBody)
   }
 }(window, document))
+
 </script>
 <style src="../styles/theme.styl" lang="stylus"></style>
 <style scoped>
