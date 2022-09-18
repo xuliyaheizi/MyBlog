@@ -97,6 +97,15 @@ module.exports = {
         ],
     },
     plugins: [
+        //添加版权信息
+        ['@xzhi/add-copyright',{
+            // 作者名称
+            authorName: 'Sunspot.',
+            // 触发版权信息或 noCopy 效果的最小的复制文本长度
+            minLength: 100,
+            statement: '转载请注明本文出自Sunspot.的博客',
+            copyrightLoca: 'before',
+        }],
         //分享插件
         [`social-share`, {
             networks: [
@@ -108,9 +117,9 @@ module.exports = {
             autoQuote: true,
             isPlain: true,
             qrcodeOptions: {
-                width: 240,
+                width: 120,
             },
-            extendsNetworks,
+            // extendsNetworks,
         }],
         // 更新刷新插件
         ['@vuepress/pwa', {

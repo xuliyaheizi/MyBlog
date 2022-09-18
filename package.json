@@ -18,6 +18,7 @@
     "@vuepress/plugin-google-analytics": "^1.9.7",
     "@vuepress/plugin-medium-zoom": "^1.8.0",
     "@vuepress/plugin-pwa": "^1.8.0",
+    "@xzhi/vuepress-plugin-add-copyright": "^1.0.2",
     "docsearch.js": "^2.6.3",
     "md5": "^2.3.0",
     "vue-click-outside": "^1.1.0",
