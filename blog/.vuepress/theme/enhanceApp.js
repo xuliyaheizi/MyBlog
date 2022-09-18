@@ -29,7 +29,6 @@ export default ({
         _hmt.push(["_trackPageview", to.fullPath]);
       }
     }
-
     next();
   });
 }

@@ -27,7 +27,8 @@
     "vuepress-plugin-permalink-pinyin": "^1.1.0",
     "vuepress-plugin-seo": "0.1.4",
     "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-plugin-smooth-scroll": "^0.0.10"
+    "vuepress-plugin-smooth-scroll": "^0.0.10",
+    "vuepress-plugin-social-share": "^1.2.1"
   },
   "dependencies": {
     "ansi-regex": "4.1.1",
@@ -52,6 +53,7 @@
     "striptags": "^3.2.0",
     "terser": "4.8.1",
     "url-parse": "1.5.8",
-    "vue-class-component": "*"
+    "vue-class-component": "*",
+    "weixin-js-sdk": "^1.6.0"
   }
 }
