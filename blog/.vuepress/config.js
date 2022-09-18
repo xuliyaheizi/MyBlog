@@ -100,15 +100,11 @@ module.exports = {
         //分享插件
         [`social-share`, {
             networks: [
-                `facebook`,
-                `reddit`,
-                `telegram`,
-                `email`,
+                'qq',
                 'wechat'
             ],
-            email: `2897669115@qq.com`,
             //默认图像
-            fallbackImage: `public/bgImage/avatar.webp`,
+            fallbackImage: `https://oss.zhulinz.top/newImage/202209182134505.jpg`,
             autoQuote: true,
             isPlain: true,
             qrcodeOptions: {
