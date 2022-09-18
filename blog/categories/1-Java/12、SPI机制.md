@@ -13,7 +13,7 @@ publish: true
 
 ### 1、什么是SPI？
 
-SPI(Service Provider Interface)服务提供发现接口，是JDK内置的一种服务提供发现机制，一直**“基于接口的编程+策略模式+配置文件”**组合实现的动态加载机制。
+SPI(Service Provider Interface)服务提供发现接口，是JDK内置的一种服务提供发现机制，一直“`基于接口的编程+策略模式+配置文件`”组合实现的动态加载机制。
 
 在面向对象的设计里，模块之间一般基于接口编程，且不对实现类进行硬编码。因为一旦代码里涉及了具体的实现类，就违反了可拔插的原则，如果需要替换一种实现，就需要修改代码。为了实现在模块装配的时候不在程序里动态表明，就需要一种服务发现机制。Java中SPI就是这样一个机制，为某个接口寻找服务实现的机制。主要的核心思想是**解耦、增加可扩展性**。
 
@@ -492,7 +492,7 @@ private static <T> T instantiateFactory(String factoryImplementationName, Class<
         if (!factoryType.isAssignableFrom(factoryImplementationClass)) {
             throw new IllegalArgumentException("Class [" + factoryImplementationName + "] is not assignable to factory type [" + factoryType.getName() + "]");
         } else {
-            //实例
+            //实例化
             return ReflectionUtils.accessibleConstructor(factoryImplementationClass, new Class[0]).newInstance();
         }
     } catch (Throwable var4) {
@@ -500,8 +500,6 @@ private static <T> T instantiateFactory(String factoryImplementationName, Class<
     }
 }
 ```
-
-
 
 ## 参考文章
 
