@@ -107,12 +107,13 @@ export default {
       return this.$frontmatter.heroImageStyle || {}
     },
     bgImageStyle () {
+      const i=Math.round(Math.random()*(this.$frontmatter.bgImage.length-1))
       const initBgImageStyle = {
         textAlign: 'center',
         overflow: 'hidden',
         background: `
-          url(${this.$frontmatter.bgImage
-    ? this.$withBase(this.$frontmatter.bgImage)
+          url(${this.$frontmatter.bgImage[i]
+    ? this.$withBase(this.$frontmatter.bgImage[i])
     : require('../images/bg.svg')}) center/cover no-repeat
         `
       }
