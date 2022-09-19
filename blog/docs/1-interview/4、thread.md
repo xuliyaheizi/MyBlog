@@ -1,11 +1,6 @@
 ---
 title: 线程八股文
 date: 2022-08-13
-tags:
- - 线程
-categories:
- - 八股文
-publish: false
 ---
 ## 一、线程基础
 

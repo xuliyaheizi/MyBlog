@@ -1,11 +1,6 @@
 ---
 title: MySQL八股文
 date: 2022-08-17
-tags:
- - MySQL
-categories:
- - 八股文
-publish: false
 ---
 ## 一、MySQL基础
 
