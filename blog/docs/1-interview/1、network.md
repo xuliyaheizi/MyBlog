@@ -1,12 +1,11 @@
 ---
 title: 计算机网络
 date: 2022-08-06
-sidebar: auto
-sidebarDepth: 2
 tags:
  - 计算机网络
 categories:
  - 八股文
+publish: false
 ---
 ## 1、网络分层结构
 
