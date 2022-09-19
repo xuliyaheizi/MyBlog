@@ -1,11 +1,6 @@
 ---
 title: MyBatis八股文
 date: 2022-08-20
-tags:
- - MyBatis
-categories:
- - 八股文
-publish: false
 ---
 ## 1、Mybatis的优缺点
 
