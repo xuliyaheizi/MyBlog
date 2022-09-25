@@ -193,6 +193,7 @@ export default defineComponent({
       console.log(urls)
       //微信加签
       const obj = {
+        debug: false,
         appId: 'wx93b3543054ccdde8',
         nonceStr: 'a',
         signature: 'a',
@@ -206,22 +207,17 @@ export default defineComponent({
         imgUrl: 'https://oss.zhulinz.top/newImage/202209251447369.png', // 分享图标
       };
       //微信引用
-      this.wexinShare(obj, shareData);
+      this.weXinShare(obj, shareData);
     },
-    wexinShare(data, shareData) {
-      alert("微信接口测试")
-      var wx = require('weixin-js-sdk') || window['wx'];
+    weXinShare(data, shareData) {
+      const wx = require('weixin-js-sdk') || window['wx'];
       console.log("开始微信分享测试")
-      let appId = data.appId;
-      let timestamp = data.timestamp;
-      let nonceStr = data.nonceStr;
-      let signature = data.signature;
       wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。（测试记得关掉）
-        appId: appId, // 必填，公众号的唯一标识
-        timestamp: timestamp, // 必填，生成签名的时间戳
-        nonceStr: nonceStr, // 必填，生成签名的随机串
-        signature: signature, // 必填，签名，见附录1
+        debug: data.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。（测试记得关掉）
+        appId: data.appId, // 必填，公众号的唯一标识
+        timestamp: data.timestamp, // 必填，生成签名的时间戳
+        nonceStr: data.nonceStr, // 必填，生成签名的随机串
+        signature: data.signature, // 必填，签名，见附录1
         jsApiList: [
           'updateAppMessageShareData',
           'updateTimelineShareData'
@@ -239,7 +235,7 @@ export default defineComponent({
         // //分享到朋友圈”及“分享到QQ空间”
         wx.updateTimelineShareData({
           title: shareData.title, // 分享标题
-          link: shareData.link + '&t=' + timestamp + '&Content=1', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          link: shareData.link + '&t=' + data.timestamp + '&Content=1', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
           imgUrl: shareData.imgUrl, // 分享图标
           success: function (res) {
             // 设置成功
@@ -251,11 +247,10 @@ export default defineComponent({
         wx.updateAppMessageShareData({
           title: shareData.title, // 分享标题
           desc: shareData.desc, // 分享描述
-          link: shareData.link + '&t=' + timestamp + '&Content=1', // 分享链接 该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+          link: shareData.link + '&t=' + data.timestamp + '&Content=1', // 分享链接 该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
           imgUrl: shareData.imgUrl, // 分享图标
           success: function (res) {
             console.log("分享朋友成功返回的信息为:", res);
-            ;
           }
         })
 
