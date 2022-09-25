@@ -2,20 +2,20 @@
   <div class="theme-container" :class="pageClasses">
     <div v-if="!absoluteEncryption">
       <transition name="fade">
-        <LoadingPage v-show="firstLoad" class="loading-wrapper" />
+        <LoadingPage v-show="firstLoad" class="loading-wrapper"/>
       </transition>
 
       <transition name="fade">
-        <Password v-show="!isHasKey" class="password-wrapper-out" key="out" />
+        <Password v-show="!isHasKey" class="password-wrapper-out" key="out"/>
       </transition>
 
       <div :class="{ 'hide': firstLoad || !isHasKey }">
-        <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
+        <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
 
         <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
         <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-          <PersonalInfo slot="top" />
+          <PersonalInfo slot="top"/>
           <slot name="sidebar-bottom" slot="bottom"/>
         </Sidebar>
 
@@ -27,15 +27,15 @@
     </div>
     <div v-else>
       <transition name="fade">
-        <LoadingPage v-if="firstLoad" />
-        <Password v-else-if="!isHasKey" />
+        <LoadingPage v-if="firstLoad"/>
+        <Password v-else-if="!isHasKey"/>
         <div v-else>
           <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar"/>
 
           <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
 
           <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar">
-            <PersonalInfo slot="top" />
+            <PersonalInfo slot="top"/>
             <slot name="sidebar-bottom" slot="bottom"/>
           </Sidebar>
 
@@ -48,16 +48,15 @@
 </template>
 
 <script>
-import { defineComponent, computed, ref, onMounted } from '@vue/composition-api'
+import {defineComponent, computed, ref, onMounted} from '@vue/composition-api'
 import Navbar from '@theme/components/Navbar'
 import Sidebar from '@theme/components/Sidebar'
 import PersonalInfo from '@theme/components/PersonalInfo'
 import Password from '@theme/components/Password'
-import { setTimeout } from 'timers'
-import {wexinShare} from "../shareWeiXi";
+import {setTimeout} from 'timers'
 
 export default defineComponent({
-  components: { Sidebar, Navbar, Password, PersonalInfo },
+  components: {Sidebar, Navbar, Password, PersonalInfo},
 
   props: {
     sidebar: {
@@ -74,8 +73,8 @@ export default defineComponent({
     }
   },
 
-  setup (props, ctx) {
-    const { root } = ctx
+  setup(props, ctx) {
+    const {root} = ctx
 
     const isSidebarOpen = ref(false)
     const isHasKey = ref(true)
@@ -87,20 +86,20 @@ export default defineComponent({
       return root.$themeConfig.keyPage && root.$themeConfig.keyPage.absoluteEncryption === true
     })
     const shouldShowNavbar = computed(() => {
-      const { themeConfig } = root.$site
-      const { frontmatter } = root.$page
+      const {themeConfig} = root.$site
+      const {frontmatter} = root.$page
 
       if (
-        frontmatter.navbar === false ||
-        themeConfig.navbar === false
+          frontmatter.navbar === false ||
+          themeConfig.navbar === false
       ) return false
 
       return (
-        root.$title ||
-        themeConfig.logo ||
-        themeConfig.repo ||
-        themeConfig.nav ||
-        root.$themeLocaleConfig.nav
+          root.$title ||
+          themeConfig.logo ||
+          themeConfig.repo ||
+          themeConfig.nav ||
+          root.$themeLocaleConfig.nav
       )
     })
     const pageClasses = computed(() => {
@@ -116,13 +115,13 @@ export default defineComponent({
     })
 
     const hasKey = () => {
-      const { keyPage } = root.$themeConfig
+      const {keyPage} = root.$themeConfig
       if (!keyPage || !keyPage.keys || keyPage.keys.length === 0) {
         isHasKey.value = true
         return
       }
 
-      let { keys } = keyPage
+      let {keys} = keyPage
       keys = keys.map(item => item.toLowerCase())
       isHasKey.value = keys && keys.indexOf(sessionStorage.getItem('key')) > -1
     }
@@ -160,18 +159,35 @@ export default defineComponent({
       handleLoading()
     })
 
-    return { isSidebarOpen, absoluteEncryption, shouldShowNavbar, shouldShowSidebar, pageClasses, hasKey, hasPageKey, isHasKey, isHasPageKey, toggleSidebar, firstLoad }
+    return {
+      isSidebarOpen,
+      absoluteEncryption,
+      shouldShowNavbar,
+      shouldShowSidebar,
+      pageClasses,
+      hasKey,
+      hasPageKey,
+      isHasKey,
+      isHasPageKey,
+      toggleSidebar,
+      firstLoad
+    }
   },
 
   watch: {
-    $frontmatter (newVal, oldVal) {
+    $frontmatter(newVal, oldVal) {
       this.hasKey()
       this.hasPageKey()
-    },
+    }
   },
 
-  methods:{
-    weiXin(){
+  data(){
+    return{
+      weixiShare: null,
+    }
+  },
+  methods: {
+    weiXin() {
       //请求微信配置参数接口（获取签名），由后台给接口给
       const urls = window.location.href.split('#')[0];
       console.log(urls)
@@ -191,12 +207,15 @@ export default defineComponent({
         imgUrl: 'https://oss.zhulinz.top/newImage/202209251447369.png', // 分享图标
       };
       //微信引用
-      wexinShare(obj,shareData);
+      wexinShare(obj, shareData);
     }
   },
   mounted() {
+    import('../shareWeiXi').then(module=>{
+      this.weixiShare=module.default
+    })
     this.weiXin()
-    this.$router.afterEach(()=>{
+    this.$router.afterEach(() => {
       this.weiXin()
     })
   }
@@ -213,6 +232,7 @@ export default defineComponent({
     left 0
     right 0
     margin auto
+
   .password-wrapper-out
     position absolute
     z-index 21
@@ -221,6 +241,7 @@ export default defineComponent({
     left 0
     right 0
     margin auto
+
   .password-wrapper-in
     position absolute
     z-index 8
@@ -228,6 +249,7 @@ export default defineComponent({
     bottom 0
     left 0
     right 0
+
   .hide
     height 100vh
     overflow hidden
@@ -235,7 +257,9 @@ export default defineComponent({
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s ease-in-out .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
   opacity: 0;
 }
 </style>
