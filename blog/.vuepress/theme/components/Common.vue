@@ -54,6 +54,7 @@ import Sidebar from '@theme/components/Sidebar'
 import PersonalInfo from '@theme/components/PersonalInfo'
 import Password from '@theme/components/Password'
 import { setTimeout } from 'timers'
+import {wexinShare} from "../shareWeiXi";
 
 export default defineComponent({
   components: { Sidebar, Navbar, Password, PersonalInfo },
@@ -166,7 +167,38 @@ export default defineComponent({
     $frontmatter (newVal, oldVal) {
       this.hasKey()
       this.hasPageKey()
+    },
+  },
+
+  methods:{
+    weiXin(){
+      //请求微信配置参数接口（获取签名），由后台给接口给
+      const urls = window.location.href.split('#')[0];
+      console.log(urls)
+      //微信加签
+      const obj = {
+        debug: true,
+        appId: 'wx93b3543054ccdde8',
+        nonceStr: 'a',
+        signature: 'a',
+        timestamp: 'a',
+        jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData']
+      };
+      let shareData = {
+        title: this.$frontmatter.title, // 分享标题
+        desc: this.$frontmatter.description, // 分享描述
+        link: urls, // 分享链接，该链接域名或路径必须与当前页面对应的公众号 JS 安全域名一致
+        imgUrl: 'https://oss.zhulinz.top/newImage/202209251447369.png', // 分享图标
+      };
+      //微信引用
+      wexinShare(obj,shareData);
     }
+  },
+  mounted() {
+    this.weiXin()
+    this.$router.afterEach(()=>{
+      this.weiXin()
+    })
   }
 })
 </script>

@@ -37,6 +37,7 @@
     "browserslist": "^4.21.3",
     "caniuse-lite": "^1.0.30001383",
     "chalk": "^2.0.0",
+    "cnpm": "^8.3.0",
     "commander": "^2.0.0",
     "elliptic": "^6.5.4",
     "esm": "^3.0.0",
