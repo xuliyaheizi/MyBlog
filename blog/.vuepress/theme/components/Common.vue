@@ -210,7 +210,7 @@ export default defineComponent({
       this.wexinShare(obj, shareData);
     },
     wexinShare(data, shareData) {
-      // var wx = require('weixin-js-sdk') || window['wx'];
+      var wx = require('weixin-js-sdk') || window['wx'];
       console.log("开始微信分享测试")
       let appId = data.appId;
       let timestamp = data.timestamp;
