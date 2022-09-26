@@ -188,11 +188,11 @@ export default defineComponent({
   },
   methods: {
     weiXin() {
-      const axios=require('axios');
+      const axios = require('axios');
       //请求微信配置参数接口（获取签名），由后台给接口给
       const urls = window.location.href.split('#')[0];
       console.log(urls)
-      axios.get("/api/wxConfig?url="+urls).then(res=>{
+      axios.get("/api/wxConfig?url=" + urls).then(res => {
         //微信加签
         console.log(res.data)
         const obj = {
@@ -244,7 +244,7 @@ export default defineComponent({
           imgUrl: shareData.imgUrl, // 分享图标
           success: function (res) {
             // 设置成功
-            console.log("分享朋友圈成功返回的信息为:", res);
+            alert("分享朋友圈成功返回的信息为:" + res)
           }
         })
 
@@ -255,14 +255,14 @@ export default defineComponent({
           link: shareData.link + '&t=' + data.timestamp + '&Content=1', // 分享链接 该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
           imgUrl: shareData.imgUrl, // 分享图标
           success: function (res) {
-            console.log("分享朋友成功返回的信息为:", res);
+            alert("分享朋友成功返回的信息为:" + res);
           }
         })
 
       });
       wx.error(function (res) {
         // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-        console.log('验证失败返回的信息:', res);
+        alert('验证失败返回的信息:' + res);
       });
     }
   },
