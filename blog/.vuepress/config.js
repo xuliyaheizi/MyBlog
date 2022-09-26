@@ -18,6 +18,12 @@ module.exports = {
             lang: 'zh-CN'
         }
     },
+    configureWebpack: {
+        node: {
+            global: true,
+            process: true
+        },
+    },
     title: '屋后一片•小竹林',
     description: '随心所往，看见未来。',
     dest: 'public',
@@ -174,38 +180,38 @@ module.exports = {
         }
         ],
         // 音乐插件
-        ['meting', {
-            meting: {
-                // 网易
-                server: "netease",
-                // 读取歌单
-                type: "playlist",
-                mid: "4860069866",
-            },
-            // 不配置该项的话不会出现全局播放器
-            aplayer: {
-                // 吸底模式
-                fixed: true,
-                mini: true,
-                // 自动播放
-                autoplay: true,
-                // 歌曲栏折叠
-                listFolded: true,
-                // 颜色
-                theme: '#f9bcdd',
-                // 播放顺序为随机
-                order: 'random',
-                // 初始音量
-                volume: 0.3,
-                // 关闭歌词显示
-                lrcType: 0,
-                preload: "metadata",
-            },
-            mobile: {
-                // 手机端去掉cover图
-                cover: false,
-            }
-        }]
+        // ['meting', {
+        //     meting: {
+        //         // 网易
+        //         server: "netease",
+        //         // 读取歌单
+        //         type: "playlist",
+        //         mid: "4860069866",
+        //     },
+        //     // 不配置该项的话不会出现全局播放器
+        //     aplayer: {
+        //         // 吸底模式
+        //         fixed: true,
+        //         mini: true,
+        //         // 自动播放
+        //         autoplay: true,
+        //         // 歌曲栏折叠
+        //         listFolded: true,
+        //         // 颜色
+        //         theme: '#f9bcdd',
+        //         // 播放顺序为随机
+        //         order: 'random',
+        //         // 初始音量
+        //         volume: 0.3,
+        //         // 关闭歌词显示
+        //         lrcType: 0,
+        //         preload: "metadata",
+        //     },
+        //     mobile: {
+        //         // 手机端去掉cover图
+        //         cover: false,
+        //     }
+        // }]
     ]
 }
 
