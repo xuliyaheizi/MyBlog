@@ -186,7 +186,7 @@ export default defineComponent({
       const axios = require('axios');
       //请求微信配置参数接口（获取签名），由后台给接口给
       const urls = window.location.href.split('#')[0];
-      axios.post("http://zhulinz.top/wxConfig?url=" + urls).then(res => {
+      axios.post("https://zhulinz.top/wxConfig?url=" + urls).then(res => {
         console.log(res.data)
         //微信加签
         const obj = {
