@@ -18,6 +18,12 @@ module.exports = {
             lang: 'zh-CN'
         }
     },
+    configureWebpack: {
+        node: {
+            global: true,
+            process: true
+        },
+    },
     title: '屋后一片•小竹林',
     description: '随心所往，看见未来。',
     dest: 'public',
@@ -98,7 +104,7 @@ module.exports = {
     },
     plugins: [
         //添加版权信息
-        ['@xzhi/add-copyright',{
+        ['@xzhi/add-copyright', {
             // 作者名称
             authorName: 'Sunspot.',
             // 触发版权信息或 noCopy 效果的最小的复制文本长度
