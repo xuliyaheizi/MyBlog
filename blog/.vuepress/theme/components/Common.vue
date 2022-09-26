@@ -196,7 +196,7 @@ export default defineComponent({
         //微信加签
         console.log(res.data)
         const obj = {
-          debug: false,
+          debug: true,
           appId: res.data.obj.appId,
           nonceStr: res.data.obj.nonceStr,
           signature: res.data.obj.signature,
