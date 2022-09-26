@@ -34,6 +34,7 @@
   "dependencies": {
     "ansi-regex": "4.1.1",
     "async": "2.6.4",
+    "axios": "^0.27.2",
     "browserslist": "^4.21.3",
     "caniuse-lite": "^1.0.30001383",
     "chalk": "^2.0.0",
@@ -54,6 +55,7 @@
     "striptags": "^3.2.0",
     "terser": "4.8.1",
     "url-parse": "1.5.8",
+    "vue-axios": "^3.4.1",
     "vue-class-component": "*",
     "weixin-js-sdk": "^1.6.0"
   }
