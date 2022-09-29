@@ -18,12 +18,12 @@ module.exports = {
             lang: 'zh-CN'
         }
     },
-    // configureWebpack: {
-    //     node: {
-    //         global: true,
-    //         process: true
-    //     },
-    // },
+    configureWebpack: {
+        node: {
+            global: true,
+            process: true
+        },
+    },
     title: 'Sunspot.修仙秘籍',
     description: '以JAVA入门，踏上修仙之路，一路拳打南山敬老院脚踢北海幼儿园，成为一名优秀的架构师。',
     dest: 'public',
