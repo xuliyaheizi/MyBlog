@@ -18,14 +18,14 @@ module.exports = {
             lang: 'zh-CN'
         }
     },
-    configureWebpack: {
-        node: {
-            global: true,
-            process: true
-        },
-    },
-    title: '屋后一片•小竹林',
-    description: '随心所往，看见未来。',
+    // configureWebpack: {
+    //     node: {
+    //         global: true,
+    //         process: true
+    //     },
+    // },
+    title: 'Sunspot.修仙秘籍',
+    description: '以JAVA入门，踏上修仙之路，一路拳打南山敬老院脚踢北海幼儿园，成为一名优秀的架构师。',
     dest: 'public',
     head: [
         ['link', {rel: 'icon', href: 'https://oss.zhulinz.top/newImage/202209082357267.ico'}],
@@ -112,21 +112,6 @@ module.exports = {
             statement: '转载请注明本文出自Sunspot.的博客',
             copyrightLoca: 'before',
         }],
-        //分享插件
-        [`social-share`, {
-            networks: [
-                'qq',
-                'wechat'
-            ],
-            //默认图像
-            fallbackImage: `https://oss.zhulinz.top/newImage/202209182134505.jpg`,
-            autoQuote: true,
-            isPlain: true,
-            qrcodeOptions: {
-                width: 120,
-            },
-            // extendsNetworks,
-        }],
         // 更新刷新插件
         ['@vuepress/pwa', {
             serviceWorker: true,
@@ -179,39 +164,6 @@ module.exports = {
             'ga': 'UA-233962372-2'
         }
         ],
-        // 音乐插件
-        // ['meting', {
-        //     meting: {
-        //         // 网易
-        //         server: "netease",
-        //         // 读取歌单
-        //         type: "playlist",
-        //         mid: "4860069866",
-        //     },
-        //     // 不配置该项的话不会出现全局播放器
-        //     aplayer: {
-        //         // 吸底模式
-        //         fixed: true,
-        //         mini: true,
-        //         // 自动播放
-        //         autoplay: true,
-        //         // 歌曲栏折叠
-        //         listFolded: true,
-        //         // 颜色
-        //         theme: '#f9bcdd',
-        //         // 播放顺序为随机
-        //         order: 'random',
-        //         // 初始音量
-        //         volume: 0.3,
-        //         // 关闭歌词显示
-        //         lrcType: 0,
-        //         preload: "metadata",
-        //     },
-        //     mobile: {
-        //         // 手机端去掉cover图
-        //         cover: false,
-        //     }
-        // }]
     ]
 }
 

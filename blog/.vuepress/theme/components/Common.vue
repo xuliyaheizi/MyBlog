@@ -180,98 +180,98 @@ export default defineComponent({
       this.hasPageKey()
     }
   },
-
-  data() {
-    return {
-      weixiShare: null,
-    }
-  },
-  methods: {
-    weiXin() {
-      const axios=require('axios');
-      //请求微信配置参数接口（获取签名），由后台给接口给
-      const urls = window.location.href.split('#')[0];
-      console.log(urls)
-      axios.get("/api/wxConfig?url="+urls).then(res=>{
-        //微信加签
-        console.log(res.data)
-        const obj = {
-          debug: false,
-          appId: res.data.obj.appId,
-          nonceStr: res.data.obj.nonceStr,
-          signature: res.data.obj.signature,
-          timestamp: res.data.obj.timestamp,
-          jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData']
-        };
-        let shareData = {
-          title: this.$frontmatter.title, // 分享标题
-          desc: this.$frontmatter.description, // 分享描述
-          link: urls, // 分享链接，该链接域名或路径必须与当前页面对应的公众号 JS 安全域名一致
-          imgUrl: 'https://oss.zhulinz.top/newImage/202209251447369.png', // 分享图标
-        };
-        //微信引用
-        this.weXinShare(obj, shareData);
-      })
-
-    },
-    weXinShare(data, shareData) {
-      const wx = require('weixin-js-sdk') || window['wx'];
-      console.log("开始微信分享测试")
-      wx.config({
-        debug: data.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。（测试记得关掉）
-        appId: data.appId, // 必填，公众号的唯一标识
-        timestamp: data.timestamp, // 必填，生成签名的时间戳
-        nonceStr: data.nonceStr, // 必填，生成签名的随机串
-        signature: data.signature, // 必填，签名，见附录1
-        jsApiList: [
-          'updateAppMessageShareData',
-          'updateTimelineShareData'
-        ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-      });
-      wx.checkJsApi({
-        jsApiList: ['chooseImage', 'updateAppMessageShareData'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
-        success: function (res) {
-          // 以键值对的形式返回，可用的api值true，不可用为false
-          // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
-          console.log(res, 'checkJsApi')
-        }
-      });
-      wx.ready(function () {
-        // //分享到朋友圈”及“分享到QQ空间”
-        wx.updateTimelineShareData({
-          title: shareData.title, // 分享标题
-          link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-          imgUrl: shareData.imgUrl, // 分享图标
-          success: function (res) {
-            // 设置成功
-            console.log("分享朋友圈成功返回的信息为:", res);
-          }
-        })
-
-        //“分享给朋友”及“分享到QQ”
-        wx.updateAppMessageShareData({
-          title: shareData.title, // 分享标题
-          desc: shareData.desc, // 分享描述
-          link: window.location.href, // 分享链接 该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-          imgUrl: shareData.imgUrl, // 分享图标
-          success: function (res) {
-            console.log("分享朋友成功返回的信息为:", res);
-          }
-        })
-
-      });
-      wx.error(function (res) {
-        // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-        console.log('验证失败返回的信息:', res);
-      });
-    }
-  },
-  mounted() {
-    this.weiXin()
-    this.$router.afterEach(() => {
-      this.weiXin()
-    })
-  }
+  //
+  // data() {
+  //   return {
+  //     weixiShare: null,
+  //   }
+  // },
+  // methods: {
+  //   weiXin() {
+  //     const axios=require('axios');
+  //     //请求微信配置参数接口（获取签名），由后台给接口给
+  //     const urls = window.location.href.split('#')[0];
+  //     console.log(urls)
+  //     axios.get("/api/wxConfig?url="+urls).then(res=>{
+  //       //微信加签
+  //       console.log(res.data)
+  //       const obj = {
+  //         debug: false,
+  //         appId: res.data.obj.appId,
+  //         nonceStr: res.data.obj.nonceStr,
+  //         signature: res.data.obj.signature,
+  //         timestamp: res.data.obj.timestamp,
+  //         jsApiList: ['updateAppMessageShareData', 'updateTimelineShareData']
+  //       };
+  //       let shareData = {
+  //         title: this.$frontmatter.title, // 分享标题
+  //         desc: this.$frontmatter.description, // 分享描述
+  //         link: urls, // 分享链接，该链接域名或路径必须与当前页面对应的公众号 JS 安全域名一致
+  //         imgUrl: 'https://oss.zhulinz.top/newImage/202209251447369.png', // 分享图标
+  //       };
+  //       //微信引用
+  //       this.weXinShare(obj, shareData);
+  //     })
+  //
+  //   },
+  //   weXinShare(data, shareData) {
+  //     const wx = require('weixin-js-sdk') || window['wx'];
+  //     console.log("开始微信分享测试")
+  //     wx.config({
+  //       debug: data.debug, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。（测试记得关掉）
+  //       appId: data.appId, // 必填，公众号的唯一标识
+  //       timestamp: data.timestamp, // 必填，生成签名的时间戳
+  //       nonceStr: data.nonceStr, // 必填，生成签名的随机串
+  //       signature: data.signature, // 必填，签名，见附录1
+  //       jsApiList: [
+  //         'updateAppMessageShareData',
+  //         'updateTimelineShareData'
+  //       ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+  //     });
+  //     wx.checkJsApi({
+  //       jsApiList: ['chooseImage', 'updateAppMessageShareData'], // 需要检测的JS接口列表，所有JS接口列表见附录2,
+  //       success: function (res) {
+  //         // 以键值对的形式返回，可用的api值true，不可用为false
+  //         // 如：{"checkResult":{"chooseImage":true},"errMsg":"checkJsApi:ok"}
+  //         console.log(res, 'checkJsApi')
+  //       }
+  //     });
+  //     wx.ready(function () {
+  //       // //分享到朋友圈”及“分享到QQ空间”
+  //       wx.updateTimelineShareData({
+  //         title: shareData.title, // 分享标题
+  //         link: window.location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+  //         imgUrl: shareData.imgUrl, // 分享图标
+  //         success: function (res) {
+  //           // 设置成功
+  //           console.log("分享朋友圈成功返回的信息为:", res);
+  //         }
+  //       })
+  //
+  //       //“分享给朋友”及“分享到QQ”
+  //       wx.updateAppMessageShareData({
+  //         title: shareData.title, // 分享标题
+  //         desc: shareData.desc, // 分享描述
+  //         link: window.location.href, // 分享链接 该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+  //         imgUrl: shareData.imgUrl, // 分享图标
+  //         success: function (res) {
+  //           console.log("分享朋友成功返回的信息为:", res);
+  //         }
+  //       })
+  //
+  //     });
+  //     wx.error(function (res) {
+  //       // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+  //       console.log('验证失败返回的信息:', res);
+  //     });
+  //   }
+  // },
+  // mounted() {
+  //   this.weiXin()
+  //   this.$router.afterEach(() => {
+  //     this.weiXin()
+  //   })
+  // }
 })
 </script>
 

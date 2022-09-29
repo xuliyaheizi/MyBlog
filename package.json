@@ -23,13 +23,11 @@
     "md5": "^2.3.0",
     "vue-click-outside": "^1.1.0",
     "vuepress": "^1.8.0",
-    "vuepress-plugin-meting": "^0.3.2",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3",
     "vuepress-plugin-permalink-pinyin": "^1.1.0",
     "vuepress-plugin-seo": "0.1.4",
     "vuepress-plugin-sitemap": "^2.3.1",
-    "vuepress-plugin-smooth-scroll": "^0.0.10",
-    "vuepress-plugin-social-share": "^1.2.1"
+    "vuepress-plugin-smooth-scroll": "^0.0.10"
   },
   "dependencies": {
     "ansi-regex": "4.1.1",

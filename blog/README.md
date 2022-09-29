@@ -1,6 +1,6 @@
 ---
 home: true 
-tagline: Follow your heart，see night！
+tagline: 清江一曲抱村流，长夏江村事事幽。
 
 bgImage: [https://oss.zhulinz.top/newImage/202209251447369.png,
 https://oss.zhulinz.top/newImage/202209251447560.jpg,
