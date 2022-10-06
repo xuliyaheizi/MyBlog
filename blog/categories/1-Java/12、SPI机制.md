@@ -16,11 +16,13 @@ publish: true
 
 SPI(Service Provider Interface)服务提供发现接口，是JDK内置的一种服务提供发现机制，一直“`基于接口的编程+策略模式+配置文件`”组合实现的动态加载机制。
 
-在面向对象的设计里，模块之间一般基于接口编程，且不对实现类进行硬编码。因为一旦代码里涉及了具体的实现类，就违反了可拔插的原则，如果需要替换一种实现，就需要修改代码。为了实现在模块装配的时候不在程序里动态表明，就需要一种服务发现机制。Java中SPI就是这样一个机制，为某个接口寻找服务实现的机制。主要的核心思想是**解耦、增加可扩展性**。
+在面向对象的设计里，模块之间一般基于接口编程，且不对实现类进行硬编码。因为一旦代码里涉及了具体的实现类，就违反了可拔插的原则，如果需要替换一种实现，就需要修改代码。
+
+为了实现在模块装配的时候不在程序里动态表明，就需要一种服务发现机制。Java中SPI就是这样一个机制，为某个接口寻找服务实现的机制。主要的核心思想是**解耦、增加可扩展性**。
 
 ### 2、可以用来做什么？
 
-SPI可以用来启用框架扩展和替换组件，主要被框架的开发人员使用。Java中就预留了`java.sql.Driver`接口，不同的数据库厂商都可以根据这一接口做出不同的实现。还有其他，日志门面接口实现类加载（SLF4J加载不同提供商的日志实现类）、Spring中也大量使用了SPI,比如：对servlet3.0规范对ServletContainerInitializer的实现、自动类型转换Type Conversion SPI(Converter SPI、Formatter SPI)等。
+SPI可以用来`启用框架扩展`和`替换组件`，主要被框架的开发人员使用。Java中就预留了`java.sql.Driver`接口，不同的数据库厂商都可以根据这一接口做出不同的实现。还有其他，日志门面接口实现类加载（SLF4J加载不同提供商的日志实现类）、Spring中也大量使用了SPI,比如：对servlet3.0规范对ServletContainerInitializer的实现、自动类型转换Type Conversion SPI(Converter SPI、Formatter SPI)等。
 
 ### 3、SPI和API的比较
 
@@ -32,14 +34,14 @@ SPI可以用来启用框架扩展和替换组件，主要被框架的开发人�
 ### 4、SPI的缺点
 
 - `ServiceLoader`使用的延迟加载，但是只能通过遍历全部获取，将接口的实现类全部加载并实例一遍。造成了资源浪费，不想使用某个实现类时，该类也会被加载并实例。
-- 获取某个实现类的方式不够灵活，只能通过`Iterator`形式获取，不能根据某个参数来获取对应的实现类。
+- 获取某个实现类的方式不够灵活，只能通过`Iterator（遍历）`形式获取，不能根据某个参数来获取对应的实现类。
 - **多个并发多线程**使用`ServiceLoader`类的实例是不安全的。
 
 ## 二、Java中SPI的原理
 
-当服务的提供者提供了一种接口的实现之后，需要在`classpath`下的`META-INF/services/目录`里创建一个以服务接口命名的文件，这个文件里的内容就是这个接口的具体的实现类。当其他的程序需要这个服务的时候，就可以通过查找这个jar包（一般都是以jar包做依赖）的META-INF/services/中的配置文件，配置文件中有接口的具体实现类名，可以根据这个类名进行加载实例化，就可以使用该服务了。JDK中查找服务的实现的工具类是：`java.util.ServiceLoader`。
+当服务的提供者提供了一种接口的实现之后，需要在`classpath`下的`META-INF/services/目录`里创建一个以服务接口命名的文件，这个文件里的内容就是这个接口的具体的实现类。当其他的程序需要这个服务的时候，就可以通过查找这个jar包（一般都是以jar包做依赖）的`META-INF/services/`中的配置文件，配置文件中有接口的具体实现类名，可以根据这个类名进行加载实例化，就可以使用该服务了。JDK中查找服务的实现的工具类是：`java.util.ServiceLoader`。
 
-> 1、先定义一个接口 interface
+> **1、先定义一个接口 interface**
 
 ```java
 public interface Search {
@@ -47,7 +49,7 @@ public interface Search {
 }
 ```
 
-> 2、接口的实现类
+> **2、接口的实现类**
 
 ```java
 public class FileSearch implements Search {
@@ -69,7 +71,7 @@ public class DataSearch implements Search {
 }
 ```
 
-> 3、在resources下新建META-INF/services/目录，新建接口的全限定名的文件
+> **3、在resources下新建META-INF/services/目录，新建接口的全限定名的文件**
 
 ![image-20220915224945707](https://oss.zhulinz.top/newImage/202209152250910.png)
 
@@ -78,7 +80,7 @@ com.zhulin.service.impl.DataSearch
 com.zhulin.service.impl.FileSearch
 ```
 
-> 4、测试
+> **4、测试**
 
 ```java
 public static void main(String[] args) {
@@ -99,12 +101,11 @@ SPI的机制是由于`ServiceLoader.load(Search.class)`在加载某接口时，�
 
 ### SPI机制实现原理
 
-> 1、基本变量
+> **1、基本变量**
 
 ```java
 //首先该方法实现了Iterable接口，遍历的方式去发现所有服务实现者
-public final class ServiceLoader<S>
-    implements Iterable<S>
+public final class ServiceLoader<S> implements Iterable<S>
 
 //方法中的变量
 //加载实现类的路径
@@ -126,7 +127,7 @@ private LinkedHashMap<String,S> providers = new LinkedHashMap<>();
 private LazyIterator lookupIterator;
 ```
 
-> 2、类的构造器以及配置文件的解析方法
+> **2、类的构造器以及配置文件的解析方法**
 
 ```java
 /**
@@ -150,9 +151,7 @@ private ServiceLoader(Class<S> svc, ClassLoader cl) {
 }
 
 //解析配置文件中的每一行
-private int parseLine(Class<?> service, URL u, BufferedReader r, int lc,
-                      List<String> names)
-    throws IOException, ServiceConfigurationError
+private int parseLine(Class<?> service, URL u, BufferedReader r, int lc,List<String> names) throws IOException, ServiceConfigurationError
 {
     //读取一行
     String ln = r.readLine();
@@ -186,8 +185,7 @@ private int parseLine(Class<?> service, URL u, BufferedReader r, int lc,
 }
 
 //解析配置文件，解析指定url的配置文件
-private Iterator<String> parse(Class<?> service, URL u)
-    throws ServiceConfigurationError
+private Iterator<String> parse(Class<?> service, URL u) throws ServiceConfigurationError
 {
     InputStream in = null;
     BufferedReader r = null;
@@ -212,7 +210,7 @@ private Iterator<String> parse(Class<?> service, URL u)
 }
 ```
 
-> 3、迭代器机制
+> **3、迭代器机制**
 
 ```java
 //遍历服务提供者	以懒加载的方式加载可用的服务提供者
@@ -243,9 +241,7 @@ public Iterator<S> iterator() {
 }
 
 //服务提供者查找的迭代器
-private class LazyIterator
-    implements Iterator<S>
-{
+private class LazyIterator implements Iterator<S> {
 
     Class<S> service;//服务提供者接口
     ClassLoader loader;//类加载器
@@ -329,13 +325,11 @@ private class LazyIterator
 }
 ```
 
-> 4、加载、创建ServiceLoader
+> **4、加载、创建ServiceLoader**
 
 ```java
 //为指定的服务使用指定的类加载器来创建一个ServiceLoader
-public static <S> ServiceLoader<S> load(Class<S> service,
-                                        ClassLoader loader)
-{
+public static <S> ServiceLoader<S> load(Class<S> service,ClassLoader loader){
     return new ServiceLoader<>(service, loader);
 }
 
@@ -358,15 +352,17 @@ public static <S> ServiceLoader<S> loadInstalled(Class<S> service) {
 }
 ```
 
-> 5、总结
+> **5、总结**
 
 `ServiceLoader`这个类主要实现了`Iterable`接口，实现类迭代器的`hasNext`和`next`方法。然后去调用`lookupIterator`的`hasNext`和`next`方法，`lookupIterator`是懒加载迭代器。
 
-懒加载迭代器LazyIterator的hasNext就是去读取目录`META-INF/services/`的配置文件，最后通过反射方法`Class.forName()`加载类对象，并用`newInstance`方法将类实例化，并把实例化后的类缓存到`providers`对象中，(`LinkedHashMap<String,S>`类型）然后返回实例对象。
+懒加载迭代器`LazyIterator的hasNext`就是去读取目录`META-INF/services/`的配置文件，最后通过反射方法`Class.forName()`加载类对象，并用`newInstance`方法将类实例化，并把实例化后的类缓存到`providers`对象中，(`LinkedHashMap<String,S>`类型）然后返回实例对象。
+
+通过源码得知Java内置的SPI机制只能通过遍历的方式去访问服务提供接口的实现类，而且服务提供接口的配置文件也只能放在`MTEA-INF/services/`目录下。
 
 ## 三、Spring中的SPI机制
 
-接口与实现类与上述Java中的SPI例子一样，不同的是`META-INF`目录下的配置文件。spring中是在META-INF目录下创建spring.factories文件，里面写接口和实现类。(多个实现类以逗号隔开)
+接口与实现类与上述Java中的SPI例子一样，不同的是`META-INF`目录下的配置文件。Spring中是在`META-INF目录下创建spring.factories文件`，里面写接口和实现类。(多个实现类以逗号隔开)
 
 ```tex
 com.zhulin.service.Search=com.zhulin.service.impl.FileSearch,com.zhulin.service.impl.DataSearch
@@ -375,8 +371,7 @@ com.zhulin.service.Search=com.zhulin.service.impl.FileSearch,com.zhulin.service.
 ```java
 //测试
 public static void main(String[] args) {
-    List<Search> searches = SpringFactoriesLoader.loadFactories(Search.class,
-                                                                Thread.currentThread().getContextClassLoader());
+    List<Search> searches = SpringFactoriesLoader.loadFactories(Search.class,Thread.currentThread().getContextClassLoader());
     for (Search search : searches) {
         search.searchDoc("hello");
     }
@@ -389,7 +384,7 @@ public static void main(String[] args) {
 
 ### 源码分析
 
-> 1、Spring中SPI的变量
+> **1、Spring中SPI的变量**
 
 ```java
 //配置文件路径
@@ -399,7 +394,7 @@ private static final Log logger = LogFactory.getLog(SpringFactoriesLoader.class)
 static final Map<ClassLoader, Map<String, List<String>>> cache = new ConcurrentReferenceHashMap();
 ```
 
-> 2、核心原理
+> **2、核心原理**
 
 ```java
 public static <T> List<T> loadFactories(Class<T> factoryType, @Nullable ClassLoader classLoader) {
@@ -483,7 +478,7 @@ private static Map<String, List<String>> loadSpringFactories(ClassLoader classLo
 }
 ```
 
-> 3、类实例与初始化
+> **3、类实例与初始化**
 
 ```java
 private static <T> T instantiateFactory(String factoryImplementationName, Class<T> factoryType, ClassLoader classLoader) {

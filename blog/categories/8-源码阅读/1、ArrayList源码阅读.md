@@ -12,7 +12,7 @@ publish: true
 
 ArrayList继承自 `AbstractList`，实现了 List 接口。底层基于`数组`实现`容量大小动态变化`（扩容机制）。允许 `null `的存在。同时还实现了 `RandomAccess`、`Cloneable`、`Serializable `接口，所以ArrayList 是支持`快速访问`、`复制`、`序列化`的。每个ArrayList都有一个容量（DEFAULT_CAPACITY默认初始容量为10），表示底层数组的实际大小，容器内存储的元素个数不能多于当前容量。容量不足的时候，容器会自动增大底层数组的大小。底层数组是一个Object数组，以便能够容纳任何类型的对象。
 
-## 底层数据结构
+## 一、底层数据结构
 
 ```java
 transient Object[] elementData; // non-private to simplify nested class access
@@ -20,7 +20,7 @@ transient Object[] elementData; // non-private to simplify nested class access
 private int size;
 ```
 
-## 构造函数
+## 二、构造函数
 
 ```java
 //构造一个具有指定初始容量的List列表
@@ -60,11 +60,13 @@ public ArrayList(Collection<? extends E> c) {
 }
 ```
 
-## 扩容机制
+## 三、扩容机制
 
-向数组添加元素时，都会去检查添加后元素的个数是否超过当前数组的长度。若超出，数组会进行扩容。数组扩容通过一个公开的方法ensureCapacity(int minCapacity)来实现。在实际添加大量元素前，我也可以使用ensureCapacity来手动增加ArrayList实例的容量，以减少递增式再分配的数量。
+向数组添加元素时，都会去**检查添加后元素的个数是否超过当前数组的长度**。若超出，数组会进行扩容。数组扩容通过一个公开的方法`ensureCapacity(int minCapacity)`来实现。在实际添加大量元素前，我也可以使用`ensureCapacity`来手动增加ArrayList实例的容量，以减少递增式再分配的数量。
 
-`懒加载模式`：ArrayList()创建ArrayList对象时，并没有初始化化底层数组elementData，等到调用add(E e)方法的时候再初始化数组elementData。节省内存。
+扩容时是将`原容量>>1`计算出原容量的一半，再加上原容量，相当于`扩大1.5倍`。
+
+`懒加载模式`：ArrayList()创建ArrayList对象时，并**没有初始化化底层数组elementData**，而是等到调用add(E e)方法的时候再初始化数组elementData。节省内存。
 
 **创建ArrayList**
 
@@ -169,7 +171,7 @@ System.arraycopy(elementData, index, elementData, index + 1,size - index);
 
 **总结：**ArrayList创建ArrayList对象时，不会定义底层数组的长度（除有参构造方法），当第一次调用add(E e)方法时，会初始化定义底层数组的长度为10，之后调用add(E e)方法时，会将添加后的数组长度与原数组长度比较，判断是否需要扩容。如需要扩容会调用grow(int minCapacity)方法进行扩容，长度变为原来的1.5倍。
 
-## 添加方法，add()、addAll()
+## 四、添加方法，add()、addAll()
 
 这两个方法都是向容器中添加新元素，这可能会导致`capacity`不足，因此在添加元素之前，都需要进行剩余空间检查，如果需要则自动扩容。扩容操作最终是通过grow()方法完成的。
 
@@ -225,7 +227,7 @@ public boolean addAll(int index, Collection<? extends E> c) {
 }
 ```
 
-## Set与Get方法
+## 五、Set与Get方法
 
 ```java
 //返回指定列表的元素
@@ -245,7 +247,7 @@ public E set(int index, E element) {
 }
 ```
 
-## remove删除方法
+## 六、remove删除方法
 
 一个是`remove(int index)`删除指定位置的元素，另一个是`remove(Object o)`删除第一个满足`o.equals(elementData[index])`的元素。删除操作是`add()`操作的逆过程，需要将删除点之后的元素向前移动一个位置。需要注意的是为了让GC起作用，必须显式的为最后一个位置赋`null`值。
 
