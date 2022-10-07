@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc22bfd5-8c3d-4189-9eb1-922e9c363811" name="Changes" comment="2022.10.05 update" />
+    <list default="true" id="dc22bfd5-8c3d-4189-9eb1-922e9c363811" name="Changes" comment="2022.10.05 update">
+      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/5、设计模式.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/5、设计模式.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,7 +99,7 @@
       <workItem from="1664352714902" duration="594000" />
       <workItem from="1664418012779" duration="2426000" />
       <workItem from="1664443296456" duration="219000" />
-      <workItem from="1664970020767" duration="706000" />
+      <workItem from="1664970020767" duration="1301000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1662616537102</created>
