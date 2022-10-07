@@ -4,43 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc22bfd5-8c3d-4189-9eb1-922e9c363811" name="Changes" comment="文章修改">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/10、JVM.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/10、JVM.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/11、JVM相关面试题.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/11、JVM相关面试题.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/3、实体对象(Bean).md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/3、实体对象(Bean).md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/4、IO模型.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/4、IO模型.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/6、项目框架.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/6、项目框架.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/8、并发编程JUC.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/8、并发编程JUC.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/1-Java/9、分布式锁.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/1-Java/9、分布式锁.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/10-配置/3、项目案例.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/10-配置/3、项目案例.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/2-数据库/1、Mybatis.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/2-数据库/1、Mybatis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/2-数据库/2、MySQL.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/2-数据库/2、MySQL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/1、Spring框架.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/1、Spring框架.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/2、SpringMVC框架.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/2、SpringMVC框架.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/1、Eureka.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/1、Eureka.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/2、Ribbon.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/2、Ribbon.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/3、OpenFeign.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/3、OpenFeign.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/4、Hystrix.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/4、Hystrix.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/5、GetWay.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/3-Spring全家桶/SpringCloud/5、GetWay.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/4-中间件/1、Redis.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/4-中间件/1、Redis.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/4-中间件/2、Zookeeper.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/4-中间件/2、Zookeeper.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/4-中间件/3、Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/4-中间件/3、Docker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/4-中间件/4、Curator.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/4-中间件/4、Curator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/4-中间件/5、Shiro.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/4-中间件/5、Shiro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/4-中间件/6、Swagger.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/4-中间件/6、Swagger.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/5-数据结构与算法/1、链表.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/5-数据结构与算法/1、链表.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/5-数据结构与算法/2、算法基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/5-数据结构与算法/2、算法基础.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/6-大数据/1、Hadoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/6-大数据/1、Hadoop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/6-大数据/2、Flume.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/6-大数据/2、Flume.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/6-大数据/3、Sqoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/6-大数据/3、Sqoop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/6-大数据/4、Azkaban.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/6-大数据/4、Azkaban.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/8-源码阅读/1、ArrayList源码阅读.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/8-源码阅读/1、ArrayList源码阅读.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/8-源码阅读/2、HashMap源码阅读.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/8-源码阅读/2、HashMap源码阅读.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/9-工作记录/1、Axios提交数据的方式.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/9-工作记录/1、Axios提交数据的方式.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/9-工作记录/2、SpringBoot中接收参数.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/9-工作记录/2、SpringBoot中接收参数.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/categories/9-工作记录/3、对Excel报表的操作.md" beforeDir="false" afterPath="$PROJECT_DIR$/blog/categories/9-工作记录/3、对Excel报表的操作.md" afterDir="false" />
-    </list>
+    <list default="true" id="dc22bfd5-8c3d-4189-9eb1-922e9c363811" name="Changes" comment="2022.10.05 update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +19,9 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -128,6 +94,10 @@
       <workItem from="1662882710012" duration="2236000" />
       <workItem from="1663034575342" duration="934000" />
       <workItem from="1663168226080" duration="25000" />
+      <workItem from="1664352714902" duration="594000" />
+      <workItem from="1664418012779" duration="2426000" />
+      <workItem from="1664443296456" duration="219000" />
+      <workItem from="1664970020767" duration="706000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1662616537102</created>
@@ -325,7 +295,77 @@
       <option name="project" value="LOCAL" />
       <updated>1663035491199</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="开启微信接口测试案例">
+      <created>1664198804054</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1664198804054</updated>
+    </task>
+    <task id="LOCAL-00030" summary="开启微信接口测试案例">
+      <created>1664198893377</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1664198893377</updated>
+    </task>
+    <task id="LOCAL-00031" summary="开启微信接口测试案例">
+      <created>1664199372464</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1664199372464</updated>
+    </task>
+    <task id="LOCAL-00032" summary="开启微信接口测试案例">
+      <created>1664200814812</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1664200814812</updated>
+    </task>
+    <task id="LOCAL-00033" summary="开启微信接口测试案例">
+      <created>1664201124593</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1664201124593</updated>
+    </task>
+    <task id="LOCAL-00034" summary="开启微信接口测试案例">
+      <created>1664201256464</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1664201256464</updated>
+    </task>
+    <task id="LOCAL-00035" summary="关闭微信接口测试案例">
+      <created>1664201684398</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1664201684398</updated>
+    </task>
+    <task id="LOCAL-00036" summary="博客整体更新">
+      <created>1664420783115</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1664420783116</updated>
+    </task>
+    <task id="LOCAL-00037" summary="update">
+      <created>1664443364661</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1664443364661</updated>
+    </task>
+    <task id="LOCAL-00038" summary="2022.10.05 update">
+      <created>1665048136836</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1665048136836</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +399,6 @@
     <MESSAGE value="首页图片路径修改" />
     <MESSAGE value="取消路由拼音插件" />
     <MESSAGE value="主题样式修改" />
-    <MESSAGE value="update" />
     <MESSAGE value="添加路由拼音插件" />
     <MESSAGE value="OSS路径更新" />
     <MESSAGE value="添加百度统计" />
@@ -371,7 +410,12 @@
     <MESSAGE value="文章分类修改" />
     <MESSAGE value="文章发布" />
     <MESSAGE value="文章修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="文章修改" />
+    <MESSAGE value="开启微信接口测试案例" />
+    <MESSAGE value="关闭微信接口测试案例" />
+    <MESSAGE value="博客整体更新" />
+    <MESSAGE value="update" />
+    <MESSAGE value="2022.10.05 update" />
+    <option name="LAST_COMMIT_MESSAGE" value="2022.10.05 update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
