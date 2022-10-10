@@ -1,7 +1,7 @@
 ---
 title: Agile PLM系统中关于事件的学习
 date: 2022-10-07
-description: 
+description: 在Agile PLM中是有`事件`、`事件处理程序`、`事件订户`。其中事件的配置是对应相对的事件类型和对象类型，事件处理程序是绑定相应的`Java PX程序`（触发此次事件的代码），最后通过事件订户将事件和事件处理程序连接起来。
 tags:
  - Agile PLM
 categories:
