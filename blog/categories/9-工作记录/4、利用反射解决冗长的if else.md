@@ -31,7 +31,7 @@ publish: true
    System.out.println(aClass);
    ```
 
-   ***\*注意：\****此处使用的是Object类中的getClass()方法，因为所有类都继承Object类，所以调用Object类中的getClass()方法来获取。
+   **注意**：此处使用的是Object类中的getClass()方法，因为所有类都继承Object类，所以调用Object类中的getClass()方法来获取。
 
 2. 调用类的class属性类获取该类对应的Class对象。即：类名.class
 
