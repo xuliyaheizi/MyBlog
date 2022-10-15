@@ -1,6 +1,14 @@
 module.exports = [
     {text: '主页', link: '/', icon: 'reco-home'},
     {
+        text: 'Spring生态体系',
+        items: [
+            {text: 'Spring', link: '/categories/3-spring/spring/1-spring'},
+            {text: 'StringBoot', link: '/categories/3-spring/spring/1-spring'},
+            {text: 'SpringCloud', link: '/categories/3-spring/springcloud/1-eureka'}
+        ]
+    },
+    {
         text: "文档",
         // link: "/docs/",
         items: [
