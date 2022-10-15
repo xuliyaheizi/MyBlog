@@ -4,7 +4,7 @@ module.exports = [
         text: 'Spring生态体系',
         items: [
             {text: 'Spring', link: '/categories/3-spring/spring/1-spring'},
-            {text: 'StringBoot', link: '/categories/3-spring/spring/1-spring'},
+            // {text: 'StringBoot', link: '/categories/3-spring/spring/1-spring'},
             {text: 'SpringCloud', link: '/categories/3-spring/springcloud/1-eureka'}
         ]
     },
