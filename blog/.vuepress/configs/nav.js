@@ -12,7 +12,8 @@ module.exports = [
         text: "文档",
         // link: "/docs/",
         items: [
-            {text: '八股文', link: '/docs/1-interview/1-network.html'}
+            {text: '八股文', link: '/docs/1-八股文/1、network'},
+            {text: '设计模式', link: '/docs/2-设计模式/设计原则'}
         ],
         icon: 'reco-document',
     },

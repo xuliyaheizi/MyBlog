@@ -51,10 +51,10 @@ module.exports = [
         modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
     }],
     //路由拼音插件
-    ['permalink-pinyin', {
-        lowercase: true, // Converted into lowercase, default: true
-        separator: '-' // Separator of the slug, default: '-'
-    }],
+    // ['permalink-pinyin', {
+    //     lowercase: true, // Converted into lowercase, default: true
+    //     separator: '-' // Separator of the slug, default: '-'
+    // }],
     //谷歌统计
     ['@vuepress/google-analytics', {
         'ga': 'UA-233962372-2'
