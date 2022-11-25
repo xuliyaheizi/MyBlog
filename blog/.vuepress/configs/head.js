@@ -1,5 +1,5 @@
 module.exports = [
-    ['link', {rel: 'icon', href: 'https://oss.zhulinz.top/newImage/202209082357267.ico'}],
+    ['link', {rel: 'icon', href: 'https://oss.zhulinz.top/newImage/202211252109173.ico'}],
     ['meta', {name: 'viewport', content: 'width=device-width,initial-scale=1,user-scalable=no'}],
     ['meta', {name: 'keywords', content: 'Sunspot,博客,zhulinz.top,zhulin,祝林,竹林,Java'}],
     ['meta', {name: 'baidu-site-verification', content: 'code-rGCUXPJ1FA'}],
