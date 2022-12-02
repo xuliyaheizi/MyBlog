@@ -13,7 +13,8 @@ module.exports = [
         // link: "/docs/",
         items: [
             {text: '八股文', link: '/docs/1-八股文/1、network'},
-            {text: '设计模式', link: '/docs/2-设计模式/设计原则'}
+            {text: '设计模式', link: '/docs/2-设计模式/设计原则'},
+            {test: 'Netty学习', link: '/docs/3-Netty学习/1、NIO基础'}
         ],
         icon: 'reco-document',
     },
