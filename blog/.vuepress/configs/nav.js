@@ -3,9 +3,9 @@ module.exports = [
     {
         text: 'Spring生态体系',
         items: [
-            {text: 'Spring', link: '/docs/4-Spring/Spring/1、Spring'},
+            {text: 'Spring', link: '/docs/4-Spring学习/Spring/1、Spring'},
             // {text: 'StringBoot', link: '/categories/3-spring/spring/1-spring'},
-            {text: 'SpringCloud', link: '/docs/4-Spring/SpringCloud/1、Eureka'}
+            {text: 'SpringCloud', link: '/docs/4-Spring学习/SpringCloud/1、Eureka'}
         ]
     },
     {

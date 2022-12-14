@@ -4,7 +4,7 @@ module.exports = [
         collapsable: true,
         children: [
             'Spring/1、Spring',
-            'Spring/2、Springmvc'
+            'Spring/2、SpringMVC'
         ]
     },
     {
@@ -18,9 +18,9 @@ module.exports = [
         children: [
             'SpringCloud/1、Eureka',
             'SpringCloud/2、Ribbon',
-            'SpringCloud/3、Openfeign',
+            'SpringCloud/3、OpenFeign',
             'SpringCloud/4、Hystrix',
-            'SpringCloud/5、Getway'
+            'SpringCloud/5、GetWay'
         ]
     }
 ]

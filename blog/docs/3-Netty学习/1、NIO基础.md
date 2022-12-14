@@ -5,9 +5,8 @@ description: NIO的非阻塞模式是某一个线程从通道发送请求或者�
 tags:
  - Netty、NIO
 categories:
- - Neety
+ - Netty
 publish: true
-
 ---
 
 Java NIO可以理解为`Non-Blocking IO`(非阻塞IO)，传统IO的read和write只能阻塞执行，线程在读写IO期间不能干其他事情。例如调用socket.read()方法，若服务器中一直没有数据传输过来，则线程一直处于阻塞模式。

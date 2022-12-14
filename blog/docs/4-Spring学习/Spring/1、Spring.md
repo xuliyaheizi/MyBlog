@@ -179,12 +179,12 @@ DI-Denpendency Injection，即`依赖注入`：组件之间依赖关系由`容�
 
 > #### 1、Spring容器（Bean工厂）可分为两种：
 
-- **BeanFactory：**最基础的，面向Spring的
-- **ApplicationContext：**是在BeanFactory基础之上，面向使用Spring框架的开发者，提供了一系列的功能
+- **BeanFactory**：最基础的，面向Spring的
+- **ApplicationContext**：是在BeanFactory基础之上，面向使用Spring框架的开发者，提供了一系列的功能
 
 > #### 2、Bean的生命周期
 
-BeanDefinitionReader读取Resource所指向的配置文件资源，然后解析配置文件。配置文件中每一个<bean>解析成一个BeanDefinition对象，并保存到BeanDefinitionRegistry中；
+BeanDefinitionReader读取Resource所指向的配置文件资源，然后解析配置文件。配置文件中每一个`<bean>`解析成一个BeanDefinition对象，并保存到BeanDefinitionRegistry中；
 
 容器扫描BeanDefinitionRegistry中的BeanDefinition；调用InstantiationStrategy进行Bean实例化的工作；使用BeanWrapper完成Bean属性的设置工作；、
 
