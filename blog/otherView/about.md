@@ -8,7 +8,7 @@ permalink: /about.html
 layout: About
 
 tagline: 
-bgImage: /bgImage/image03.jpg
+bgImage: https://oss.zhulinz.top/newImage/202212142038426.jpg
 bgImageStyle: {
 height: '350px',
 color: '#fff'

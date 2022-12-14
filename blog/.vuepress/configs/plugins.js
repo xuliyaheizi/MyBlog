@@ -26,10 +26,6 @@ module.exports = [
         {
             transformer: (timestamp, lang) => {
                 return (new Date(timestamp)).toUTCString()
-                //或者用下面这段
-                // const moment = require('moment')
-                // moment.locale(lang)
-                // return moment(timestamp).toLocaleString()
             }
         }],
     ['@vuepress-reco/vuepress-plugin-pagation', {
@@ -50,11 +46,6 @@ module.exports = [
         publishedAt: $page => $page.frontmatter.date && new Date($page.frontmatter.date),
         modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
     }],
-    //路由拼音插件
-    // ['permalink-pinyin', {
-    //     lowercase: true, // Converted into lowercase, default: true
-    //     separator: '-' // Separator of the slug, default: '-'
-    // }],
     //谷歌统计
     ['@vuepress/google-analytics', {
         'ga': 'UA-233962372-2'
